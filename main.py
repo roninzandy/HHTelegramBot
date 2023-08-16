@@ -1,3 +1,5 @@
+import datetime
+
 import json
 import os.path
 from time import sleep
@@ -5,11 +7,13 @@ from random import randrange
 import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
-from deepdiff import DeepDiff
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from fake_useragent import UserAgent
 from selenium.webdriver.chrome.options import Options
+
+
+#from bot import *
 
 headers = {
     'Accept': '*/*',
@@ -21,7 +25,8 @@ options.add_argument(f'--headers="{headers}"')
 options.add_argument(f"user-agent={headers['User-Agent']}")
 driver = webdriver.Chrome(options=options)
 
-page_numbers = None
+
+
 def get_url(p):
     return f'https://hh.kz/search/vacancy?text=python&salary=&no_magic=true&ored_clusters=true&order_by=publication_time&enable_snippets=true&excluded_text=&area=160&page={p}'
 
@@ -39,12 +44,14 @@ def save_pages(headers, driver):
         page_numbers = int(list(soup.find('div', class_='pager'))[-2].text)
 
         print(f'Всего страниц по данному запросу: {page_numbers}')
+        sleep(3)
 
     for i in range(1, page_numbers + 1):
         try:
             driver.get(f'https://hh.kz/search/vacancy?text=python&salary=&no_magic=true&ored_clusters=true&order_by=publication_time&enable_snippets=true&excluded_text=&area=160&page={i-1}')
             sleep(randrange(3, 5))
             with open(f'selenium_data/page_{i}.html', 'w', encoding='utf-8') as file:
+            #with open(f'selenium_data/page_{i}_{datetime.datetime.now().strftime("%Y-%m-%d %H-%M")}.html', 'w', encoding='utf-8') as file:
                 file.write(driver.page_source)
                 print(f'Страница {i} сохранена.')
                 sleep(randrange(3, 5))
@@ -53,14 +60,20 @@ def save_pages(headers, driver):
         finally:
             pass
 
-    driver.close()
-    driver.quit()
+    # driver.close()
+    # driver.quit()
 
-lst_data = []
-def get_data(lst_data):
+lst_json = []
+
+
+def get_data(lst_json):
     g_count = 0
-    #global page_numbers
-    for j in range(1, 5 + 1):
+    global page_numbers
+    for j in range(1, page_numbers + 1):
+    #for j in range(1, 5 + 1):
+        #pattern = f'selenium_data/page_{j}*.html'
+        #file_paths = glob.glob(pattern)
+        #for file_path in file_paths:
         with open(f'selenium_data/page_{j}.html', encoding='utf-8') as file:
             src_data = file.read()
             print(f'Начинается сбор данных со страницы {j}.')
@@ -97,49 +110,86 @@ def get_data(lst_data):
                 print(company)
                 print(location)
                 print('#'*20)
-                lst_data.append(
+                lst_json.append(
+                    # {'id': f'{g_count}',
+                    #  'items':
                     {
                         'Title': title,
                         'Salary': salary,
                         'Company': company,
                         'Location': location
                     }
+                    # }
                 )
 
 
+while True:
+    page_numbers = None
+    def main(headers, driver):
+        save_pages(headers, driver)
+        get_data(lst_json)
+
+    if __name__ == '__main__':
+        from bot import *
+        main(headers, driver)
+        bot.polling(none_stop=True)
 
 
-def main(headers, driver):
-    #save_pages(headers, driver)
-    get_data(lst_data)
 
-if __name__ == '__main__':
-   main(headers, driver)
+    lst_telegram = [] #-> lst[dict]
 
-#def get_new_posts(lst_data):
-posts_for_telegram = []
-with open('selenium_data/page_1.html', encoding='utf-8') as file:
-    src_new_posts = file.read()
-    if not os.path.exists('old_posts.json'):
-        with open("old_posts.json", "w", encoding="UTF-8") as f:
-            json.dump(lst_data, f, indent=4, ensure_ascii=False)
-    # else:
-    #     with open("new_posts.json", "w", encoding="UTF-8") as f:
-    #         json.dump(lst_data, f, indent=4, ensure_ascii=False)
-    with open("new_posts.json", encoding="UTF-8") as file_new:
-        new_posts = json.load(file_new)
-        with open("old_posts.json", encoding="UTF-8") as file_old:
-            old_posts = json.load(file_old)
-            if len(new_posts) == len(old_posts):
-                print('Новых постов нет.')
-            else:
-                a = len(new_posts) - len(old_posts)
-                print(a)
-                for i in range(a):
-                    print(new_posts[i])
-                    posts_for_telegram.append(
-                        new_posts[i]
-                    )
+    if not os.path.exists("lst_all_data.json"):
+        with open("lst_all_data.json", "w", encoding="UTF-8") as f:
+            json.dump(lst_json, f, indent=4, ensure_ascii=False)
+    else:
+        with open("lst_all_data.json", encoding="UTF-8") as f:
+            all_data_json = json.load(f)
+            for i in lst_json:
+                found = False
+                for j in all_data_json:
+                    if i == j:
+                        found = True
+                if found == False:
+                    print('Идет запись...')
+                    lst_telegram.append(i)
+                    all_data_json.append(i)
+
+    if lst_telegram:
+        print("Текущее время:", datetime.datetime.now())
+        print(lst_telegram)
+    else:
+        print('Новых постов нет.')
+
+    #перезапись файла-json с учетом новых записей
+    with open("lst_all_data.json", "w", encoding="UTF-8") as file:
+        json.dump(all_data_json, file, indent=4, ensure_ascii=False)
+
+
+    # # lst = []
+    # # #
+    # # for i in lst_telegram:
+    # #     with open(f'selenium_data/page_1.html', encoding='utf-8') as file:
+    # #         src_data = file.read()
+    # #         soup_data = BeautifulSoup(src_data, 'lxml')
+    # #         data = soup_data.find()
+    #
+
+    # #page_numbers = None
+    # lst_telegram = []
+    sleep(100)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

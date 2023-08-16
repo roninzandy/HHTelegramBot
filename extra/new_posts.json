@@ -6,12 +6,6 @@
     "Location": "Алматы"
   },
   {
-    "Title": "Senior Data Engineer",
-    "Salary": "700 000 – 1 200 000 ₸",
-    "Company": "ТОО Ломбард Белый TM",
-    "Location": "Алматы"
-  },
-  {
     "Title": "FullStack Web-разработчик (middle / senior)",
     "Salary": "400 000 – 600 000 ₸",
     "Company": "ТОО Ruba Technology",
@@ -1353,6 +1347,12 @@
     "Title": "Lead Data Analyst",
     "Salary": "Зарплата не указана",
     "Company": "ТОО Connectivity Solutions (Коннективити Солюшнз)",
+    "Location": "Алматы"
+  },
+  {
+    "Title": "The HELL",
+    "Salary": "666-6666 ₸",
+    "Company": "Hell",
     "Location": "Алматы"
   }
 ]
