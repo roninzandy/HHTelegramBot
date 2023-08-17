@@ -19,15 +19,7 @@ from selenium.webdriver.chrome.options import Options
 
 #from bot import *
 
-headers = {
-    'Accept': '*/*',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
-}
 
-options = webdriver.ChromeOptions()
-options.add_argument(f'--headers="{headers}"')
-options.add_argument(f"user-agent={headers['User-Agent']}")
-driver = webdriver.Chrome(options=options)
 
 <<<<<<< HEAD
 
@@ -153,21 +145,13 @@ def get_data(lst_data):
                 )
 
 
-while True:
-    page_numbers = None
-    def main(headers, driver):
-        save_pages(headers, driver)
-        get_data(lst_json)
-
-    if __name__ == '__main__':
-        from bot import *
-        main(headers, driver)
-        bot.polling(none_stop=True)
 
 
 
-    lst_telegram = [] #-> lst[dict]
 
+def get_telegram_data(lst_json):
+
+    lst_telegram = []  # -> lst[dict]
     if not os.path.exists("lst_all_data.json"):
         with open("lst_all_data.json", "w", encoding="UTF-8") as f:
             json.dump(lst_json, f, indent=4, ensure_ascii=False)
@@ -186,7 +170,6 @@ while True:
 
     if lst_telegram:
         print("Текущее время:", datetime.datetime.now())
-        print(lst_telegram)
     else:
         print('Новых постов нет.')
 
@@ -194,19 +177,46 @@ while True:
     with open("lst_all_data.json", "w", encoding="UTF-8") as file:
         json.dump(all_data_json, file, indent=4, ensure_ascii=False)
 
+    return lst_telegram
 
-    # # lst = []
-    # # #
-    # # for i in lst_telegram:
-    # #     with open(f'selenium_data/page_1.html', encoding='utf-8') as file:
-    # #         src_data = file.read()
-    # #         soup_data = BeautifulSoup(src_data, 'lxml')
-    # #         data = soup_data.find()
-    #
 
-    # #page_numbers = None
-    # lst_telegram = []
-    sleep(100)
+
+
+page_numbers = None
+def main(headers, driver):
+    while True:
+
+        save_pages(headers, driver)
+        get_data(lst_json)
+        data_for_telegram = get_telegram_data(lst_json)
+        yield data_for_telegram
+        sleep(60)
+
+def run_parser():
+    headers = {
+        'Accept': '*/*',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
+    }
+
+    options = webdriver.ChromeOptions()
+    options.add_argument(f'--headers="{headers}"')
+    options.add_argument(f"user-agent={headers['User-Agent']}")
+    driver = webdriver.Chrome(options=options)
+
+    data_generator = main(headers, driver)
+
+    for data in data_generator:
+        print("Sending data:", data)
+
+if __name__ == '__main__':
+    run_parser()
+
+
+
+
+
+
+
 
 
 
