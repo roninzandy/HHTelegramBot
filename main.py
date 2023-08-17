@@ -184,40 +184,6 @@ if __name__ == '__main__':
 
 
 
-# def main(headers, driver):
-#     #save_pages(headers, driver)
-#     get_data(lst_data)
-#
-# if __name__ == '__main__':
-#    main(headers, driver)
-#
-# #def get_new_posts(lst_data):
-# posts_for_telegram = []
-# with open('selenium_data/page_1.html', encoding='utf-8') as file:
-#     src_new_posts = file.read()
-#     if not os.path.exists('old_posts.json'):
-#         with open("old_posts.json", "w", encoding="UTF-8") as f:
-#             json.dump(lst_data, f, indent=4, ensure_ascii=False)
-#     # else:
-#     #     with open("new_posts.json", "w", encoding="UTF-8") as f:
-#     #         json.dump(lst_data, f, indent=4, ensure_ascii=False)
-#     with open("new_posts.json", encoding="UTF-8") as file_new:
-#         new_posts = json.load(file_new)
-#         with open("old_posts.json", encoding="UTF-8") as file_old:
-#             old_posts = json.load(file_old)
-#             if len(new_posts) == len(old_posts):
-#                 print('Новых постов нет.')
-#             else:
-#                 a = len(new_posts) - len(old_posts)
-#                 print(a)
-#                 for i in range(a):
-#                     print(new_posts[i])
-#                     posts_for_telegram.append(
-#                         new_posts[i]
-#                     )
-
-
-
 
 
 
