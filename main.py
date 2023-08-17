@@ -55,8 +55,8 @@ def save_pages(headers, driver):
             pass
 
 
-    # driver.close()
-    # driver.quit()
+    driver.close()
+    driver.quit()
 
 
 
@@ -137,15 +137,14 @@ def get_telegram_data(lst_json):
                     lst_telegram.append(i)
                     all_data_json.append(i)
 
-    if lst_telegram:
-        print("Текущее время:", datetime.datetime.now())
-    else:
-        print('Новых постов нет.')
+    if not lst_telegram:
+        lst_telegram = 'Новых постов нет.'
 
     #перезапись файла-json с учетом новых записей
     with open("lst_all_data.json", "w", encoding="UTF-8") as file:
         json.dump(all_data_json, file, indent=4, ensure_ascii=False)
 
+    print(lst_telegram)
     return lst_telegram
 
 
@@ -181,31 +180,58 @@ def get_telegram_data(lst_json):
 # if __name__ == '__main__':
 #     run_parser()
 
+#TEST####################################################
+# def test():
+#     print('Выполняется функция test()')
+#     x = 1
+#     y = 2
+#     return [{'a': 'b'}, {'c': 'd'}]
+# def main():
+#     print('Выполняется функция main() вне while')
+#     while True:
+#         print('Выполняется функция main() внутри while')
+#         get_test = test()
+#         # yield get_test
+#         # sleep(5)
+#         return get_test
+#
+# def run_parser():
+#
+#     data_generator = main()
+#     for data in data_generator:
+#         for i in data:
+#             print("Sending data:", i)
+#     return data_generator
+#
+# if __name__ == '__main__':
+#     print(run_parser())
+################################
 
-def test():
-    print('Выполняется функция test()')
-    x = 1
-    y = 2
-    return '123' #[{'a': 'b'}, {'c': 'd'}]
-def main():
-    print('Выполняется функция main() вне while')
-    while True:
-        print('Выполняется функция main() внутри while')
-        get_test = test()
-        # yield get_test
-        # sleep(5)
-        return get_test
+################
+page_numbers = None
+def main(headers, driver):
+    lst_json = []
+    save_pages(headers, driver)
+    get_data(lst_json)
+    data_for_telegram = get_telegram_data(lst_json)
+    return data_for_telegram
 
 def run_parser():
+    headers = {
+        'Accept': '*/*',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
+    }
 
-    data_generator = main()
-    for data in data_generator:
-        for i in data:
-            print("Sending data:", i)
-    return data_generator
+    options = webdriver.ChromeOptions()
+    options.add_argument(f'--headers="{headers}"')
+    options.add_argument(f"user-agent={headers['User-Agent']}")
+    #options.add_argument('--headless')
+    driver = webdriver.Chrome(options=options)
+
+    return main(headers, driver)
 
 if __name__ == '__main__':
-    print(run_parser())
+    run_parser()
 
 
 
