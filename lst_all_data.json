@@ -1,5 +1,41 @@
 [
     {
+        "Title": "Senior Data Engineer (remote)",
+        "Salary": "4 000 – 6 000 $",
+        "Company": "COMTEK Inc.",
+        "Location": "Алматы"
+    },
+    {
+        "Title": "Старший преподаватель Школы цифровых технологий",
+        "Salary": "Зарплата не указана",
+        "Company": "НАО Университет Нархоз",
+        "Location": "Алматы"
+    },
+    {
+        "Title": "Профессор Школы цифровых технологий",
+        "Salary": "Зарплата не указана",
+        "Company": "НАО Университет Нархоз",
+        "Location": "Алматы"
+    },
+    {
+        "Title": "Ассистент профессор Школы цифровых технологий",
+        "Salary": "Зарплата не указана",
+        "Company": "НАО Университет Нархоз",
+        "Location": "Алматы"
+    },
+    {
+        "Title": "Test Engineer",
+        "Salary": "Зарплата не указана",
+        "Company": "ЧК ITS PARTNER LTD.",
+        "Location": "Алматы"
+    },
+    {
+        "Title": "Ведущий автоматизатор тестирования / Senior QA Automation (FinTech, remote)",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Финансовые Платформы",
+        "Location": "Алматы"
+    },
+    {
         "Title": "Главный специалист-аналитик Департамента стратегии и анализа",
         "Salary": "Зарплата не указана",
         "Company": "РГП Агентство Республики Казахстан по регулированию и развитию финансового рынка",
@@ -1365,144 +1401,6 @@
         "Title": "Начальник отдела развития Big Data продуктов для B2B клиентов",
         "Salary": "Зарплата не указана",
         "Company": "АО Kcell",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Senior Release Engineer / Support Engineer",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Playrix",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Начальник Отдела Data аналитики и моделирования",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Aitas KZ",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Аналитик Power BI",
-        "Salary": "от 400 000 ₸",
-        "Company": "ТОО AZM Trade",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Младший программист Python",
-        "Salary": "Зарплата не указана",
-        "Company": "ООО Белка Диджитал",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "BI Analyst, Digital CFO",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО KPMG",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Business Analyst",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Interspark Kz",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Pre-sale менеджер",
-        "Salary": "500 000 – 500 000 ₸",
-        "Company": "ТОО Орион Система",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "QA инженер",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Частная компания Citix Ltd.",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "DevOps Developer",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Народный банк Казахстана",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Java/Python developer Lead",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Народный банк Казахстана",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Junior Product Analyst",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Банк ЦентрКредит",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Team-lead отдела тестирования",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Микрофинансовая организация KMF(КМФ)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Python Developer (with AI expertise)",
-        "Salary": "Зарплата не указана",
-        "Company": "Andersen",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Эксперт VP Сектор Big Data",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Kcell",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Middle QA engineer",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО MyCar Group",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Middle-Senior Backend Developer",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО MyCar Group",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "QA engineer with WAY4 Experience",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО DataArt",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Senior Data Engineer (remote)",
-        "Salary": "4 000 – 6 000 $",
-        "Company": "COMTEK Inc.",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Старший преподаватель Школы цифровых технологий",
-        "Salary": "Зарплата не указана",
-        "Company": "НАО Университет Нархоз",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Профессор Школы цифровых технологий",
-        "Salary": "Зарплата не указана",
-        "Company": "НАО Университет Нархоз",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Ассистент профессор Школы цифровых технологий",
-        "Salary": "Зарплата не указана",
-        "Company": "НАО Университет Нархоз",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Test Engineer",
-        "Salary": "Зарплата не указана",
-        "Company": "ЧК ITS PARTNER LTD.",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Ведущий автоматизатор тестирования / Senior QA Automation (FinTech, remote)",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Финансовые Платформы",
         "Location": "Алматы"
     }
 ]
