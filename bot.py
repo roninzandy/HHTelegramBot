@@ -20,19 +20,20 @@ def lalala(message):
     if isinstance(data_from_parser, str):
         bot.send_message(message.chat.id, data_from_parser)
     else:
-        #for i in data_from_parser:
-        bot.send_message(message.chat.id, data_from_parser) #f"Title: {i['Title']}\nSalary: {i['Salary']}")
+        for i in data_from_parser:
+            for j in i:
+                bot.send_message(message.chat.id, j) #f"Title: {i['Title']}\nSalary: {i['Salary']}")
 
 
 if __name__ == '__main__':
-    headers = {
-        'Accept': '*/*',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
-    }
-    options = webdriver.ChromeOptions()
-    options.add_argument(f'--headers="{headers}"')
-    options.add_argument(f"user-agent={headers['User-Agent']}")
-    driver = webdriver.Chrome(options=options)
+    # headers = {
+    #     'Accept': '*/*',
+    #     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
+    # }
+    # options = webdriver.ChromeOptions()
+    # options.add_argument(f'--headers="{headers}"')
+    # options.add_argument(f"user-agent={headers['User-Agent']}")
+    # driver = webdriver.Chrome(options=options)
 
     bot.polling(none_stop=True)
 

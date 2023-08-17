@@ -151,38 +151,61 @@ def get_telegram_data(lst_json):
 
 
 
-page_numbers = None
-def main(headers, driver):
+# page_numbers = None
+# def main(headers, driver):
+#     while True:
+#         lst_json = []
+#         save_pages(headers, driver)
+#         get_data(lst_json)
+#         data_for_telegram = get_telegram_data(lst_json)
+#         yield data_for_telegram
+#         sleep(100)
+#
+# def run_parser():
+#     headers = {
+#         'Accept': '*/*',
+#         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
+#     }
+#
+#     options = webdriver.ChromeOptions()
+#     options.add_argument(f'--headers="{headers}"')
+#     options.add_argument(f"user-agent={headers['User-Agent']}")
+#     driver = webdriver.Chrome(options=options)
+#
+#     data_generator = list(main(headers, driver))
+#
+#     for data in data_generator:
+#         print("Sending data:", data)
+#     return data_generator
+#
+# if __name__ == '__main__':
+#     run_parser()
+
+
+def test():
+    print('Выполняется функция test()')
+    x = 1
+    y = 2
+    return [{'a': 'b'}, {'c': 'd'}]
+def main():
+    print('Выполняется функция main() вне while')
     while True:
-        lst_json = []
-        save_pages(headers, driver)
-        get_data(lst_json)
-        data_for_telegram = get_telegram_data(lst_json)
-        yield data_for_telegram
-        sleep(60)
+        print('Выполняется функция main() внутри while')
+        get_test = test()
+        # yield get_test
+        # sleep(5)
+        return get_test
 
 def run_parser():
-    headers = {
-        'Accept': '*/*',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
-    }
 
-    options = webdriver.ChromeOptions()
-    options.add_argument(f'--headers="{headers}"')
-    options.add_argument(f"user-agent={headers['User-Agent']}")
-    driver = webdriver.Chrome(options=options)
-
-    data_generator = list(main(headers, driver))
-
+    data_generator = main()
     for data in data_generator:
-        print("Sending data:", data)
+        for i in data:
+            print("Sending data:", i)
     return data_generator
 
 if __name__ == '__main__':
-    run_parser()
-
-
-
+    print(run_parser())
 
 
 
