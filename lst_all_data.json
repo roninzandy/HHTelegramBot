@@ -1,1502 +1,1626 @@
 [
     {
-        "Title": "Начальник отдела управления рисками",
-        "Salary": "Зарплата не указана",
-        "Company": "FTS",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Начальник отдела портфельного анализа и отчетности",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО КОЛЛЕКТОРСКОЕ АГЕНТСТВО ID COLLECT (АЙДИ КОЛЛЕКТ)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Директор департамента информационных технологий",
-        "Salary": "Зарплата не указана",
-        "Company": "Некоммерческое акционерное общество Алматинский университет энергетики и связи имени Гумарбека Даукеева",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Senior Marketing Analyst",
-        "Salary": "Зарплата не указана",
-        "Company": "Nexters Global LTD",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Senior Database Administrator",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Коркем Телеком",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Remote AI Developer",
-        "Salary": "1 200 – 7 000 €",
-        "Company": "Compound Solutions SL",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Senior Data Engineer",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Мобайл Телеком-Сервис (Объединенная Компания Tele2/ALTEL)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Разработчик бэкенда на Python в Вертикали",
-        "Salary": "Зарплата не указана",
-        "Company": "Яндекс",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Старший разработчик на Go в инфраструктуру Вертикалей",
-        "Salary": "Зарплата не указана",
-        "Company": "Яндекс",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Data Engineer",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Мобайл Телеком-Сервис (Объединенная Компания Tele2/ALTEL)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Team Lead в Голосовые технологии",
-        "Salary": "Зарплата не указана",
-        "Company": "Тинькофф",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Разработчик 1С",
-        "Salary": "500 000 – 700 000 ₸",
-        "Company": "ТОО Club100",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Middle Python Developer",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО AVIATA.KZ",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Руководитель отдела системного администрирования",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО AVIATA.KZ",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Python Backend разработчик",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Микрофинансовая организация Шинхан Финанс",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Системный администратор",
-        "Salary": "Зарплата не указана",
-        "Company": "ЧК ITS PARTNER LTD.",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Рекрутер - Разрабочик AI Python (Удаленно)",
-        "Salary": "130 000 – 180 000 ₽",
-        "Company": "LATOKEN",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Data Engineer AI (удаленно)",
-        "Salary": "220 000 – 340 000 ₽",
-        "Company": "LATOKEN",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "QA Engineer",
-        "Salary": "Зарплата не указана",
-        "Company": "ЧК ITS PARTNER LTD.",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Преподаватель (учитель) программирования для детей и подростков",
-        "Salary": "250 000 – 400 000 ₸",
-        "Company": "ТОО ALTAN IT (АЛТАН ИТ)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Intern in Quant Risk group (Consulting group)",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО EY (Ernst & Young)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Fullstack Бағдарламашы (программист оқытушы)",
-        "Salary": "250 000 – 350 000 ₸",
-        "Company": "ТОО Ehlel & Amjilt international company (Эхлэл & Амжилт )",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Backend Senior Python Developer (Team-Lead)",
-        "Salary": "от 1 000 000 ₸",
-        "Company": "ТОО Зина Групп",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Менеджер по сбору данных и аналитике",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО «Qazaqstan Aquaculture Company»",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Разработчик корпоративных web-приложений (Outsystems)",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО ICORE-Integration",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Full-stack developer",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО TECHDRIVE",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Senior database application developer (remote)",
-        "Salary": "1 500 – 2 500 €",
-        "Company": "ИП Солоневич Д. А.",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Преподаватель в международную школу STEM School Inventor Almaty",
-        "Salary": "200 000 – 300 000 ₸",
-        "Company": "ТОО STEM ШКОЛА АЛМАТЫ",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Technical Interviewer",
-        "Salary": "2 000 – 4 000 $",
-        "Company": "OGD Solutions",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Middle C++ Gameplay Programmer",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО G5EN KAZ",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "DevOps инженер",
-        "Salary": "Зарплата не указана",
-        "Company": "АО МФО ОнлайнКазФинанс (ТМ Solva)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Программист С++ (скелетная анимация)",
-        "Salary": "Зарплата не указана",
-        "Company": "Eagle Dynamics",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Программист логики игровых юнитов",
-        "Salary": "Зарплата не указана",
-        "Company": "Eagle Dynamics",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Full-stack web-программист (junior)",
-        "Salary": "Зарплата не указана",
-        "Company": "ИП Центр подготовки (AIPLUS)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Middle QA Automation инженер (Colvir ABS)",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО One technologies",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Middle/Senior QA инженер (Automation)",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО One technologies",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Middle QA инженер (python, mobile)",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО One technologies",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Middle DevOps инженер (remote)",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО One technologies",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Специалист технической поддержки",
-        "Salary": "150 000 – 350 000 ₸",
-        "Company": "ТОО QOMEK KAZAKHSTAN (КОМЕК КАЗАХСТАН)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Digital-Маркетолог (Perfomance)",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО MINISO Kazakhstan",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Automation QA-specialist (InterChange ++)",
-        "Salary": "Зарплата не указана",
-        "Company": "ECOMMPAY IT",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Application Security Specialist",
-        "Salary": "Зарплата не указана",
-        "Company": "ECOMMPAY IT",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Менеджер по маркетинговой модели рынка и отчетности (Казахстан, Центральная Азия и Монголия)",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО JTI Kazakhstan",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Старший инженер в Сектор - Опорная IP сеть",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Kcell",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "ML-разработчик в RecSys",
-        "Salary": "Зарплата не указана",
-        "Company": "Яндекс",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Бизнес-аналитик",
-        "Salary": "Зарплата не указана",
-        "Company": "Colvir Software Solutions",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "DevOps инженер",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО InnoForce Group",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Специалист 1 категории Управления клиентского анализа и развитие дистанционных продаж Департамента Д",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Жилищный строительный сберегательный банк Отбасы банк",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Дата аналитик",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Bereke Bank",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "MLOps инженер",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Мобайл Телеком-Сервис (Объединенная Компания Tele2/ALTEL)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Разработчик Python",
-        "Salary": "Зарплата не указана",
-        "Company": "ООО Axenix (ранее Accenture)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Middle+ Python Developer (Django)",
-        "Salary": "Зарплата не указана",
-        "Company": "Новео",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Middle Data Engineer",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Bereke Bank",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Middle QA инженер",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Bereke Bank",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Бэк-енд разработчик",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Сәтті Жұлдыз",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "QA автотестировщик",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Kcell",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Digital - маркетолог",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Компания ЭВРИКА",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Python бэкенд разработчик",
-        "Salary": "до 200 000 ₽",
-        "Company": "ИП Перескоков Владислав Андреевич",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Devops инженер с немецким языком в Германию",
-        "Salary": "Зарплата не указана",
-        "Company": "Transparent Hiring",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Эксперт Linux (Служба поддержки и развития платформ ЦОД)",
-        "Salary": "Зарплата не указана",
-        "Company": "Beeline, ТМ",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Старший эксперт Linux (Служба поддержки и развития платформ ЦОД)",
-        "Salary": "Зарплата не указана",
-        "Company": "Beeline, ТМ",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Python разработчик",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Bereke Bank",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Стажер-программист в отдел технической поддержки",
-        "Salary": "от 100 000 ₸",
-        "Company": "ТОО Prime Source",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Middle QA Engineer (Тестировщик мобильных игр)",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Playrix",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Разработчик C#",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Bereke Bank",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Технический-аналитик RPA в отдел по автоматизации",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО MAGNUM. Информационные технологии/Ақпараттық технологиялар",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Middle разработчик RPA в отдел по автоматизации",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО MAGNUM. Информационные технологии/Ақпараттық технологиялар",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Преподаватель вуза (кафедра \"Компьютерная инженерия\")",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Международный Университет Информационных Технологий (МУИТ)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Python Developer",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО SlonW",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Data Science",
-        "Salary": "Зарплата не указана",
-        "Company": "Beeline, ТМ",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Backend senior/middle разработчик",
-        "Salary": "от 600 000 ₸",
-        "Company": "ТОО BTS architects",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Преподаватель по робототехнике",
-        "Salary": "от 300 000 ₸",
-        "Company": "ТОО Ruba Technology",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Аналитик данных",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Банк ЦентрКредит",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Дата-аналитик SEO в Яндекс Путешествия",
-        "Salary": "Зарплата не указана",
-        "Company": "Яндекс",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Junior/Middle DevOps/SRE",
-        "Salary": "от 500 000 ₸",
-        "Company": "АО Колеса",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "QA Engineer",
-        "Salary": "Зарплата не указана",
-        "Company": "АО ДОЧЕРНЯЯ ОРГАНИЗАЦИЯ НАРОДНОГО БАНКА КАЗАХСТАНА HALYK FINSERVICE",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Data Engineer",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО AB Restaurants",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "QA инженер (middle)",
-        "Salary": "Зарплата не указана",
-        "Company": "Евразийский банк, АО",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Ведущий разработчик/CRM",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Alem Agro Holding (АлемАгро Холдинг)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Специалист по контекстной рекламе",
-        "Salary": "от 300 000 ₸",
-        "Company": "ТОО Vostok Media Kazakhstan",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Менеджер по продаже роботов",
-        "Salary": "от 300 000 ₸",
-        "Company": "ТОО Ruba Technology",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Data Analyst",
-        "Salary": "2 500 – 3 500 $",
-        "Company": "ИП СМАГУЛОВА",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Data science / analyst",
-        "Salary": "Зарплата не указана",
-        "Company": "Danone, ТМ",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Главный кредитный аналитик Департамент кредитного анализа",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Народный банк Казахстана",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Инженер в Сектор голосовых соединений",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Kcell",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Lead Backend developer",
-        "Salary": "от 1 000 000 ₸",
-        "Company": "ТОО Multi Do Production",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Специалист 1 категории Управления регуляторной и финансовой отчетности ДСО",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Жилищный строительный сберегательный банк Отбасы банк",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Системный аналитик",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Частная компания Citix Ltd.",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Преподаватель кружка по детскому программированию",
-        "Salary": "400 000 – 500 000 ₸",
-        "Company": "ИП GOODOK",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Senior Data Analyst (Game)",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Playrix",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Начальник отдела/Techleader отдела разработки корпоративных информационных систем",
-        "Salary": "Зарплата не указана",
-        "Company": "Small, ТМ (Скиф Сауда, ТОО)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "DevOps инженер (Мобильный цифровой оператор)",
-        "Salary": "Зарплата не указана",
-        "Company": "Beeline, ТМ",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Главный специалист Сектор аналитики и моделирования",
-        "Salary": "Зарплата не указана",
-        "Company": "Евразийский банк, АО",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Инженер QA (автотест)",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Bereke Bank",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Преподаватель в международную школу программирования",
-        "Salary": "250 000 – 400 000 ₸",
-        "Company": "ТОО GROWTH POINT LTD",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Игровой аналитик (Senior)",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО MYTONA KZ",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Business/Solution Analyst (IT Services)",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО KPMG",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Ведущий MDM аналитик",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Aitas KZ",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Data Engineer",
-        "Salary": "Зарплата не указана",
-        "Company": "Публичная Компания «Freedom Finance Global PLC»",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "QA Lead",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Playrix",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Аналитик",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО MAGNUM. Маркетинг и коммуникации/Маркетинг және коммуникация",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Преподаватель Python",
-        "Salary": "35 000 – 400 000 ₸",
-        "Company": "ТОО 2дэй академи",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Middle DevOps",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Мобайл Телеком-Сервис (Объединенная Компания Tele2/ALTEL)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Middle/Senior Python Developer",
-        "Salary": "Зарплата не указана",
-        "Company": "Bank RBK, АО",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Middle Devops engineer",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Микрофинансовая организация KMF(КМФ)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Senior DataScientist",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Народный банк Казахстана",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Эксперт по оценке эффективности (BI)",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Kcell",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Начальник отдела архитектуры и развития Хранилища Данных",
-        "Salary": "Зарплата не указана",
-        "Company": "Банк ВТБ (Казахстан) Дочерняя организация Акционерное общество",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Data Partner",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Мобайл Телеком-Сервис (Объединенная Компания Tele2/ALTEL)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Senior Product Analyst",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Рэдмэдробот Центральная Азия",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Lead Product Analytics",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО АКСЕЛБОЛТ КАЗАХСТАН",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Middle programmer Python",
-        "Salary": "1 200 – 1 500 $",
-        "Company": "Data40.com",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "TechLead Python/Go",
-        "Salary": "2 000 – 2 500 $",
-        "Company": "Data40.com",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Software Architect \\ Tech Lead (Java, AWS)",
-        "Salary": "6 000 – 7 500 $",
-        "Company": "Software Country (ТОО Балхаш Системс)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Fullstack разработчик Middle/Senior",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Орион Система",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Системный администратор",
-        "Salary": "от 500 000 ₸",
-        "Company": "АО Колеса",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Data-инженер в направлении Data Lake",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Банк ЦентрКредит",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Технический директор / CTO продукта Chocofood",
-        "Salary": "Зарплата не указана",
-        "Company": "Chocofamily",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Frontend-разработчик",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Сәтті Жұлдыз",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Power BI Engineer",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Prime Source",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Аналитик",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО MAGNUM. Коммерция/Коммерция",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Backend PHP Developer",
-        "Salary": "Зарплата не указана",
-        "Company": "ИП NiDGE",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Senior User Acquisition Manager/Senior Performance Marketing Manager",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Playrix",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Инженер опорной IP сети",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Kcell",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Программист-разработчик (Python/Django)",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО ГК Beibars К",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "ML Middle/Senior Engineer",
-        "Salary": "Зарплата не указана",
-        "Company": "Itransition",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Бизнес-аналитик BI, DWH",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО DataMatrix Corp",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Data Engineer",
-        "Salary": "Зарплата не указана",
-        "Company": "XIM Inc.",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Менеджер по чат-боту",
-        "Salary": "Зарплата не указана",
-        "Company": "Евразийский банк, АО",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Риск-аналитик Управления андеррайтинга",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Жилищный строительный сберегательный банк Отбасы банк",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Заместитель начальника Управления андеррайтинга",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Жилищный строительный сберегательный банк Отбасы банк",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Эксперт-программист в Технический отдел (Отдел OMC-R)",
-        "Salary": "Зарплата не указана",
-        "Company": "Beeline, ТМ",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Главный Data инженер",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Aitas KZ",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Senior Build Engineer",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Playrix",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Ведущий инженер",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Мобайл Телеком-Сервис (Объединенная Компания Tele2/ALTEL)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Специалист технической поддержки",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Neo Service",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Бизнес-аналитик в управление бизнес-аналитики",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Home Credit Bank",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Дата-аналитик",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Банк ЦентрКредит",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Системный архитектор (веб-сайт и мобильные приложения)",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО ALLUR AUTO",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Главный риск-менеджер Управления обработки и хранения данных Департамента исследования и разработки",
-        "Salary": "Зарплата не указана",
-        "Company": "АО «Bank Freedom Finance Kazakhstan»",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Бизнес-аналитик",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Банк ЦентрКредит",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Product Analyst",
-        "Salary": "Зарплата не указана",
-        "Company": "Playgendary",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Python Developer",
-        "Salary": "до 2 300 $",
-        "Company": "Wanted",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Сетевой инженер",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО ARLAN SI",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Data Scientist",
-        "Salary": "Зарплата не указана",
-        "Company": "Kaspi.kz",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Тестировщик",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Банк ЦентрКредит",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Разработчик Camunda",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО QazCloud",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Python Senior Developer",
-        "Salary": "Зарплата не указана",
-        "Company": "InterPress - International House",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "QA инженер (backend)",
-        "Salary": "Зарплата не указана",
-        "Company": "Тинькофф",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "QA инженер (mobile)",
-        "Salary": "Зарплата не указана",
-        "Company": "Тинькофф",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Senior Full stack Developer",
-        "Salary": "1 000 000 – 1 500 000 ₸",
-        "Company": "ИП Development Support Services",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Системный администратор по серверам",
-        "Salary": "Зарплата не указана",
-        "Company": "Small, ТМ (Скиф Сауда, ТОО)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Главный специалист Департамента залогового обеспечения",
-        "Salary": "Зарплата не указана",
-        "Company": "АО «Bank Freedom Finance Kazakhstan»",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Data - инженер",
-        "Salary": "Зарплата не указана",
-        "Company": "АО TECHNODOM Operator (Технодом Оператор)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Python Backend-разработчик",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО ALLUR AUTO",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Администратор DevOps",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Страховая компания Халык, ДО Народного Банка Казахстана",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Главный специалист (Дирекция мониторинга)",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Банк ЦентрКредит",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Data Analyst",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Казахстанско - Британский технический университет",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Старший администратор облачной платформы",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Prime Source",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "System administrator",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Prime Source",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Senior Developer",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Prime Source",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "TeamLead Developer",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Prime Source",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Senior DevOps engineer",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Prime Source",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "CDC Senior Developer",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Prime Source",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "CDC Senior Analyst",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Prime Source",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "CDC Administrator",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Prime Source",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "MDM Middle Developer",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Prime Source",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "MDM Senior Developer",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Prime Source",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Team Lead Angular",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Jusan Bank",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "MDM Solution Architecht",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Prime Source",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "MDM Data Architect",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Prime Source",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "MDM Administrator",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Prime Source",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Middle Data Engineer",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Prime Source",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Senior Data Engineer",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Prime Source",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "DWH Senior Analyst",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Prime Source",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Teamlead DWH Analyst",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Prime Source",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "DWH Architecht",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Prime Source",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Старший эксперт по аналитике",
-        "Salary": "Зарплата не указана",
-        "Company": "Beeline, ТМ",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Senior developer в отдел по автоматизации",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО MAGNUM. Информационные технологии/Ақпараттық технологиялар",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Senior ML Engineer",
-        "Salary": "от 6 000 $",
-        "Company": "Пану Ольга Германовна",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Консультант по внедрению",
-        "Salary": "Зарплата не указана",
-        "Company": "Colvir Software Solutions",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Инженер отдела развития искусственного интеллекта",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Home Credit Bank",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Программист 1С",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Birinshi Lombard (Бірінші Ломбард)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Python разработчик",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Страховая компания Freedom Finance Insurance",
-        "Location": "Алматы"
-    },
-    {
-        "Title": ".NET разработчик",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Страховая компания Freedom Finance Insurance",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Разработчик Python",
-        "Salary": "Зарплата не указана",
-        "Company": "Тинькофф",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Data analyst",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Банк ЦентрКредит",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Менеджер по продуктовой аналитике",
-        "Salary": "Зарплата не указана",
-        "Company": "Beeline, ТМ",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Разработчик отдела информационных систем коммуникации",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Home Credit Bank",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Python Backend разработчик",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Qazaq Taxi",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Python Backend Разработчик",
-        "Salary": "400 000 – 600 000 ₸",
-        "Company": "ТОО Фабрика проектов",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Учитель информатики и робототехники",
-        "Salary": "100 000 – 450 000 ₸",
-        "Company": "ИП Jastime",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Senior SRE инженер (Системный администратор)",
-        "Salary": "1 000 000 – 1 500 000 ₸",
-        "Company": "ТОО Сан Коннект",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Радиоинженер-программист",
-        "Salary": "300 000 – 500 000 ₸",
-        "Company": "ТОО Set24",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Аналитик в маркетинговую исследовательскую компанию",
-        "Salary": "500 – 1 000 $",
-        "Company": "ООО Middle Asia Management Consulting",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Backend developer",
-        "Salary": "от 300 000 ₸",
-        "Company": "ИП Бекхожаев К.Т",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Преподаватель по робототехнике и программированию",
-        "Salary": "100 000 – 200 000 ₸",
-        "Company": "ИП БОТАТАЕВА М.А.",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Преподаватель информатики",
-        "Salary": "до 100 000 ₸",
-        "Company": "ИП BN Holding",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Backend разработчик",
-        "Salary": "200 000 – 500 000 ₸",
-        "Company": "ИП Техника ОПТ",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Программист-стажер по аналитике — продукт на базе искусственного интеллекта",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО ALDIS Petrosolutions",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Backend разработчик (Python)",
-        "Salary": "250 000 – 500 000 ₸",
-        "Company": "ИП ZOOM (ИП Вострикова)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Младший системный администратор",
-        "Salary": "до 350 000 ₸",
-        "Company": "ИП Серенков В.В.",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Аналитик (Excel)",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО NEURO.NET",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Верстальщик / Front end разработчик сайтов в Digital Agency",
-        "Salary": "200 000 – 300 000 ₸",
-        "Company": "ТОО GB Travel",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Технический директор в IT",
-        "Salary": "1 500 000 – 2 500 000 ₸",
-        "Company": "ТОО Kulenkov Group",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Преподаватель по информатике,по программированию",
-        "Salary": "150 000 – 350 000 ₸",
-        "Company": "Центральноазиатский технико - экономический колледж, Учреждение образования",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Lead Data Analyst",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Connectivity Solutions (Коннективити Солюшнз)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Python developer (Middle+)",
-        "Salary": "2 500 – 3 500 $",
-        "Company": "Zonesmart LLC",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Lead AI Data Scientist",
-        "Salary": "до 8 000 $",
-        "Company": "Compound Solutions SL",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Ведущий специалист по разработке (Web-разработчик Full Stack)",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Apple City Corps",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Маркет-модель менеджер",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО JTI Kazakhstan",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Product manager",
-        "Salary": "Зарплата не указана",
-        "Company": "FTS",
-        "Location": "Алматы"
-    },
-    {
-        "Title": ".Net + Vue.js full-stack Developer (remote)",
-        "Salary": "Зарплата не указана",
-        "Company": "Velvetech, LLC",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Python разработчик",
-        "Salary": "250 000 – 500 000 ₸",
-        "Company": "ИП ZOOM (ИП Вострикова)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Аналитик данных в CVM, Middle/Senior",
-        "Salary": "Зарплата не указана",
-        "Company": "Beeline, ТМ",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Senior Data Engineer",
-        "Salary": "700 000 – 1 200 000 ₸",
-        "Company": "ТОО Ломбард Белый TM",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Linux Support Team Lead",
-        "Salary": "1 000 – 1 900 $",
-        "Company": "ООО RapidSeedbox",
-        "Location": "Алматы"
+        "Title": "Jira Administrator",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО inDrive",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/85272648?from=vacancy_search_list&query=python"
     },
     {
         "Title": "Data Analyst",
         "Salary": "Зарплата не указана",
         "Company": "ТОО inDrive",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "FullStack Web-разработчик (middle / senior)",
-        "Salary": "400 000 – 600 000 ₸",
-        "Company": "ТОО Ruba Technology",
-        "Location": "Алматы"
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/84754446?from=vacancy_search_list&query=python"
     },
     {
         "Title": "Senior Python developer (Ed-Tech)",
         "Salary": "до 5 200 $",
         "Company": "evrone.ru",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Senior Python developer",
-        "Salary": "Зарплата не указана",
-        "Company": "Star-Staff",
-        "Location": "Алматы"
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/83962887?from=vacancy_search_list&query=python"
     },
     {
         "Title": "Remote AI Developer",
         "Salary": "1 200 – 5 000 €",
         "Company": "Compound Solutions SL",
-        "Location": "Алматы"
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/84163551?from=vacancy_search_list&query=python"
     },
     {
-        "Title": "Начальник отдела развития Big Data продуктов для B2B клиентов",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Kcell",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Senior Release Engineer / Support Engineer",
+        "Title": "Senior Build Engineer",
         "Salary": "Зарплата не указана",
         "Company": "ТОО Playrix",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Начальник Отдела Data аналитики и моделирования",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Aitas KZ",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Аналитик Power BI",
-        "Salary": "от 400 000 ₸",
-        "Company": "ТОО AZM Trade",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Младший программист Python",
-        "Salary": "Зарплата не указана",
-        "Company": "ООО Белка Диджитал",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "BI Analyst, Digital CFO",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО KPMG",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Business Analyst",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Interspark Kz",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Pre-sale менеджер",
-        "Salary": "500 000 – 500 000 ₸",
-        "Company": "ТОО Орион Система",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "QA инженер",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Частная компания Citix Ltd.",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "DevOps Developer",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Народный банк Казахстана",
-        "Location": "Алматы"
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/82746739?from=vacancy_search_list&query=python"
     },
     {
         "Title": "Senior Data Engineer (remote)",
         "Salary": "4 000 – 6 000 $",
         "Company": "COMTEK Inc.",
-        "Location": "Алматы"
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/85056615?from=vacancy_search_list&query=python"
     },
     {
         "Title": "Старший преподаватель Школы цифровых технологий",
         "Salary": "Зарплата не указана",
         "Company": "НАО Университет Нархоз",
-        "Location": "Алматы"
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/84951642?from=vacancy_search_list&query=python"
     },
     {
         "Title": "Профессор Школы цифровых технологий",
         "Salary": "Зарплата не указана",
         "Company": "НАО Университет Нархоз",
-        "Location": "Алматы"
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/84951419?from=vacancy_search_list&query=python"
     },
     {
         "Title": "Ассистент профессор Школы цифровых технологий",
         "Salary": "Зарплата не указана",
         "Company": "НАО Университет Нархоз",
-        "Location": "Алматы"
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/84951078?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Senior Release Engineer / Support Engineer",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Playrix",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/85256993?from=vacancy_search_list&query=python"
     },
     {
         "Title": "Test Engineer",
         "Salary": "Зарплата не указана",
         "Company": "ЧК ITS PARTNER LTD.",
-        "Location": "Алматы"
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/84950458?from=vacancy_search_list&query=python"
     },
     {
         "Title": "Ведущий автоматизатор тестирования / Senior QA Automation (FinTech, remote)",
         "Salary": "Зарплата не указана",
         "Company": "АО Финансовые Платформы",
-        "Location": "Алматы"
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/84740895?from=vacancy_search_list&query=python"
     },
     {
         "Title": "Главный специалист-аналитик Департамента стратегии и анализа",
         "Salary": "Зарплата не указана",
         "Company": "РГП Агентство Республики Казахстан по регулированию и развитию финансового рынка",
-        "Location": "Алматы"
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/84947181?from=vacancy_search_list&query=python"
     },
     {
         "Title": "Q/A engineer",
         "Salary": "Зарплата не указана",
         "Company": "ТОО AVIATA.KZ",
-        "Location": "Алматы"
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/82235310?from=vacancy_search_list&query=python"
     },
     {
-        "Title": "Java/Python developer Lead",
+        "Title": "Начальник Отдела Data аналитики и моделирования",
         "Salary": "Зарплата не указана",
-        "Company": "АО Народный банк Казахстана",
-        "Location": "Алматы"
+        "Company": "АО Aitas KZ",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/85250491?from=vacancy_search_list&query=python"
     },
     {
-        "Title": "Junior Product Analyst",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Банк ЦентрКредит",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Team-lead отдела тестирования",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО Микрофинансовая организация KMF(КМФ)",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Python Developer (with AI expertise)",
-        "Salary": "Зарплата не указана",
-        "Company": "Andersen",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Эксперт VP Сектор Big Data",
-        "Salary": "Зарплата не указана",
-        "Company": "АО Kcell",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Middle QA engineer",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО MyCar Group",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Middle-Senior Backend Developer",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО MyCar Group",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "QA engineer with WAY4 Experience",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО DataArt",
-        "Location": "Алматы"
-    },
-    {
-        "Title": "Jira Administrator",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО inDrive",
-        "Location": "Алматы"
+        "Title": "Аналитик Power BI",
+        "Salary": "от 400 000 ₸",
+        "Company": "ТОО AZM Trade",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/85249870?from=vacancy_search_list&query=python"
     },
     {
         "Title": "Главный специалист (риск аналитик) Департамента банковской аналитики и стресс-тестирования",
         "Salary": "Зарплата не указана",
         "Company": "РГП Агентство Республики Казахстан по регулированию и развитию финансового рынка",
-        "Location": "Алматы"
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/85040807?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Начальник отдела портфельного анализа и отчетности",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО КОЛЛЕКТОРСКОЕ АГЕНТСТВО ID COLLECT (АЙДИ КОЛЛЕКТ)",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/83938963?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Директор департамента информационных технологий",
+        "Salary": "Зарплата не указана",
+        "Company": "Некоммерческое акционерное общество Алматинский университет энергетики и связи имени Гумарбека Даукеева",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/83808315?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Старший эксперт по аналитике",
+        "Salary": "Зарплата не указана",
+        "Company": "Beeline, ТМ",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/83617128?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Senior developer в отдел по автоматизации",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО MAGNUM. Информационные технологии/Ақпараттық технологиялар",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/85243148?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Remote AI Developer",
+        "Salary": "1 200 – 7 000 €",
+        "Company": "Compound Solutions SL",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/85023944?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": ".Net + Vue.js full-stack Developer (remote)",
+        "Salary": "Зарплата не указана",
+        "Company": "Velvetech, LLC",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/85117624?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Младший программист Python",
+        "Salary": "Зарплата не указана",
+        "Company": "ООО Белка Диджитал",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/85233771?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "BI Analyst, Digital CFO",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО KPMG",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/85232653?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Business Analyst",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Interspark Kz",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/85232566?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Pre-sale менеджер",
+        "Salary": "500 000 – 500 000 ₸",
+        "Company": "ТОО Орион Система",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/85225009?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Разработчик 1С",
+        "Salary": "500 000 – 700 000 ₸",
+        "Company": "ТОО Club100",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/84971730?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Middle Python Developer",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО AVIATA.KZ",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/83188462?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "QA инженер",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Частная компания Citix Ltd.",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/85220739?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "DevOps Developer",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Народный банк Казахстана",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/85219809?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Java/Python developer Lead",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Народный банк Казахстана",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/85216865?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Начальник отдела управления рисками",
+        "Salary": "Зарплата не указана",
+        "Company": "FTS",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/83981568?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Руководитель отдела системного администрирования",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО AVIATA.KZ",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/84395544?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Python Backend разработчик",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Микрофинансовая организация Шинхан Финанс",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/85004291?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Junior Product Analyst",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Банк ЦентрКредит",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/85215822?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Системный администратор",
+        "Salary": "Зарплата не указана",
+        "Company": "ЧК ITS PARTNER LTD.",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/84922290?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Team-lead отдела тестирования",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Микрофинансовая организация KMF(КМФ)",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/85208040?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Рекрутер - Разрабочик AI Python (Удаленно)",
+        "Salary": "130 000 – 180 000 ₽",
+        "Company": "LATOKEN",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/83974153?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Data Engineer AI (удаленно)",
+        "Salary": "220 000 – 340 000 ₽",
+        "Company": "LATOKEN",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/84091386?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Python Developer (with AI expertise)",
+        "Salary": "Зарплата не указана",
+        "Company": "Andersen",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/85196779?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "QA Engineer",
+        "Salary": "Зарплата не указана",
+        "Company": "ЧК ITS PARTNER LTD.",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/84062111?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Эксперт VP Сектор Big Data",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Kcell",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/85181980?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Преподаватель (учитель) программирования для детей и подростков",
+        "Salary": "250 000 – 400 000 ₸",
+        "Company": "ТОО ALTAN IT (АЛТАН ИТ)",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/84361228?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Middle QA engineer",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО MyCar Group",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/85175599?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Middle-Senior Backend Developer",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО MyCar Group",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/85173508?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Fullstack Бағдарламашы (программист оқытушы)",
+        "Salary": "250 000 – 350 000 ₸",
+        "Company": "ТОО Ehlel & Amjilt international company (Эхлэл & Амжилт )",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/84228793?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Backend Senior Python Developer (Team-Lead)",
+        "Salary": "от 1 000 000 ₸",
+        "Company": "ТОО Зина Групп",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/84634636?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Менеджер по сбору данных и аналитике",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО «Qazaqstan Aquaculture Company»",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/84630675?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Разработчик Python",
+        "Salary": "Зарплата не указана",
+        "Company": "Тинькофф",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83521985?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Разработчик корпоративных web-приложений (Outsystems)",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО ICORE-Integration",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83293339?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Full-stack developer",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО TECHDRIVE",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83312645?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Digital-Маркетолог (Perfomance)",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО MINISO Kazakhstan",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84970379?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Senior database application developer (remote)",
+        "Salary": "1 500 – 2 500 €",
+        "Company": "ИП Солоневич Д. А.",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84328718?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Преподаватель в международную школу STEM School Inventor Almaty",
+        "Salary": "200 000 – 300 000 ₸",
+        "Company": "ТОО STEM ШКОЛА АЛМАТЫ",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84518686?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Python developer (Middle+)",
+        "Salary": "2 500 – 3 500 $",
+        "Company": "Zonesmart LLC",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/85143655?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Technical Interviewer",
+        "Salary": "2 000 – 4 000 $",
+        "Company": "OGD Solutions",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84855279?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Middle C++ Gameplay Programmer",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО G5EN KAZ",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84219757?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Lead AI Data Scientist",
+        "Salary": "до 8 000 $",
+        "Company": "Compound Solutions SL",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/85137078?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Ведущий специалист по разработке (Web-разработчик Full Stack)",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Apple City Corps",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/85130734?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Маркет-модель менеджер",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО JTI Kazakhstan",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/85123723?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Программист 1С",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Birinshi Lombard (Бірінші Ломбард)",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83545440?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Full-stack web-программист (junior)",
+        "Salary": "Зарплата не указана",
+        "Company": "ИП Центр подготовки (AIPLUS)",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84287068?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Product manager",
+        "Salary": "Зарплата не указана",
+        "Company": "FTS",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/85118020?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Middle QA Automation инженер (Colvir ABS)",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО One technologies",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84830655?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Middle/Senior QA инженер (Automation)",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО One technologies",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84830440?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Middle QA инженер (python, mobile)",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО One technologies",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84830177?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Middle DevOps инженер (remote)",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО One technologies",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84825743?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Python разработчик",
+        "Salary": "250 000 – 500 000 ₸",
+        "Company": "ИП ZOOM (ИП Вострикова)",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/85108281?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Специалист технической поддержки",
+        "Salary": "150 000 – 350 000 ₸",
+        "Company": "ТОО QOMEK KAZAKHSTAN (КОМЕК КАЗАХСТАН)",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83990919?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Аналитик данных в CVM, Middle/Senior",
+        "Salary": "Зарплата не указана",
+        "Company": "Beeline, ТМ",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/85090893?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Linux Support Team Lead",
+        "Salary": "1 000 – 1 900 $",
+        "Company": "ООО RapidSeedbox",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84454768?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Senior Python developer",
+        "Salary": "Зарплата не указана",
+        "Company": "Star-Staff",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/85066756?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Начальник отдела развития Big Data продуктов для B2B клиентов",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Kcell",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/85044808?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Senior Marketing Analyst",
+        "Salary": "Зарплата не указана",
+        "Company": "Nexters Global LTD",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83102910?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Senior Database Administrator",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Коркем Телеком",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/85029810?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Senior Data Engineer",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Мобайл Телеком-Сервис (Объединенная Компания Tele2/ALTEL)",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/85019900?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Разработчик бэкенда на Python в Вертикали",
+        "Salary": "Зарплата не указана",
+        "Company": "Яндекс",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/76831393?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Старший разработчик на Go в инфраструктуру Вертикалей",
+        "Salary": "Зарплата не указана",
+        "Company": "Яндекс",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/76923473?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Data Engineer",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Мобайл Телеком-Сервис (Объединенная Компания Tele2/ALTEL)",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/85019754?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Team Lead в Голосовые технологии",
+        "Salary": "Зарплата не указана",
+        "Company": "Тинькофф",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/81299127?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Intern in Quant Risk group (Consulting group)",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО EY (Ernst & Young)",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84345058?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Automation QA-specialist (InterChange ++)",
+        "Salary": "Зарплата не указана",
+        "Company": "ECOMMPAY IT",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84960683?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Application Security Specialist",
+        "Salary": "Зарплата не указана",
+        "Company": "ECOMMPAY IT",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84957572?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Менеджер по маркетинговой модели рынка и отчетности (Казахстан, Центральная Азия и Монголия)",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО JTI Kazakhstan",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84956163?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Старший инженер в Сектор - Опорная IP сеть",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Kcell",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84951232?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "ML-разработчик в RecSys",
+        "Salary": "Зарплата не указана",
+        "Company": "Яндекс",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83412768?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Бизнес-аналитик",
+        "Salary": "Зарплата не указана",
+        "Company": "Colvir Software Solutions",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/80194722?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "DevOps инженер",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО InnoForce Group",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84938674?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Специалист 1 категории Управления клиентского анализа и развитие дистанционных продаж Департамента Д",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Жилищный строительный сберегательный банк Отбасы банк",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84921953?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Дата аналитик",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Bereke Bank",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84895965?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "MLOps инженер",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Мобайл Телеком-Сервис (Объединенная Компания Tele2/ALTEL)",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84895688?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Разработчик Python",
+        "Salary": "Зарплата не указана",
+        "Company": "ООО Axenix (ранее Accenture)",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84893902?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Middle+ Python Developer (Django)",
+        "Salary": "Зарплата не указана",
+        "Company": "Новео",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/79462058?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Middle Data Engineer",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Bereke Bank",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84803449?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Middle QA инженер",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Bereke Bank",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84801525?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Бэк-енд разработчик",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Сәтті Жұлдыз",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83190190?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "QA автотестировщик",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Kcell",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84788005?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Digital - маркетолог",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Компания ЭВРИКА",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/82837873?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Python бэкенд разработчик",
+        "Salary": "до 200 000 ₽",
+        "Company": "ИП Перескоков Владислав Андреевич",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84762435?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Devops инженер с немецким языком в Германию",
+        "Salary": "Зарплата не указана",
+        "Company": "Transparent Hiring",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84748856?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Эксперт Linux (Служба поддержки и развития платформ ЦОД)",
+        "Salary": "Зарплата не указана",
+        "Company": "Beeline, ТМ",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84740642?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Старший эксперт Linux (Служба поддержки и развития платформ ЦОД)",
+        "Salary": "Зарплата не указана",
+        "Company": "Beeline, ТМ",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84740412?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Python разработчик",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Bereke Bank",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84734134?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Стажер-программист в отдел технической поддержки",
+        "Salary": "от 100 000 ₸",
+        "Company": "ТОО Prime Source",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84732370?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Middle QA Engineer (Тестировщик мобильных игр)",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Playrix",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83510534?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "FullStack Web-разработчик (middle / senior)",
+        "Salary": "400 000 – 600 000 ₸",
+        "Company": "ТОО Ruba Technology",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84703739?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Разработчик C#",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Bereke Bank",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84703455?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Технический-аналитик RPA в отдел по автоматизации",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО MAGNUM. Информационные технологии/Ақпараттық технологиялар",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84700022?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Middle разработчик RPA в отдел по автоматизации",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО MAGNUM. Информационные технологии/Ақпараттық технологиялар",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84699833?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Преподаватель вуза (кафедра \"Компьютерная инженерия\")",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Международный Университет Информационных Технологий (МУИТ)",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84676037?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Python Developer",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО SlonW",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83284841?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Backend senior/middle разработчик",
+        "Salary": "от 600 000 ₸",
+        "Company": "ТОО BTS architects",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84645354?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Преподаватель по робототехнике",
+        "Salary": "от 300 000 ₸",
+        "Company": "ТОО Ruba Technology",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84153512?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Аналитик данных",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Банк ЦентрКредит",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/80548750?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Дата-аналитик SEO в Яндекс Путешествия",
+        "Salary": "Зарплата не указана",
+        "Company": "Яндекс",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83362524?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "QA Engineer",
+        "Salary": "Зарплата не указана",
+        "Company": "АО ДОЧЕРНЯЯ ОРГАНИЗАЦИЯ НАРОДНОГО БАНКА КАЗАХСТАНА HALYK FINSERVICE",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84620321?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Data Engineer",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО AB Restaurants",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84617361?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "QA инженер (middle)",
+        "Salary": "Зарплата не указана",
+        "Company": "Евразийский банк, АО",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84616409?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Ведущий разработчик/CRM",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Alem Agro Holding (АлемАгро Холдинг)",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83973467?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Специалист по контекстной рекламе",
+        "Salary": "от 300 000 ₸",
+        "Company": "ТОО Vostok Media Kazakhstan",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/81800340?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Менеджер по продаже роботов",
+        "Salary": "от 300 000 ₸",
+        "Company": "ТОО Ruba Technology",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84150891?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Data science / analyst",
+        "Salary": "Зарплата не указана",
+        "Company": "Danone, ТМ",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84539117?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Главный кредитный аналитик Департамент кредитного анализа",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Народный банк Казахстана",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84534357?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Инженер в Сектор голосовых соединений",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Kcell",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84532181?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Lead Backend developer",
+        "Salary": "от 1 000 000 ₸",
+        "Company": "ТОО Multi Do Production",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84518555?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Специалист 1 категории Управления регуляторной и финансовой отчетности ДСО",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Жилищный строительный сберегательный банк Отбасы банк",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84057146?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Системный аналитик",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Частная компания Citix Ltd.",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84493618?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Преподаватель кружка по детскому программированию",
+        "Salary": "400 000 – 500 000 ₸",
+        "Company": "ИП GOODOK",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84453136?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Senior Data Analyst (Game)",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Playrix",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84452676?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Начальник отдела/Techleader отдела разработки корпоративных информационных систем",
+        "Salary": "Зарплата не указана",
+        "Company": "Small, ТМ (Скиф Сауда, ТОО)",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84436152?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "DevOps инженер (Мобильный цифровой оператор)",
+        "Salary": "Зарплата не указана",
+        "Company": "Beeline, ТМ",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84424442?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Главный специалист Сектор аналитики и моделирования",
+        "Salary": "Зарплата не указана",
+        "Company": "Евразийский банк, АО",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/82910305?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Инженер QA (автотест)",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Bereke Bank",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84411140?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Преподаватель в международную школу программирования",
+        "Salary": "250 000 – 400 000 ₸",
+        "Company": "ТОО GROWTH POINT LTD",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84407777?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Игровой аналитик (Senior)",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО MYTONA KZ",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84404801?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Business/Solution Analyst (IT Services)",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО KPMG",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83914430?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Ведущий MDM аналитик",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Aitas KZ",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84393177?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Data Engineer",
+        "Salary": "Зарплата не указана",
+        "Company": "Публичная Компания «Freedom Finance Global PLC»",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/81469837?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "QA Lead",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Playrix",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84361303?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Аналитик",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО MAGNUM. Маркетинг и коммуникации/Маркетинг және коммуникация",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84337159?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Преподаватель Python",
+        "Salary": "35 000 – 400 000 ₸",
+        "Company": "ТОО 2дэй академи",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84334749?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Middle DevOps",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Мобайл Телеком-Сервис (Объединенная Компания Tele2/ALTEL)",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84332579?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Middle/Senior Python Developer",
+        "Salary": "Зарплата не указана",
+        "Company": "Bank RBK, АО",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84288713?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Middle Devops engineer",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Микрофинансовая организация KMF(КМФ)",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/82887021?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Senior DataScientist",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Народный банк Казахстана",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83026703?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Эксперт по оценке эффективности (BI)",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Kcell",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84263753?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Начальник отдела архитектуры и развития Хранилища Данных",
+        "Salary": "Зарплата не указана",
+        "Company": "Банк ВТБ (Казахстан) Дочерняя организация Акционерное общество",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84251053?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Data Partner",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Мобайл Телеком-Сервис (Объединенная Компания Tele2/ALTEL)",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84246042?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Senior Product Analyst",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Рэдмэдробот Центральная Азия",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/82828417?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Lead Product Analytics",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО АКСЕЛБОЛТ КАЗАХСТАН",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84063464?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Middle programmer Python",
+        "Salary": "1 200 – 1 500 $",
+        "Company": "Data40.com",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84209736?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "TechLead Python/Go",
+        "Salary": "2 000 – 2 500 $",
+        "Company": "Data40.com",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84209358?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Software Architect \\ Tech Lead (Java, AWS)",
+        "Salary": "6 000 – 7 500 $",
+        "Company": "Software Country (ТОО Балхаш Системс)",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84003462?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Fullstack разработчик Middle/Senior",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Орион Система",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84205056?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Data-инженер в направлении Data Lake",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Банк ЦентрКредит",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/82822538?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Технический директор / CTO продукта Chocofood",
+        "Salary": "Зарплата не указана",
+        "Company": "Chocofamily",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84190156?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Frontend-разработчик",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Сәтті Жұлдыз",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/72274536?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Power BI Engineer",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Prime Source",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84181329?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Аналитик",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО MAGNUM. Коммерция/Коммерция",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84139388?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Backend PHP Developer",
+        "Salary": "Зарплата не указана",
+        "Company": "ИП NiDGE",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84127706?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Senior User Acquisition Manager/Senior Performance Marketing Manager",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Playrix",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/81482098?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Инженер опорной IP сети",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Kcell",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84119860?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Программист-разработчик (Python/Django)",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО ГК Beibars К",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84086464?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "ML Middle/Senior Engineer",
+        "Salary": "Зарплата не указана",
+        "Company": "Itransition",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84084707?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Бизнес-аналитик BI, DWH",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО DataMatrix Corp",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84080307?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Data Engineer",
+        "Salary": "Зарплата не указана",
+        "Company": "XIM Inc.",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84043971?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Менеджер по чат-боту",
+        "Salary": "Зарплата не указана",
+        "Company": "Евразийский банк, АО",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83556453?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Риск-аналитик Управления андеррайтинга",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Жилищный строительный сберегательный банк Отбасы банк",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83008501?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Заместитель начальника Управления андеррайтинга",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Жилищный строительный сберегательный банк Отбасы банк",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/81047839?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Эксперт-программист в Технический отдел (Отдел OMC-R)",
+        "Salary": "Зарплата не указана",
+        "Company": "Beeline, ТМ",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84028319?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Главный Data инженер",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Aitas KZ",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84005711?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Ведущий инженер",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Мобайл Телеком-Сервис (Объединенная Компания Tele2/ALTEL)",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83973753?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Специалист технической поддержки",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Neo Service",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83973273?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Бизнес-аналитик в управление бизнес-аналитики",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Home Credit Bank",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83968443?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Дата-аналитик",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Банк ЦентрКредит",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83945692?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Системный архитектор (веб-сайт и мобильные приложения)",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО ALLUR AUTO",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83944054?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Главный риск-менеджер Управления обработки и хранения данных Департамента исследования и разработки",
+        "Salary": "Зарплата не указана",
+        "Company": "АО «Bank Freedom Finance Kazakhstan»",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83940456?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Бизнес-аналитик",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Банк ЦентрКредит",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/82275954?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Product Analyst",
+        "Salary": "Зарплата не указана",
+        "Company": "Playgendary",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83824045?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Python Developer",
+        "Salary": "до 2 300 $",
+        "Company": "Wanted",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83821545?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Сетевой инженер",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО ARLAN SI",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83821301?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Data Scientist",
+        "Salary": "Зарплата не указана",
+        "Company": "Kaspi.kz",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83811252?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Тестировщик",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Банк ЦентрКредит",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83793920?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Разработчик Camunda",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО QazCloud",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83791712?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Python Senior Developer",
+        "Salary": "Зарплата не указана",
+        "Company": "InterPress - International House",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83786009?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "QA инженер (backend)",
+        "Salary": "Зарплата не указана",
+        "Company": "Тинькофф",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/66702057?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "QA инженер (mobile)",
+        "Salary": "Зарплата не указана",
+        "Company": "Тинькофф",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/66702184?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Senior Full stack Developer",
+        "Salary": "1 000 000 – 1 500 000 ₸",
+        "Company": "ИП Development Support Services",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83774457?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Системный администратор по серверам",
+        "Salary": "Зарплата не указана",
+        "Company": "Small, ТМ (Скиф Сауда, ТОО)",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83768113?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Главный специалист Департамента залогового обеспечения",
+        "Salary": "Зарплата не указана",
+        "Company": "АО «Bank Freedom Finance Kazakhstan»",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/79364413?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Data - инженер",
+        "Salary": "Зарплата не указана",
+        "Company": "АО TECHNODOM Operator (Технодом Оператор)",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83755956?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Python Backend-разработчик",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО ALLUR AUTO",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/81930954?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Администратор DevOps",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Страховая компания Халык, ДО Народного Банка Казахстана",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83734222?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Главный специалист (Дирекция мониторинга)",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Банк ЦентрКредит",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83731937?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Data Analyst",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Казахстанско - Британский технический университет",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83728215?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Старший администратор облачной платформы",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Prime Source",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83675519?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "System administrator",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Prime Source",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83663340?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Senior Developer",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Prime Source",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83662973?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "TeamLead Developer",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Prime Source",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83662734?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Senior DevOps engineer",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Prime Source",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83662660?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "CDC Senior Developer",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Prime Source",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83662523?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "CDC Senior Analyst",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Prime Source",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83662318?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "CDC Administrator",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Prime Source",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83662207?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "MDM Middle Developer",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Prime Source",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83662044?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "MDM Senior Developer",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Prime Source",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83661813?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Team Lead Angular",
+        "Salary": "Зарплата не указана",
+        "Company": "АО Jusan Bank",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/74915603?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "MDM Solution Architecht",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Prime Source",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83661470?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "MDM Data Architect",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Prime Source",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83661316?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "MDM Administrator",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Prime Source",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83661167?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Middle Data Engineer",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Prime Source",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83661007?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Senior Data Engineer",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Prime Source",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83660508?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "DWH Senior Analyst",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Prime Source",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83660027?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Teamlead DWH Analyst",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Prime Source",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83659713?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "DWH Architecht",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Prime Source",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83658842?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "QA engineer with WAY4 Experience",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО DataArt",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/85202422?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Python Backend разработчик",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО Qazaq Taxi",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/85004776?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Python Backend Разработчик",
+        "Salary": "400 000 – 600 000 ₸",
+        "Company": "ТОО Фабрика проектов",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84973033?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Учитель информатики и робототехники",
+        "Salary": "100 000 – 450 000 ₸",
+        "Company": "ИП Jastime",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84953875?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Senior SRE инженер (Системный администратор)",
+        "Salary": "1 000 000 – 1 500 000 ₸",
+        "Company": "ТОО Сан Коннект",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84798104?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Аналитик в маркетинговую исследовательскую компанию",
+        "Salary": "500 – 1 000 $",
+        "Company": "ООО Middle Asia Management Consulting",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84734075?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Backend developer",
+        "Salary": "от 300 000 ₸",
+        "Company": "ИП Бекхожаев К.Т",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84709408?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Преподаватель по робототехнике и программированию",
+        "Salary": "100 000 – 200 000 ₸",
+        "Company": "ИП БОТАТАЕВА М.А.",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84705692?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Преподаватель информатики",
+        "Salary": "до 100 000 ₸",
+        "Company": "ИП BN Holding",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84620379?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Backend разработчик",
+        "Salary": "200 000 – 500 000 ₸",
+        "Company": "ИП Техника ОПТ",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84526267?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Программист-стажер по аналитике — продукт на базе искусственного интеллекта",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО ALDIS Petrosolutions",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84085625?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Backend разработчик (Python)",
+        "Salary": "250 000 – 500 000 ₸",
+        "Company": "ИП ZOOM (ИП Вострикова)",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84070104?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Младший системный администратор",
+        "Salary": "до 350 000 ₸",
+        "Company": "ИП Серенков В.В.",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83974378?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Аналитик (Excel)",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО NEURO.NET",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83956570?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Верстальщик / Front end разработчик сайтов в Digital Agency",
+        "Salary": "200 000 – 300 000 ₸",
+        "Company": "ТОО GB Travel",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83834723?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Технический директор в IT",
+        "Salary": "1 500 000 – 2 500 000 ₸",
+        "Company": "ТОО Kulenkov Group",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/83770166?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Senior Data Engineer",
+        "Salary": "700 000 – 1 200 000 ₸",
+        "Company": "ТОО Ломбард Белый TM",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/84922934?from=vacancy_search_list&query=python"
     }
 ]

@@ -31,12 +31,12 @@ def send_hh_message():
                 else:
                     for i in data_from_parser:
                         result = ''
-                        for k, v in i.items():
-                            result += f'{k}: {v}\n'
+                        for key, value in i.items():
+                            result += f'<b>{key}</b>: {value}\n'
                         bot.send_message(chat_id, result)
 
             print(subscribed_users)
-            time.sleep(5)
+            time.sleep(1800)
         except Exception as e:
             print("Ошибка при рассылке:", e)
 

@@ -94,6 +94,12 @@ def get_data(lst_json):
                 except Exception as ex:
                     location = 'Место работы не указано'
 
+                try:
+                    link = d.find('a', class_='serp-item__title').get('href')
+                except Exception as ex:
+                    link = 'Ссылка не указана'
+
+
                 g_count += 1
                 print(f'Обрабатывается запись: {g_count}')
                 print('#' * 20)
@@ -101,6 +107,7 @@ def get_data(lst_json):
                 print(salary)
                 print(company)
                 print(location)
+                print(link)
                 print('#'*20)
 
                 lst_json.append(
@@ -109,7 +116,8 @@ def get_data(lst_json):
                         'Title': title,
                         'Salary': salary,
                         'Company': company,
-                        'Location': location
+                        'Location': location,
+                        'Link': link
                     }
                 )
 
@@ -137,12 +145,14 @@ def get_telegram_data(lst_json):
                     lst_telegram.append(i)
                     all_data_json.append(i)
 
+        with open("lst_all_data.json", "w", encoding="UTF-8") as file:
+            json.dump(all_data_json, file, indent=4, ensure_ascii=False)
+
     if not lst_telegram:
         lst_telegram = 'Новых постов нет.'
 
     #перезапись файла-json с учетом новых записей
-    with open("lst_all_data.json", "w", encoding="UTF-8") as file:
-        json.dump(all_data_json, file, indent=4, ensure_ascii=False)
+
 
     print(lst_telegram)
     return lst_telegram
