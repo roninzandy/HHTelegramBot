@@ -186,7 +186,7 @@ def test():
     print('Выполняется функция test()')
     x = 1
     y = 2
-    return [{'a': 'b'}, {'c': 'd'}]
+    return '123' #[{'a': 'b'}, {'c': 'd'}]
 def main():
     print('Выполняется функция main() вне while')
     while True:

@@ -1,39 +1,48 @@
+import threading
+import time
 import telebot
+
 import config
+
 from main import run_parser
-from selenium import webdriver
 
 bot = telebot.TeleBot(config.TOKEN)
 
+subscribed_users = {}
+
 @bot.message_handler(commands=['start'])
 def welcome(message):
-    sti = open('static/sticker.webp', 'rb')
-    bot.send_sticker(message.chat.id, sti)
+    chat_id = message.chat.id
+    #sti = open('static/sticker.webp', 'rb')
+    #bot.send_sticker(message.chat.id, sti)
     bot.send_message(message.chat.id, 'Добро пожаловать, {0.first_name}!, \nЯ - <b>{1.first_name}</b>, короче говоря бот.'.format(message.from_user, bot.get_me()),
     parse_mode='html')
+    if chat_id not in subscribed_users:
+        subscribed_users[chat_id] = True
 
+def send_hh_message():
+    while True:
+        try:
+            data_from_parser = run_parser()
 
-@bot.message_handler(content_types=['text'])
-def lalala(message):
-    bot.send_message(message.chat.id, message.text)
-    data_from_parser = run_parser()
-    if isinstance(data_from_parser, str):
-        bot.send_message(message.chat.id, data_from_parser)
-    else:
-        for i in data_from_parser:
-            for j in i:
-                bot.send_message(message.chat.id, j) #f"Title: {i['Title']}\nSalary: {i['Salary']}")
+            for chat_id in subscribed_users:
+                if isinstance(data_from_parser, str):
+                    bot.send_message(chat_id, 'Нет новых сообщений')
+                else:
+                    for i in data_from_parser:
+                        for j in i:
+                            bot.send_message(chat_id, j)
+            print(subscribed_users)
+            time.sleep(5)
+        except Exception as e:
+            print("Ошибка при рассылке:", e)
+
 
 
 if __name__ == '__main__':
-    # headers = {
-    #     'Accept': '*/*',
-    #     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
-    # }
-    # options = webdriver.ChromeOptions()
-    # options.add_argument(f'--headers="{headers}"')
-    # options.add_argument(f"user-agent={headers['User-Agent']}")
-    # driver = webdriver.Chrome(options=options)
-
+    exit_event = threading.Event()
+    t = threading.Thread(target=send_hh_message)
+    t.daemon = True
+    t.start()
     bot.polling(none_stop=True)
 
