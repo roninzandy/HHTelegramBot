@@ -30,7 +30,7 @@ def save_pages(headers, driver):
         global page_numbers
         page_numbers = int(list(soup.find('div', class_='pager'))[-2].text)
         print(f'Всего страниц по данному запросу: {page_numbers}')
-        sleep(3)
+        sleep(5)
 
     for i in range(1, page_numbers + 1):
         try:
@@ -41,6 +41,7 @@ def save_pages(headers, driver):
                 file.write(driver.page_source)
                 print(f'Страница {i} сохранена.')
                 sleep(randrange(3, 5))
+                #sleep(500)
         except Exception as ex:
             print(ex)
         finally:
@@ -94,6 +95,32 @@ def get_data(lst_json):
                 except Exception:
                     link = 'Ссылка не указана'
 
+                try:
+                    img_soup = d.find('img', class_='vacancy-serp-item-logo')
+                    url = img_soup.get('src')
+
+                    try:
+                        image_name = url.split('/')[-1]
+                        if not os.path.exists(f'static/{image_name}'):
+                            response = requests.get(url=url)
+                            image_content = response.content
+                            image_filename = os.path.join('static', image_name)
+
+                            if not os.path.exists('static'):
+                                os.makedirs('static')
+
+                            with open(image_filename, 'wb') as f:
+                                f.write(image_content)
+                                print(f'Изображение {image_name} сохранено')
+                            sleep(1)
+                        img = image_name
+
+                    except Exception:
+                        img = 'Ошибка загрузки изображения'
+
+                except Exception:
+                    img = 'Изображение отсутствует'
+
                 g_count += 1
                 loop_count += 1
                 if loop_count == 1:
@@ -115,7 +142,8 @@ def get_data(lst_json):
                         'Salary': salary,
                         'Company': company,
                         'Location': location,
-                        'Link': link
+                        'Link': link,
+                        'Image': img
                     }
                 )
 
@@ -150,7 +178,7 @@ def get_telegram_data(lst_json):
     return lst_telegram
 
 
-page_numbers = 0
+page_numbers = None
 
 
 def main(headers, driver):
@@ -169,7 +197,7 @@ def run_parser():
     }
 
     options = webdriver.ChromeOptions()
-    options.add_argument('--headless')
+    #options.add_argument('--headless')
     options.add_argument(f"accept={headers['Accept']}")
     options.add_argument(f"user-agent={headers['User-Agent']}")
     driver = webdriver.Chrome(options=options)
