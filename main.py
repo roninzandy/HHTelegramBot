@@ -128,7 +128,7 @@ def get_data(lst_json):
 
 def get_telegram_data(lst_json):
 
-    lst_telegram = []  # -> lst[dict]
+    lst_telegram = []
     if not os.path.exists("lst_all_data.json"):
         with open("lst_all_data.json", "w", encoding="UTF-8") as f:
             json.dump(lst_json, f, indent=4, ensure_ascii=False)
@@ -144,7 +144,7 @@ def get_telegram_data(lst_json):
                     print('Идет запись...')
                     lst_telegram.append(i)
                     all_data_json.append(i)
-
+        print(f'Всего записей в БД: {len(all_data_json)}')
         with open("lst_all_data.json", "w", encoding="UTF-8") as file:
             json.dump(all_data_json, file, indent=4, ensure_ascii=False)
 
@@ -157,67 +157,6 @@ def get_telegram_data(lst_json):
     print(lst_telegram)
     return lst_telegram
 
-
-
-
-# page_numbers = None
-# def main(headers, driver):
-#     while True:
-#         lst_json = []
-#         save_pages(headers, driver)
-#         get_data(lst_json)
-#         data_for_telegram = get_telegram_data(lst_json)
-#         yield data_for_telegram
-#         sleep(100)
-#
-# def run_parser():
-#     headers = {
-#         'Accept': '*/*',
-#         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
-#     }
-#
-#     options = webdriver.ChromeOptions()
-#     options.add_argument(f'--headers="{headers}"')
-#     options.add_argument(f"user-agent={headers['User-Agent']}")
-#     driver = webdriver.Chrome(options=options)
-#
-#     data_generator = list(main(headers, driver))
-#
-#     for data in data_generator:
-#         print("Sending data:", data)
-#     return data_generator
-#
-# if __name__ == '__main__':
-#     run_parser()
-
-#TEST####################################################
-# def test():
-#     print('Выполняется функция test()')
-#     x = 1
-#     y = 2
-#     return [{'a': 'b'}, {'c': 'd'}]
-# def main():
-#     print('Выполняется функция main() вне while')
-#     while True:
-#         print('Выполняется функция main() внутри while')
-#         get_test = test()
-#         # yield get_test
-#         # sleep(5)
-#         return get_test
-#
-# def run_parser():
-#
-#     data_generator = main()
-#     for data in data_generator:
-#         for i in data:
-#             print("Sending data:", i)
-#     return data_generator
-#
-# if __name__ == '__main__':
-#     print(run_parser())
-################################
-
-################
 page_numbers = None
 def main(headers, driver):
     lst_json = []
@@ -233,9 +172,9 @@ def run_parser():
     }
 
     options = webdriver.ChromeOptions()
-    options.add_argument(f'--headers="{headers}"')
+    options.add_argument('--headless')
+    options.add_argument(f"accept={headers['Accept']}")
     options.add_argument(f"user-agent={headers['User-Agent']}")
-    #options.add_argument('--headless')
     driver = webdriver.Chrome(options=options)
 
     return main(headers, driver)
