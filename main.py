@@ -1,7 +1,4 @@
 
-import datetime
-
-
 import json
 import os.path
 from time import sleep
@@ -9,16 +6,17 @@ from random import randrange
 import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
-from deepdiff import DeepDiff
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from fake_useragent import UserAgent
-from selenium.webdriver.chrome.options import Options
-
+# from deepdiff import DeepDiff
+# from selenium.webdriver.common.by import By
+# from selenium.webdriver.common.keys import Keys
+# from fake_useragent import UserAgent
+# from selenium.webdriver.chrome.options import Options
 
 
 def get_url(p):
-    return f'https://hh.kz/search/vacancy?text=python&salary=&no_magic=true&ored_clusters=true&order_by=publication_time&enable_snippets=true&excluded_text=&area=160&page={p}'
+    return f'https://hh.kz/search/vacancy?text=python&salary=&no_magic=true&ored_clusters=true&' \
+           f'order_by=publication_time&enable_snippets=true&excluded_text=&area=160&page={p}'
+
 
 def save_pages(headers, driver):
     response = requests.get(url=get_url(0), headers=headers)
@@ -29,23 +27,17 @@ def save_pages(headers, driver):
     with open('test.html', encoding='utf-8') as file:
         src = file.read()
         soup = BeautifulSoup(src, 'lxml')
-
         global page_numbers
         page_numbers = int(list(soup.find('div', class_='pager'))[-2].text)
-
         print(f'Всего страниц по данному запросу: {page_numbers}')
-
         sleep(3)
-
 
     for i in range(1, page_numbers + 1):
         try:
-            driver.get(f'https://hh.kz/search/vacancy?text=python&salary=&no_magic=true&ored_clusters=true&order_by=publication_time&enable_snippets=true&excluded_text=&area=160&page={i-1}')
+            driver.get(f'https://hh.kz/search/vacancy?text=python&salary=&no_magic=true&ored_clusters=true&'
+                       f'order_by=publication_time&enable_snippets=true&excluded_text=&area=160&page={i-1}')
             sleep(randrange(3, 5))
             with open(f'selenium_data/page_{i}.html', 'w', encoding='utf-8') as file:
-
-            #with open(f'selenium_data/page_{i}_{datetime.datetime.now().strftime("%Y-%m-%d %H-%M")}.html', 'w', encoding='utf-8') as file:
-
                 file.write(driver.page_source)
                 print(f'Страница {i} сохранена.')
                 sleep(randrange(3, 5))
@@ -54,20 +46,19 @@ def save_pages(headers, driver):
         finally:
             pass
 
-
     driver.close()
     driver.quit()
-
-
 
 
 def get_data(lst_json):
     g_count = 0
     global page_numbers
+    total_amount_of_posts = 0
     for j in range(1, page_numbers + 1):
-
+        loop_count = 0
         with open(f'selenium_data/page_{j}.html', encoding='utf-8') as file:
             src_data = file.read()
+            print('_' * 20)
             print(f'Начинается сбор данных со страницы {j}.')
             print('_'*20)
             soup_data = BeautifulSoup(src_data, 'lxml')
@@ -75,40 +66,47 @@ def get_data(lst_json):
             for d in data:
 
                 try:
-                    title = d.find('a', class_='serp-item__title').text.replace('\u202F', ' ').replace('\u00A0', ' ')
-                except:
+                    title = d.find('a', class_='serp-item__title').text
+                    title = title.replace('\u202F', ' ').replace('\u00A0', ' ')
+                except Exception:
                     title = 'Должность не указана'
 
                 try:
-                    salary = d.find('span', class_='bloko-header-section-2').text.replace('\u202F', ' ').replace('\u00A0', ' ')
-                except Exception as ex:
+                    salary = d.find('span', class_='bloko-header-section-2').text
+                    salary = salary.replace('\u202F', ' ').replace('\u00A0', ' ')
+                except Exception:
                     salary = 'Зарплата не указана'
 
                 try:
-                    company = d.find('a', class_='bloko-link').text.replace('\u202F', ' ').replace('\u00A0', ' ')
-                except Exception as ex:
+                    company = d.find('a', class_='bloko-link').text
+                    company = company.replace('\u202F', ' ').replace('\u00A0', ' ')
+                except Exception:
                     company = 'Компания не указана'
 
                 try:
-                    location = d.find('div', attrs={'data-qa': 'vacancy-serp__vacancy-address'}).text.split(',')[0].replace('\u202F', ' ').replace('\u00A0', ' ')
-                except Exception as ex:
+                    location = d.find('div', attrs={'data-qa': 'vacancy-serp__vacancy-address'}).text
+                    location = location.split(',')[0].replace('\u202F', ' ').replace('\u00A0', ' ')
+                except Exception:
                     location = 'Место работы не указано'
 
                 try:
                     link = d.find('a', class_='serp-item__title').get('href')
-                except Exception as ex:
+                except Exception:
                     link = 'Ссылка не указана'
 
-
                 g_count += 1
-                print(f'Обрабатывается запись: {g_count}')
-                print('#' * 20)
-                print(title)
-                print(salary)
-                print(company)
-                print(location)
-                print(link)
-                print('#'*20)
+                loop_count += 1
+                if loop_count == 1:
+                    total_amount_of_posts += len(data)
+
+                print(f'Обрабатывается запись: {g_count}/{total_amount_of_posts}')
+                # print('#' * 20)
+                # print(title)
+                # print(salary)
+                # print(company)
+                # print(location)
+                # print(link)
+                # print('#'*20)
 
                 lst_json.append(
 
@@ -120,10 +118,6 @@ def get_data(lst_json):
                         'Link': link
                     }
                 )
-
-
-
-
 
 
 def get_telegram_data(lst_json):
@@ -150,14 +144,15 @@ def get_telegram_data(lst_json):
 
     if not lst_telegram:
         print('Новых постов нет.')
+    else:
+        print(f'Новые записи: {lst_telegram}')
 
-    #перезапись файла-json с учетом новых записей
-
-
-    print(lst_telegram)
     return lst_telegram
 
-page_numbers = None
+
+page_numbers = 0
+
+
 def main(headers, driver):
     lst_json = []
     save_pages(headers, driver)
@@ -165,10 +160,12 @@ def main(headers, driver):
     data_for_telegram = get_telegram_data(lst_json)
     return data_for_telegram
 
+
 def run_parser():
     headers = {
         'Accept': '*/*',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                      'Chrome/115.0.0.0 Safari/537.36'
     }
 
     options = webdriver.ChromeOptions()
@@ -178,6 +175,7 @@ def run_parser():
     driver = webdriver.Chrome(options=options)
 
     return main(headers, driver)
+
 
 if __name__ == '__main__':
     run_parser()
