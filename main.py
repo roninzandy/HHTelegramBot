@@ -149,7 +149,7 @@ def get_telegram_data(lst_json):
             json.dump(all_data_json, file, indent=4, ensure_ascii=False)
 
     if not lst_telegram:
-        lst_telegram = 'Новых постов нет.'
+        print('Новых постов нет.')
 
     #перезапись файла-json с учетом новых записей
 

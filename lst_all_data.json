@@ -1,33 +1,5 @@
 [
     {
-        "Title": "Jira Administrator",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО inDrive",
-        "Location": "Алматы",
-        "Link": "https://almaty.hh.kz/vacancy/85272648?from=vacancy_search_list&query=python"
-    },
-    {
-        "Title": "Data Analyst",
-        "Salary": "Зарплата не указана",
-        "Company": "ТОО inDrive",
-        "Location": "Алматы",
-        "Link": "https://almaty.hh.kz/vacancy/84754446?from=vacancy_search_list&query=python"
-    },
-    {
-        "Title": "Senior Python developer (Ed-Tech)",
-        "Salary": "до 5 200 $",
-        "Company": "evrone.ru",
-        "Location": "Алматы",
-        "Link": "https://almaty.hh.kz/vacancy/83962887?from=vacancy_search_list&query=python"
-    },
-    {
-        "Title": "Remote AI Developer",
-        "Salary": "1 200 – 5 000 €",
-        "Company": "Compound Solutions SL",
-        "Location": "Алматы",
-        "Link": "https://almaty.hh.kz/vacancy/84163551?from=vacancy_search_list&query=python"
-    },
-    {
         "Title": "Senior Build Engineer",
         "Salary": "Зарплата не указана",
         "Company": "ТОО Playrix",
@@ -1622,5 +1594,47 @@
         "Company": "ТОО Ломбард Белый TM",
         "Location": "Алматы",
         "Link": "https://almaty.hh.kz/vacancy/84922934?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Linux Support Team Lead",
+        "Salary": "1 000 – 1 900 $",
+        "Company": "ООО RapidSeedbox",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/84454768?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Менеджер по сбору данных и аналитике",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО «Qazaqstan Aquaculture Company»",
+        "Location": "Алматы",
+        "Link": "https://hh.kz/vacancy/84630675?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Jira Administrator",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО inDrive",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/85272648?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Data Analyst",
+        "Salary": "Зарплата не указана",
+        "Company": "ТОО inDrive",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/84754446?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Senior Python developer (Ed-Tech)",
+        "Salary": "до 5 200 $",
+        "Company": "evrone.ru",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/83962887?from=vacancy_search_list&query=python"
+    },
+    {
+        "Title": "Remote AI Developer",
+        "Salary": "1 200 – 5 000 €",
+        "Company": "Compound Solutions SL",
+        "Location": "Алматы",
+        "Link": "https://almaty.hh.kz/vacancy/84163551?from=vacancy_search_list&query=python"
     }
 ]
