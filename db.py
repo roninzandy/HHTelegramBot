@@ -1,8 +1,11 @@
 from datetime import datetime
-import json
 import sqlite3
 
 def create_table(lst_json):
+    """
+    Функция создания таблицы в БД.
+    """
+
     try:
         connection = sqlite3.connect('database.db')
         cursor = connection.cursor()
@@ -35,6 +38,9 @@ def create_table(lst_json):
 
 
 def insert_data(lst_telegram):
+    """
+    Функция добавления новых данных в БД.
+    """
 
     connection = sqlite3.connect('database.db')
     cursor = connection.cursor()
@@ -59,6 +65,10 @@ def insert_data(lst_telegram):
 
     print('Внесение новых данных в БД выполнено.')
 def select_data():
+    """
+    Функция возвращения набора данных из БД.
+    """
+
     connection = sqlite3.connect('database.db')
     cursor = connection.cursor()
     cursor.execute('SELECT * FROM data')

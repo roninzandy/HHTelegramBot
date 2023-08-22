@@ -15,24 +15,33 @@ import db
 
 
 def get_url(p):
-    return f'https://hh.kz/search/vacancy?text=python&salary=&no_magic=true&ored_clusters=true&' \
-           f'order_by=publication_time&enable_snippets=true&excluded_text=&area=160&page={p}'
+    return
 
 
 def save_pages(headers, driver):
-    response = requests.get(url=get_url(0), headers=headers)
+    """
+      Функция сохраняет тестовую (первую) страницу сайта для определения количества страниц по данному запросу,
+      формирует ссылки на страницы в цикле, а затем сохраняет все страницы в папку "selenium_data".
+
+    """
+    # Сохранение тестовой (первой) страницы и формирование переменной с количеством страниц page_numbers.
+    p = 0  # Номер первой страницы
+    url = f'https://hh.kz/search/vacancy?text=python&salary=&no_magic=true&ored_clusters=true&' \
+           f'order_by=publication_time&enable_snippets=true&excluded_text=&area=160&page={p}'
+    response = requests.get(url=url, headers=headers)
     src = response.text
+
     with open('selenium_data/test.html', 'w', encoding='utf-8') as file:
         file.write(src)
 
     with open('selenium_data/test.html', encoding='utf-8') as file:
         src = file.read()
         soup = BeautifulSoup(src, 'lxml')
-        #global page_numbers
         page_numbers = int(list(soup.find('div', class_='pager'))[-2].text)
         print(f'Всего страниц по данному запросу: {page_numbers}')
-        sleep(5)
+        sleep(randrange(3, 5))
 
+    # Сохранение всех страниц сайта по данному запросу.
     for i in range(1, page_numbers + 1):
         try:
             driver.get(f'https://hh.kz/search/vacancy?text=python&salary=&no_magic=true&ored_clusters=true&'
@@ -44,8 +53,6 @@ def save_pages(headers, driver):
                 sleep(randrange(3, 5))
         except Exception as e:
             print(e)
-        finally:
-            pass
 
     driver.close()
     driver.quit()
@@ -54,8 +61,11 @@ def save_pages(headers, driver):
 
 
 def get_data(lst_json, page_numbers):
+    """
+     Функция создает словари с данными о вакансиях и помещает их в список lst_json.
+    """
+
     g_count = 0
-    #global page_numbers
     total_amount_of_posts = 0
     for j in range(1, page_numbers + 1):
         loop_count = 0
@@ -151,6 +161,10 @@ def get_data(lst_json, page_numbers):
 
 
 def get_telegram_data(lst_json):
+    """
+     Функция формирует данных о новых вакансиях, которые будут отправлены телеграм-ботом,
+     а также записывает новые данные в БД.
+    """
 
     lst_telegram = []
     if not os.path.exists('database.db'):
@@ -182,7 +196,6 @@ def get_telegram_data(lst_json):
 
 
 def main():
-
     headers = {
         'Accept': '*/*',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
@@ -196,12 +209,13 @@ def main():
     driver = webdriver.Chrome(options=options)
 
     lst_json = []
+
     pn = save_pages(headers, driver)
     get_data(lst_json, pn)
     data_for_telegram = get_telegram_data(lst_json)
 
-    return data_for_telegram
+    return data_for_telegram  # Передача данных о вакансиях телеграм-боту в виде списка с вложенными словарями.
 
 
-if __name__ == '__main__':
-    main()
+
+
