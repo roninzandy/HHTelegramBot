@@ -1,6 +1,4 @@
-import sqlite3
 from datetime import datetime
-import json
 import os.path
 from time import sleep
 from random import randrange
@@ -146,8 +144,8 @@ def get_data(lst_json, page_numbers):
                         'Salary': salary,
                         'Company': company,
                         'Location': location,
-                        'Link': link,
-                        'Image': img
+                        'Link': link
+                        #'Image': img
                     }
                 )
 
@@ -155,48 +153,41 @@ def get_data(lst_json, page_numbers):
 def get_telegram_data(lst_json):
 
     lst_telegram = []
-    if not os.path.exists("lst_all_data.json"):
-        with open("lst_all_data.json", "w", encoding="UTF-8") as f:
-            json.dump(lst_json, f, indent=4, ensure_ascii=False)
+    if not os.path.exists('database.db'):
+        if lst_json:
+            db.create_table(lst_json)
     else:
-        with open("lst_all_data.json", encoding="UTF-8") as f:
-            all_data_json = json.load(f)
-            for i in lst_json:
-                found = False
-                for j in all_data_json:
-                    if i == j:
-                        found = True
-                if found is False:
-                    print('Идет запись...')
-                    lst_telegram.append(i)
-                    all_data_json.append(i)
-        print(f'Всего записей в БД: {len(all_data_json)}')
-        with open("lst_all_data.json", "w", encoding="UTF-8") as file:
-            json.dump(all_data_json, file, indent=4, ensure_ascii=False)
+        rows = db.select_data()
+        for item in lst_json:
+            found = False
+            for row in rows:
+                if item == row:
+                    found = True
+            if found is False:
+                print('Идет запись...')
+                lst_telegram.append(item)
+        print(f'Всего записей в БД: {len(rows)+len(lst_telegram)}')
 
     if lst_telegram:
         print('Новые записи:')
         for item in lst_telegram:
             print(item)
-        print(f'Всего новых записей:{len(lst_telegram)}')
+        db.insert_data(lst_telegram)
+        print(f'Всего новых записей: {len(lst_telegram)}')
     else:
-        print('Новых постов нет.')
-
-    print(f'Дата сканирования: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
+        print('Новых записей нет.\n'
+              f'Дата сканирования: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
 
     return lst_telegram
 
 
 def main(headers, driver):
     lst_json = []
-    #page_numbers = None
-    pn = save_pages(headers, driver)
+    #pn = save_pages(headers, driver)
+    pn = 5
     get_data(lst_json, pn)
     data_for_telegram = get_telegram_data(lst_json)
-    if not os.path.exists('database.db'):
-        db.create_table()
-    if data_for_telegram:
-        db.insert_data(data_for_telegram)
+
     return data_for_telegram
 
 

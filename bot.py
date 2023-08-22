@@ -47,7 +47,7 @@ def send_hh_message():
                         #                  reply_to_message_id=img_message.message_id, disable_web_page_preview=True)
                         bot.send_message(chat_id, result, parse_mode='html', disable_web_page_preview=True)
 
-            print(subscribed_users)
+            print(f'Подписанные пользователи на рассылку: {subscribed_users}')
             time.sleep(1800)
         except Exception as e:
             print("Ошибка при рассылке:", e)

@@ -2,22 +2,15 @@ from datetime import datetime
 import json
 import sqlite3
 
-def create_table():
+def create_table(lst_json):
     try:
         connection = sqlite3.connect('database.db')
         cursor = connection.cursor()
 
         cursor.execute('CREATE TABLE IF NOT EXISTS data (id INTEGER PRIMARY KEY, "title" TEXT, '
                        '"salary" VARCHAR(255), "company" TEXT, "location" VARCHAR(255), "link" TEXT, "date" TEXT)')
-        try:
-            with open('lst_all_data.json', encoding='utf-8') as json_file:
-                json_data = json.load(json_file)
-        except FileNotFoundError:
-            print("Файл data.json не найден.")
-            connection.close()
-            exit()
 
-        for item in json_data:
+        for item in lst_json:
             title = item['Title']
             salary = item.get('Salary', None)
             company = item.get('Company', None)
@@ -61,16 +54,30 @@ def insert_data(lst_telegram):
         except sqlite3.Error as e:
             print(f"Ошибка при вставке данных: {e}")
 
-    print('Внесение новых данных в БД выполнено.')
+    connection.commit()
+    connection.close()
 
+    print('Внесение новых данных в БД выполнено.')
 def select_data():
     connection = sqlite3.connect('database.db')
     cursor = connection.cursor()
     cursor.execute('SELECT * FROM data')
     rows = cursor.fetchall()
-    return rows
+    data_list = []
+    for row in rows:
+        id, title, salary, company, location, link, date = row
+        data = {
+            'Title': title,
+            'Salary': salary,
+            'Company': company,
+            'Location': location,
+            'Link': link
+        }
 
+        data_list.append(data)
 
-select_data()
+    connection.close()
+    return data_list
+
 
 
