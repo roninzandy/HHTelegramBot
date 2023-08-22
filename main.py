@@ -1,4 +1,5 @@
-
+import sqlite3
+from datetime import datetime
 import json
 import os.path
 from time import sleep
@@ -6,6 +7,8 @@ from random import randrange
 import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
+
+import db
 # from deepdiff import DeepDiff
 # from selenium.webdriver.common.by import By
 # from selenium.webdriver.common.keys import Keys
@@ -21,13 +24,13 @@ def get_url(p):
 def save_pages(headers, driver):
     response = requests.get(url=get_url(0), headers=headers)
     src = response.text
-    with open('test.html', 'w', encoding='utf-8') as file:
+    with open('selenium_data/test.html', 'w', encoding='utf-8') as file:
         file.write(src)
 
-    with open('test.html', encoding='utf-8') as file:
+    with open('selenium_data/test.html', encoding='utf-8') as file:
         src = file.read()
         soup = BeautifulSoup(src, 'lxml')
-        global page_numbers
+        #global page_numbers
         page_numbers = int(list(soup.find('div', class_='pager'))[-2].text)
         print(f'Всего страниц по данному запросу: {page_numbers}')
         sleep(5)
@@ -41,19 +44,20 @@ def save_pages(headers, driver):
                 file.write(driver.page_source)
                 print(f'Страница {i} сохранена.')
                 sleep(randrange(3, 5))
-                #sleep(500)
-        except Exception as ex:
-            print(ex)
+        except Exception as e:
+            print(e)
         finally:
             pass
 
     driver.close()
     driver.quit()
 
+    return page_numbers
 
-def get_data(lst_json):
+
+def get_data(lst_json, page_numbers):
     g_count = 0
-    global page_numbers
+    #global page_numbers
     total_amount_of_posts = 0
     for j in range(1, page_numbers + 1):
         loop_count = 0
@@ -162,7 +166,7 @@ def get_telegram_data(lst_json):
                 for j in all_data_json:
                     if i == j:
                         found = True
-                if found == False:
+                if found is False:
                     print('Идет запись...')
                     lst_telegram.append(i)
                     all_data_json.append(i)
@@ -170,22 +174,29 @@ def get_telegram_data(lst_json):
         with open("lst_all_data.json", "w", encoding="UTF-8") as file:
             json.dump(all_data_json, file, indent=4, ensure_ascii=False)
 
-    if not lst_telegram:
-        print('Новых постов нет.')
+    if lst_telegram:
+        print('Новые записи:')
+        for item in lst_telegram:
+            print(item)
+        print(f'Всего новых записей:{len(lst_telegram)}')
     else:
-        print(f'Новые записи: {lst_telegram}')
+        print('Новых постов нет.')
+
+    print(f'Дата сканирования: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
 
     return lst_telegram
 
 
-page_numbers = None
-
-
 def main(headers, driver):
     lst_json = []
-    save_pages(headers, driver)
-    get_data(lst_json)
+    #page_numbers = None
+    pn = save_pages(headers, driver)
+    get_data(lst_json, pn)
     data_for_telegram = get_telegram_data(lst_json)
+    if not os.path.exists('database.db'):
+        db.create_table()
+    if data_for_telegram:
+        db.insert_data(data_for_telegram)
     return data_for_telegram
 
 
@@ -197,7 +208,7 @@ def run_parser():
     }
 
     options = webdriver.ChromeOptions()
-    #options.add_argument('--headless')
+    options.add_argument('--headless')
     options.add_argument(f"accept={headers['Accept']}")
     options.add_argument(f"user-agent={headers['User-Agent']}")
     driver = webdriver.Chrome(options=options)
@@ -207,7 +218,3 @@ def run_parser():
 
 if __name__ == '__main__':
     run_parser()
-
-
-
-
