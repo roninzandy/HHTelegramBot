@@ -5,7 +5,7 @@ import telebot
 
 import config
 
-from main import run_parser
+from main import main
 
 bot = telebot.TeleBot(config.TOKEN)
 
@@ -26,7 +26,7 @@ def welcome(message):
 def send_hh_message():
     while True:
         try:
-            data_from_parser = run_parser()
+            data_from_parser = main()
             if data_from_parser:
                 for chat_id in subscribed_users:
                     for i in data_from_parser:
