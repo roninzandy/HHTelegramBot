@@ -16,6 +16,8 @@
 5. Отправка сообщений с новыми вакансиях пользователям помощью telegram-бота.
 
 Для запуска программы выполните этот модуль.
+
+Для активации telegram-бота добавьте его в telegram по имени @beastchargerbot (https://t.me/beastchargerbot).
 """
 
 import threading
