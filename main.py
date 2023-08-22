@@ -76,7 +76,7 @@ def send_hh_message():
 
             print(f'Подписанные пользователи на рассылку: {subscribed_users}')
 
-            time.sleep(1800)  # Таймер между рассылками: 30 минут.
+            time.sleep(180)  # Таймер между рассылками: 30 минут.
 
         except Exception as e:
             print(f'Ошибка при рассылке: {e}')
