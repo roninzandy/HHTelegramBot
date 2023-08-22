@@ -195,7 +195,7 @@ def get_telegram_data(lst_json):
     return lst_telegram
 
 
-def main():
+def run_parsing():
     headers = {
         'Accept': '*/*',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '

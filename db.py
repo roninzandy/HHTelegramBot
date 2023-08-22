@@ -1,6 +1,7 @@
 from datetime import datetime
 import sqlite3
 
+
 def create_table(lst_json):
     """
     Функция создания таблицы в БД.
@@ -36,7 +37,6 @@ def create_table(lst_json):
         print(f"Произошла ошибка: {e}")
 
 
-
 def insert_data(lst_telegram):
     """
     Функция добавления новых данных в БД.
@@ -64,6 +64,8 @@ def insert_data(lst_telegram):
     connection.close()
 
     print('Внесение новых данных в БД выполнено.')
+
+
 def select_data():
     """
     Функция возвращения набора данных из БД.
@@ -75,7 +77,7 @@ def select_data():
     rows = cursor.fetchall()
     data_list = []
     for row in rows:
-        id, title, salary, company, location, link, date = row
+        _, title, salary, company, location, link, _ = row
         data = {
             'Title': title,
             'Salary': salary,
@@ -88,6 +90,4 @@ def select_data():
 
     connection.close()
     return data_list
-
-
 

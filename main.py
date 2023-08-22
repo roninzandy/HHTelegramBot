@@ -2,9 +2,9 @@
 Программа для парсинга данных о новых вакансиях с сайта hh.kz и рассылки пользователям с помощью telegram-бота.
 
 Данный модуль является основным. Проект состоит из четырех модулей:
-1. bot.py - содержит функции для отправки сообщений пользователям.
+1. main.py - содержит функции для отправки сообщений пользователям.
 2. config.py - содержит конфиденциальные данные о telegram-боте.
-3. main.py - содержит функции для парсинга веб-страниц.
+3. parsing.py - содержит функции для парсинга веб-страниц.
 4. db.py - содержит функции для создания таблицы, сохранения и чтения данных из БД.
 
 Программа выполняет следующие шаги:
@@ -26,7 +26,7 @@ import telebot
 
 import config
 
-from parsing import main
+from parsing import run_parsing
 
 bot = telebot.TeleBot(config.TOKEN)
 
@@ -51,16 +51,18 @@ def send_hh_message():
     """
     while True:
         try:
-            data_from_parser = main()
+            data_from_parser = run_parsing()
             if data_from_parser:
                 for chat_id in subscribed_users:
                     for i in data_from_parser:
                         result = ''
                         for key, value in i.items():
                             if key == 'Title':
-                                result += f'<b><a href="{i["Link"]}">{value}</a></b>\n'
-                            elif key == 'Salary' or key == 'Company':
-                                result += f'<b>{value}</b>\n'
+                                result += f'💼 <b><a href="{i["Link"]}">{value}</a></b>\n'
+                            elif key == 'Salary':
+                                result += f'💲 <b>{value}</b>\n'
+                            elif key == 'Company':
+                                result += f'🏙️ <b>{value}</b>\n'
                             # elif key == 'Image':
                                 # img_path = f'static/{i[key]}'
                                 # if os.path.exists(img_path):
@@ -79,10 +81,14 @@ def send_hh_message():
         except Exception as e:
             print(f'Ошибка при рассылке: {e}')
 
-
-if __name__ == '__main__':
-    exit_event = threading.Event()
+def main():
+    #exit_event = threading.Event()
     t = threading.Thread(target=send_hh_message)
     t.daemon = True
     t.start()
     bot.polling(none_stop=True)
+
+
+if __name__ == '__main__':
+    main()
+
