@@ -15,11 +15,11 @@
 4. Добавление в БД данных о новых вакансиях.
 5. Отправка сообщений с новыми вакансиях пользователям помощью telegram-бота.
 
-Для запуска программы выполните этот модуль.
+Для запуска программы выполните данный модуль.
 
 Для активации telegram-бота добавьте его в telegram по имени @beastchargerbot (https://t.me/beastchargerbot).
 """
-
+import os
 import threading
 import time
 import telebot
@@ -51,6 +51,7 @@ def send_hh_message():
     """
     while True:
         try:
+            time.sleep(5)
             data_from_parser = run_parsing()
             if data_from_parser:
                 for chat_id in subscribed_users:
@@ -60,29 +61,33 @@ def send_hh_message():
                             if key == 'Title':
                                 result += f'💼 <b><a href="{i["Link"]}">{value}</a></b>\n'
                             elif key == 'Salary':
-                                result += f'💲 <b>{value}</b>\n'
+                                result += f'💰 <b>{value}</b>\n'
                             elif key == 'Company':
                                 result += f'🏙️ <b>{value}</b>\n'
-                            # elif key == 'Image':
-                                # img_path = f'static/{i[key]}'
-                                # if os.path.exists(img_path):
-                                #     with open(img_path, 'rb') as photo:
-                                #         #bot.send_photo(chat_id=chat_id, photo=photo)
-                                #         img_message = bot.send_photo(chat_id=chat_id, photo=photo)
+                            elif key == 'Image':
+                                img_path = f'static/{i[key]}'
+                                if os.path.exists(img_path):
+                                    with open(img_path, 'rb') as resized_image_file:
+                                        bot.send_photo(chat_id, photo=resized_image_file, caption=result, parse_mode='html') #disable_web_page_preview=True)
+                                else:
+                                    default_img_path = f'static/hh.png'
+                                    if os.path.exists(default_img_path):
+                                        with open(default_img_path, 'rb') as resized_image_file:
+                                            bot.send_photo(chat_id, photo=resized_image_file, caption=result, parse_mode='html')
+                                    else:
+                                        bot.send_photo(chat_id, photo=None, caption=result,
+                                                       parse_mode='html')
 
-                        # bot.send_message(chat_id=chat_id, text=result, parse_mode="HTML",
-                        #                  reply_to_message_id=img_message.message_id, disable_web_page_preview=True)
-                        bot.send_message(chat_id, result, parse_mode='html', disable_web_page_preview=True)
 
             print(f'Подписанные пользователи на рассылку: {subscribed_users}')
 
-            time.sleep(180)  # Таймер между рассылками: 30 минут.
+            time.sleep(1800)  # Таймер между рассылками: 30 минут.
 
         except Exception as e:
             print(f'Ошибка при рассылке: {e}')
 
+
 def main():
-    #exit_event = threading.Event()
     t = threading.Thread(target=send_hh_message)
     t.daemon = True
     t.start()

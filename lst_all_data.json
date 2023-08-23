@@ -1,13 +1,5 @@
 [
     {
-        "Title": "Senior database application developer (remote)",
-        "Salary": "1 500 – 2 500 €",
-        "Company": "ИП Солоневич Д. А.",
-        "Location": "Алматы",
-        "Link": "https://almaty.hh.kz/vacancy/84328718?from=vacancy_search_list&query=python",
-        "Image": "Изображение отсутствует"
-    },
-    {
         "Title": "Преподаватель в международную школу STEM School Inventor Almaty",
         "Salary": "200 000 – 300 000 ₸",
         "Company": "ТОО STEM ШКОЛА АЛМАТЫ",
@@ -248,14 +240,6 @@
         "Image": "4161725.png"
     },
     {
-        "Title": "Главный специалист-аналитик Департамента стратегии и анализа",
-        "Salary": "Зарплата не указана",
-        "Company": "РГП Агентство Республики Казахстан по регулированию и развитию финансового рынка",
-        "Location": "Алматы",
-        "Link": "https://almaty.hh.kz/vacancy/84947181?from=vacancy_search_list&query=python",
-        "Image": "Изображение отсутствует"
-    },
-    {
         "Title": "Q/A engineer",
         "Salary": "Зарплата не указана",
         "Company": "ТОО AVIATA.KZ",
@@ -454,14 +438,6 @@
         "Location": "Алматы",
         "Link": "https://hh.kz/vacancy/85208040?from=vacancy_search_list&query=python",
         "Image": "3741036.png"
-    },
-    {
-        "Title": "Рекрутер - Разрабочик AI Python (Удаленно)",
-        "Salary": "130 000 – 180 000 ₽",
-        "Company": "LATOKEN",
-        "Location": "Алматы",
-        "Link": "https://hh.kz/vacancy/83974153?from=vacancy_search_list&query=python",
-        "Image": "5851550.png"
     },
     {
         "Title": "Data Engineer AI (удаленно)",
@@ -2198,21 +2174,5 @@
         "Location": "Алматы",
         "Link": "https://almaty.hh.kz/vacancy/85491051?from=vacancy_search_list&query=python",
         "Image": "3452962.png"
-    },
-    {
-        "Title": "Консультант по внедрению",
-        "Salary": "Зарплата не указана",
-        "Company": "Colvir Software Solutions",
-        "Location": "Алматы",
-        "Link": "https://almaty.hh.kz/vacancy/85484104?from=vacancy_search_list&query=python",
-        "Image": "4059156.png"
-    },
-    {
-        "Title": "Консультант службы сопровождения",
-        "Salary": "Зарплата не указана",
-        "Company": "Colvir Software Solutions",
-        "Location": "Алматы",
-        "Link": "https://almaty.hh.kz/vacancy/85483725?from=vacancy_search_list&query=python",
-        "Image": "4059156.png"
     }
 ]

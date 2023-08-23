@@ -13,11 +13,6 @@ import db
 # from fake_useragent import UserAgent
 # from selenium.webdriver.chrome.options import Options
 
-
-def get_url(p):
-    return
-
-
 def save_pages(headers, driver):
     """
       Функция сохраняет тестовую (первую) страницу сайта для определения количества страниц по данному запросу,
@@ -26,7 +21,7 @@ def save_pages(headers, driver):
     """
     # Сохранение тестовой (первой) страницы и формирование переменной с количеством страниц page_numbers.
     p = 0  # Номер первой страницы
-    url = f'https://hh.kz/search/vacancy?text=python&salary=&no_magic=true&ored_clusters=true&' \
+    url = f'https://almaty.hh.kz/search/vacancy?text=python&salary=&no_magic=true&ored_clusters=true&' \
            f'order_by=publication_time&enable_snippets=true&excluded_text=&area=160&page={p}'
     response = requests.get(url=url, headers=headers)
     src = response.text
@@ -44,7 +39,7 @@ def save_pages(headers, driver):
     # Сохранение всех страниц сайта по данному запросу.
     for i in range(1, page_numbers + 1):
         try:
-            driver.get(f'https://hh.kz/search/vacancy?text=python&salary=&no_magic=true&ored_clusters=true&'
+            driver.get(f'https://almaty.hh.kz/search/vacancy?text=python&salary=&no_magic=true&ored_clusters=true&'
                        f'order_by=publication_time&enable_snippets=true&excluded_text=&area=160&page={i-1}')
             sleep(randrange(3, 5))
             with open(f'selenium_data/page_{i}.html', 'w', encoding='utf-8') as file:
@@ -124,7 +119,7 @@ def get_data(lst_json, page_numbers):
                             with open(image_filename, 'wb') as f:
                                 f.write(image_content)
                                 print(f'Изображение {image_name} сохранено')
-                            sleep(1)
+                            sleep(5)
                         img = image_name
 
                     except Exception:
@@ -154,8 +149,8 @@ def get_data(lst_json, page_numbers):
                         'Salary': salary,
                         'Company': company,
                         'Location': location,
-                        'Link': link
-                        #'Image': img
+                        'Link': link,
+                        'Image': img
                     }
                 )
 
@@ -211,6 +206,7 @@ def run_parsing():
     lst_json = []
 
     pn = save_pages(headers, driver)
+
     get_data(lst_json, pn)
     data_for_telegram = get_telegram_data(lst_json)
 
