@@ -15,10 +15,18 @@
 4. Добавление в БД данных о новых вакансиях.
 5. Отправка сообщений с новыми вакансиях пользователям помощью telegram-бота.
 
+Для запуска программа необходимо установить следующие библиотеки:
+- pyTelegramBotAPI
+- BeautifulSoup4
+- lxml
+- selenium
+- requests
+
 Для запуска программы выполните данный модуль.
 
 Для активации telegram-бота добавьте его в telegram по имени @beastchargerbot (https://t.me/beastchargerbot).
 """
+
 import os
 import threading
 import time
@@ -36,8 +44,8 @@ subscribed_users = {}
 @bot.message_handler(commands=['start'])
 def welcome(message):
     chat_id = message.chat.id
-    sti = open('static/sticker.webp', 'rb')
-    bot.send_sticker(message.chat.id, sti)
+    #sti = open('static/sticker.webp', 'rb')
+    #bot.send_sticker(message.chat.id, sti)
     bot.send_message(message.chat.id, 'Добро пожаловать, {0.first_name}!, \nЯ - <b>{1.first_name}</b>, '
                                       'и я буду присылать Вам новые вакансии'
                                       ' с hh.kz!'.format(message.from_user, bot.get_me()), parse_mode='html')
@@ -49,6 +57,7 @@ def send_hh_message():
     """
     Функция для отправки сообщений пользователям.
     """
+
     while True:
         try:
             time.sleep(5)
@@ -68,7 +77,7 @@ def send_hh_message():
                                 img_path = f'static/{i[key]}'
                                 if os.path.exists(img_path):
                                     with open(img_path, 'rb') as resized_image_file:
-                                        bot.send_photo(chat_id, photo=resized_image_file, caption=result, parse_mode='html') #disable_web_page_preview=True)
+                                        bot.send_photo(chat_id, photo=resized_image_file, caption=result, parse_mode='html')
                                 else:
                                     default_img_path = f'static/hh.png'
                                     if os.path.exists(default_img_path):
@@ -88,8 +97,8 @@ def send_hh_message():
 
 
 def main():
-    t = threading.Thread(target=send_hh_message)
-    t.daemon = True
+    t = threading.Thread(target=send_hh_message)  # Создание потока.
+    t.daemon = True  # Необходимо для принудительного завершения программы.
     t.start()
     bot.polling(none_stop=True)
 

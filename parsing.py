@@ -205,8 +205,8 @@ def run_parsing():
 
     lst_json = []
 
-    pn = save_pages(headers, driver)
-
+    #pn = save_pages(headers, driver)
+    pn = 5
     get_data(lst_json, pn)
     data_for_telegram = get_telegram_data(lst_json)
 
