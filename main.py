@@ -44,13 +44,15 @@ subscribed_users = {}
 @bot.message_handler(commands=['start'])
 def welcome(message):
     chat_id = message.chat.id
-    #sti = open('static/sticker.webp', 'rb')
-    #bot.send_sticker(message.chat.id, sti)
     bot.send_message(message.chat.id, 'Добро пожаловать, {0.first_name}!, \nЯ - <b>{1.first_name}</b>, '
                                       'и я буду присылать Вам новые вакансии'
                                       ' с hh.kz!'.format(message.from_user, bot.get_me()), parse_mode='html')
     if chat_id not in subscribed_users:
         subscribed_users[chat_id] = True
+
+
+def time_between_scanning():
+    return 60*30  # Таймер между рассылками: 30 минут.
 
 
 def send_hh_message():
@@ -77,20 +79,21 @@ def send_hh_message():
                                 img_path = f'static/{i[key]}'
                                 if os.path.exists(img_path):
                                     with open(img_path, 'rb') as resized_image_file:
-                                        bot.send_photo(chat_id, photo=resized_image_file, caption=result, parse_mode='html')
+                                        bot.send_photo(chat_id, photo=resized_image_file, caption=result,
+                                                       parse_mode='html')
                                 else:
                                     default_img_path = f'static/hh.png'
                                     if os.path.exists(default_img_path):
                                         with open(default_img_path, 'rb') as resized_image_file:
-                                            bot.send_photo(chat_id, photo=resized_image_file, caption=result, parse_mode='html')
+                                            bot.send_photo(chat_id, photo=resized_image_file, caption=result,
+                                                           parse_mode='html')
                                     else:
                                         bot.send_photo(chat_id, photo=None, caption=result,
                                                        parse_mode='html')
 
-
             print(f'Подписанные пользователи на рассылку: {subscribed_users}')
 
-            time.sleep(1800)  # Таймер между рассылками: 30 минут.
+            time.sleep(time_between_scanning())
 
         except Exception as e:
             print(f'Ошибка при рассылке: {e}')

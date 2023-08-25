@@ -13,6 +13,7 @@ import db
 # from fake_useragent import UserAgent
 # from selenium.webdriver.chrome.options import Options
 
+
 def save_pages(headers, driver):
     """
       Функция сохраняет тестовую (первую) страницу сайта для определения количества страниц по данному запросу,
@@ -205,8 +206,8 @@ def run_parsing():
 
     lst_json = []
 
-    #pn = save_pages(headers, driver)
-    pn = 5
+    pn = save_pages(headers, driver)  # pn - количество страниц сайта по данному запросу.
+
     get_data(lst_json, pn)
     data_for_telegram = get_telegram_data(lst_json)
 
