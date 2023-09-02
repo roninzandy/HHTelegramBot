@@ -17,6 +17,7 @@
 
 Для запуска программа необходимо установить следующие библиотеки:
 - pyTelegramBotAPI
+- telebot
 - BeautifulSoup4
 - lxml
 - selenium

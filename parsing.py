@@ -7,11 +7,6 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 
 import db
-# from deepdiff import DeepDiff
-# from selenium.webdriver.common.by import By
-# from selenium.webdriver.common.keys import Keys
-# from fake_useragent import UserAgent
-# from selenium.webdriver.chrome.options import Options
 
 
 def save_pages(headers, driver):
@@ -200,6 +195,7 @@ def run_parsing():
 
     options = webdriver.ChromeOptions()
     options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
     options.add_argument(f"accept={headers['Accept']}")
     options.add_argument(f"user-agent={headers['User-Agent']}")
     driver = webdriver.Chrome(options=options)
