@@ -18,7 +18,7 @@ def save_pages(headers, driver):
     # Сохранение тестовой (первой) страницы и формирование переменной с количеством страниц page_numbers.
     p = 0  # Номер первой страницы
     url = f'https://almaty.hh.kz/search/vacancy?text=python&salary=&no_magic=true&ored_clusters=true&' \
-           f'order_by=publication_time&enable_snippets=true&excluded_text=&area=160&page={p}'
+          f'order_by=publication_time&enable_snippets=true&excluded_text=&area=160&page={p}'
     response = requests.get(url=url, headers=headers)
     src = response.text
 
