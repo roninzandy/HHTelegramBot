@@ -35,6 +35,7 @@ from time import sleep
 import telebot
 
 import config
+import db
 
 from parsing import run_parsing
 
@@ -43,14 +44,22 @@ class MyBot:
 
     bot = telebot.TeleBot(config.TOKEN_TEST)
     bot_active = True
-    subscribed_users = {}
     admin_users = {}
 
-    MIN_PERIOD = 10
-    MAX_PERIOD = 60
-    ALLOWED_PERIODS = list(range(MIN_PERIOD, MAX_PERIOD + 1))
+    MIN_PERIOD = 10*60
+    MAX_PERIOD = 60*60
+    ALLOWED_PERIODS = list(range(MIN_PERIOD, MAX_PERIOD + 1, 600))
+    print(ALLOWED_PERIODS)
+    time_between_scanning = 30*60
 
-    time_between_scanning = 30
+
+    try:
+        db.select_data_for_telegram_users()
+    except Exception:
+        db.create_table_for_telegram_users()
+
+
+
 
     @bot.message_handler(commands=['start'])
     def welcome(message):
@@ -60,8 +69,9 @@ class MyBot:
                                                     f'Я - <b>{MyBot.bot.get_me().first_name}</b>, '
                                                     'и я буду присылать Вам новые вакансии'
                                                     ' с hh.kz!', parse_mode='HTML')
-            if chat_id not in MyBot.subscribed_users:
-                MyBot.subscribed_users[chat_id] = True
+
+            if chat_id not in db.select_data_for_telegram_users():
+                db.insert_data_for_telegram_users(chat_id)
 
     @staticmethod
     def run():
@@ -90,10 +100,10 @@ class AdminPanel(MyBot):
         AdminPanel.bot.send_message(message.chat.id, f'Добро пожаловать в админ-панель, {message.from_user.first_name}. '
                                           f'Теперь у Вас больше власти над ботом! \n\n'
                                           f'В данный момент <b>{bot_status}</b>.\n\n'
-                                          f'Сканирование проводится каждые <b>{AdminPanel.time_between_scanning}</b> минут.\n\n'
+                                          f'Сканирование проводится каждые <b>{int(AdminPanel.time_between_scanning/60)}</b> минут.\n\n'
                                           'Доступные команды:\n\n'
                                           '/period [число] - задается время между сканированиями по данному '
-                                          'запросу (от 10 до 60 минут).\n'
+                                          'запросу (10, 20, 30, 40, 50 или 60 минут).\n'
                                           '/users - выводится количество пользователей, установивших бота.\n'
                                           '/message - отправить всем объявление всем пользователям.\n'
                                           '/stop - остановить бота.\n'
@@ -101,8 +111,6 @@ class AdminPanel(MyBot):
                                           '/adminquit - выйти из админ-панели.',
                                     parse_mode='HTML')
 
-        if chat_id not in AdminPanel.subscribed_users:
-            AdminPanel.subscribed_users[chat_id] = True
         if chat_id not in AdminPanel.admin_users:
             AdminPanel.admin_users[chat_id] = True
 
@@ -118,7 +126,7 @@ class AdminPanel(MyBot):
         chat_id = message.chat.id
         if chat_id in AdminPanel.admin_users:
             AdminPanel.bot.send_message(message.chat.id, f'Количество пользователей, установивших бота: '
-                                                         f'{len(AdminPanel.subscribed_users)}')
+                                                         f'{len(db.select_data_for_telegram_users())}')
 
     @MyBot.bot.message_handler(commands=['stop'])
     def stop_bot(message):
@@ -148,7 +156,7 @@ class AdminPanel(MyBot):
             AdminPanel.bot.register_next_step_handler(message, AdminPanel.sending_message_for_users)
 
     def sending_message_for_users(message):
-        for user_id in AdminPanel.subscribed_users.keys():
+        for user_id in db.select_data_for_telegram_users():
             AdminPanel.bot.send_message(user_id, f'❗️ {message.text}')
 
 
@@ -159,15 +167,14 @@ class AdminPanel(MyBot):
         if chat_id in AdminPanel.admin_users:
             result = re.findall(r'\d+', message.text)
             if len(result) == 1:
-                new_time_between_scanning = int(result[0])
+                new_time_between_scanning = int(result[0])*60
                 if new_time_between_scanning in MyBot.ALLOWED_PERIODS:
                     AdminPanel.time_between_scanning = new_time_between_scanning
                     AdminPanel.bot.send_message(chat_id, f'Теперь сканирование будет проводиться каждые '
-                                                         f'<b>{AdminPanel.time_between_scanning}</b>'
+                                                         f'<b>{int(AdminPanel.time_between_scanning/60)}</b>'
                                                          f' минут.', parse_mode='HTML')
                 else:
-                    AdminPanel.bot.send_message(chat_id, f'Значение должно быть в диапазоне от '
-                                                         f'{AdminPanel.MIN_PERIOD} до {AdminPanel.MAX_PERIOD} минут.')
+                    AdminPanel.bot.send_message(chat_id, f'Значение должно быть: 10, 20, 30, 40, 50 или 60 минут')
             else:
                 AdminPanel.bot.send_message(chat_id, 'Некорректный ввод команды.')
 
@@ -186,7 +193,7 @@ class MessageSender(AdminPanel):
                     if data_from_parser:
                         for i in data_from_parser:
                             result = ''
-                            for chat_id in cls.subscribed_users:
+                            for chat_id in db.select_data_for_telegram_users():
                                 for key, value in i.items():
                                     if key == 'Title':
                                         result += f'💼 <b><a href="{i["Link"]}">{value}</a></b>\n'
@@ -210,7 +217,7 @@ class MessageSender(AdminPanel):
                                                 cls.bot.send_photo(chat_id, photo=None, caption=result,
                                                                    parse_mode='html')
 
-                    print(f'Подписанные пользователи на рассылку: {cls.subscribed_users}')
+                    print(f'Подписанные пользователи на рассылку: {db.select_data_for_telegram_users()}')
 
                     sleep(cls.time_between_scanning)
 

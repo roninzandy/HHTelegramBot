@@ -108,3 +108,58 @@ def delete_data():
     connection.close()
 
 
+def create_table_for_telegram_users():
+    """
+    Функция создания таблицы в БД с данными о подписанных на телеграм-бота пользователей.
+    """
+
+    try:
+        connection = sqlite3.connect('database.db')
+        cursor = connection.cursor()
+
+        cursor.execute('CREATE TABLE IF NOT EXISTS telegram_users (id INTEGER PRIMARY KEY, chat_id VARCHAR(255),'
+                       ' "date" TEXT)')
+
+        connection.commit()
+        connection.close()
+
+    except sqlite3.Error as e:
+        print(f"Ошибка базы данных: {e}")
+    except Exception as e:
+        print(f"Произошла ошибка: {e}")
+
+
+def insert_data_for_telegram_users(chat_id):
+    """
+    Функция добавления данных о новых пользователях телеграм-бота в БД.
+    """
+
+    connection = sqlite3.connect('database.db')
+    cursor = connection.cursor()
+
+    date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    try:
+        cursor.execute('''INSERT INTO telegram_users (chat_id, "date") VALUES (?, ?)''', (chat_id, date))
+    except sqlite3.Error as e:
+        print(f"Ошибка при вставке данных: {e}")
+
+    connection.commit()
+    connection.close()
+
+    print('Внесение новых данных о пользователях в БД выполнено.')
+
+def select_data_for_telegram_users():
+    """
+    Функция возвращения набора данных о пользователях телеграм-бота из БД.
+    """
+
+    connection = sqlite3.connect('database.db')
+    cursor = connection.cursor()
+    cursor.execute('SELECT * FROM telegram_users')
+    rows = cursor.fetchall()
+
+    connection.close()
+    return rows
+
+
