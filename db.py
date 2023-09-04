@@ -4,7 +4,7 @@ import sqlite3
 
 def create_table(lst_json):
     """
-    Функция создания таблицы в БД.
+    Функция создания таблицы в БД с данными о вакансиях.
     """
 
     try:
@@ -40,7 +40,7 @@ def create_table(lst_json):
 
 def insert_data(lst_telegram):
     """
-    Функция добавления новых данных в БД.
+    Функция добавления данных о новых вакансиях в БД.
     """
 
     connection = sqlite3.connect('database.db')
