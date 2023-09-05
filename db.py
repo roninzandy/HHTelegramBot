@@ -158,8 +158,11 @@ def select_data_for_telegram_users():
     cursor = connection.cursor()
     cursor.execute('SELECT * FROM telegram_users')
     rows = cursor.fetchall()
+    chat_ids = []
+    for row in rows:
+        chat_ids.append(int(row[1]))
 
     connection.close()
-    return rows
+    return chat_ids
 
 

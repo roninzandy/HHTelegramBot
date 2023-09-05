@@ -129,7 +129,7 @@ def get_data(lst_json, page_numbers):
                 if loop_count == 1:
                     total_amount_of_posts += len(data)
 
-                print(f'Обрабатывается запись: {g_count}/{total_amount_of_posts}')
+                #print(f'Обрабатывается запись: {g_count}/{total_amount_of_posts}')
                 # print('#' * 20)
                 # print(title)
                 # print(salary)
@@ -202,8 +202,8 @@ def run_parsing():
 
     lst_json = []
 
-    #pn = save_pages(headers, driver)  # pn - количество страниц сайта по данному запросу.
-    pn = 5
+    pn = save_pages(headers, driver)  # pn - количество страниц сайта по данному запросу.
+    #pn = 5
     get_data(lst_json, pn)
     data_for_telegram = get_telegram_data(lst_json)
 
