@@ -12,15 +12,15 @@ from parsing import run_parsing
 
 class MyBot:
 
-    bot = telebot.TeleBot(config.TOKEN)
+    bot = telebot.TeleBot(config.TOKEN_TEST)
     bot_active = True
     admin_users = {}
 
-    MIN_PERIOD = 10*60
-    MAX_PERIOD = 60*60
+    MIN_PERIOD = 10 * 60
+    MAX_PERIOD = 60 * 60
     ALLOWED_PERIODS = list(range(MIN_PERIOD, MAX_PERIOD + 1, 600))
-    time_between_scanning = 20
-    keyword = 'django'
+    time_between_scanning = 20 * 60
+    keyword = 'python'
 
     try:
         db.select_data_for_telegram_users()
@@ -35,7 +35,11 @@ class MyBot:
             MyBot.bot.send_message(message.chat.id, f'Добро пожаловать, {message.from_user.first_name}! \n'
                                                     f'Я - <b>{MyBot.bot.get_me().first_name}</b>, '
                                                     'и я буду присылать Вам новые вакансии'
-                                                    ' с hh.kz!', parse_mode='HTML')
+                                                    ' с hh.kz!\n\n'
+                                                    'Сканирование проводится каждые '
+                                                    f'<b>{int(AdminPanel.time_between_scanning / 60)}</b> минут по '
+                                                    f'ключему слову <b>{AdminPanel.keyword}</b>.\n\n'
+                                   , parse_mode='HTML')
 
             if chat_id not in db.select_data_for_telegram_users():
                 db.insert_data_for_telegram_users(chat_id)
@@ -71,7 +75,8 @@ class AdminPanel(MyBot):
             bot_status = 'бот успешно работает'
         else:
             bot_status = 'бот не работает'
-
+        with open('static/hh_preview.png', 'rb') as img_preview:
+            AdminPanel.bot.send_photo(chat_id, photo=img_preview)
         AdminPanel.bot.send_message(message.chat.id, f'{hello_admin} '
                                                      f'В данный момент <b>{bot_status}</b>.\n\n'
                                                      f'Сканирование проводится каждые '
