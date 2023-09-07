@@ -2,7 +2,7 @@ from datetime import datetime
 import sqlite3
 
 
-def create_table(lst_json):
+def create_table():
     """
     Функция создания таблицы в БД с данными о вакансиях.
     """
@@ -12,25 +12,12 @@ def create_table(lst_json):
         cursor = connection.cursor()
 
         cursor.execute('CREATE TABLE IF NOT EXISTS data (id INTEGER PRIMARY KEY, "title" TEXT, '
-                       '"salary" VARCHAR(255), "company" TEXT, "location" VARCHAR(255), "link" TEXT, "img" TEXT, "date" TEXT)')
+                       '"salary" VARCHAR(255), "company" TEXT, "location" VARCHAR(255), "link" TEXT, "img" TEXT, '
+                       '"date" TEXT)')
 
-        for item in lst_json:
-            title = item['Title']
-            salary = item.get('Salary', None)
-            company = item.get('Company', None)
-            location = item.get('Location', None)
-            link = item.get('Link', None)
-            img = item.get('Image', None)
-            date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            try:
-                cursor.execute('''INSERT INTO data ("title", "salary", "company", "location", "link", "img", "date")
-                                VALUES (?, ?, ?, ?, ?, ?, ?)''',
-                               (title, salary, company, location, link, img, date))
-            except sqlite3.Error as e:
-                print(f"Ошибка при вставке данных: {e}")
         connection.commit()
         connection.close()
-        print('Изменения внесены в таблицу')
+        print('Изменения внесены в таблицу.')
 
     except sqlite3.Error as e:
         print(f"Ошибка базы данных: {e}")

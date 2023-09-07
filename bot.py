@@ -1,5 +1,6 @@
 import os
 import re
+import sqlite3
 from time import sleep
 import telebot
 
@@ -19,10 +20,12 @@ class MyBot:
     MAX_PERIOD = 60*60
     ALLOWED_PERIODS = list(range(MIN_PERIOD, MAX_PERIOD + 1, 600))
     time_between_scanning = 20
+    keyword = 'django'
 
     try:
         db.select_data_for_telegram_users()
-    except Exception:
+    except sqlite3.OperationalError:
+        # Если активируется исключение, значит, таблица 'telegram_users' отсутствует и ее нужно создать.
         db.create_table_for_telegram_users()
 
     @bot.message_handler(commands=['start'])
@@ -71,14 +74,19 @@ class AdminPanel(MyBot):
 
         AdminPanel.bot.send_message(message.chat.id, f'{hello_admin} '
                                                      f'В данный момент <b>{bot_status}</b>.\n\n'
-                                                     f'Сканирование проводится каждые <b>{int(AdminPanel.time_between_scanning/60)}</b> минут.\n\n'
+                                                     f'Сканирование проводится каждые '
+                                                     f'<b>{int(AdminPanel.time_between_scanning/60)}</b> минут по '
+                                                     f'ключему слову <b>{AdminPanel.keyword}</b>.\n\n'
                                                      'Доступные команды:\n\n'
+                                                     '/keyword - задается ключевое слово для поиска вакансий (слово '
+                                                     'может быть только одно, состоять только из строчных букв).\n'
                                                      '/period [число] - задается время между сканированиями по данному '
                                                      'запросу (10, 20, 30, 40, 50 или 60 минут).\n'
                                                      '/users - выводится количество пользователей, установивших бота.\n'
                                                      '/message - отправить всем объявление всем пользователям.\n'
                                                      '/stop - остановить бота.\n'
                                                      '/run - запустить бота.\n'
+                                                     '/error - выводит последнюю запись из журнала журнала ошибок.\n'
                                                      '/adminquit - выйти из админ-панели.', parse_mode='HTML')
 
     @MyBot.bot.message_handler(commands=['adminquit'])
@@ -143,6 +151,47 @@ class AdminPanel(MyBot):
             else:
                 AdminPanel.bot.send_message(chat_id, 'Некорректный ввод команды.')
 
+    @MyBot.bot.message_handler(commands=['error'])
+    def show_error(message):
+        chat_id = message.chat.id
+        if chat_id in AdminPanel.admin_users:
+            with open('logs.txt', encoding='UTF-8') as f:
+                rows = f.readlines()
+                AdminPanel.bot.send_message(chat_id, f'{rows[-1]}')
+
+    @classmethod
+    def send_error(cls):
+        with open('logs.txt', encoding='UTF-8') as f:
+            rows = f.readlines()
+            for admin_id in cls.admin_users:
+                cls.bot.send_message(admin_id, f'❗️ Возникла ошибка.\n\n ️'
+                                               f'❗️ {rows[-1]}')
+
+    @MyBot.bot.message_handler(commands=['keyword'])
+    def choose_keyword(message):
+        chat_id = message.chat.id
+        if chat_id in AdminPanel.admin_users:
+            AdminPanel.bot.send_message(chat_id, "Выберите ключевое слово для поиска вакансий.")
+            AdminPanel.bot.register_next_step_handler(message, AdminPanel.set_keyword)
+
+    def set_keyword(message):
+        chat_id = message.chat.id
+        if (len(message.text.split()) == 1) and message.text.isalpha():
+            AdminPanel.keyword = message.text
+            AdminPanel.bot.send_message(chat_id, f'Теперь поиск будет проводиться по ключевому слову '
+                                                 f'<b>{message.text}</b>', parse_mode='HTML')
+        else:
+            AdminPanel.bot.send_message(chat_id, "Данные введены некорректно: ключевое слово должно быть одним словом"
+                                                 "и полностью состоять только из букв.")
+
+
+
+
+
+
+
+
+
 
 class MessageSender(AdminPanel):
     def send_message(cls):
@@ -152,40 +201,38 @@ class MessageSender(AdminPanel):
 
         while True:
             if cls.bot_active:
-                try:
-                    data_from_parser = run_parsing()
-                    if data_from_parser:
-                        for i in data_from_parser:
-                            result = ''
-                            for chat_id in db.select_data_for_telegram_users():
-                                for key, value in i.items():
-                                    if key == 'Title':
-                                        result += f'💼 <b><a href="{i["Link"]}">{value}</a></b>\n'
-                                    elif key == 'Salary':
-                                        result += f'💰 <b>{value}</b>\n'
-                                    elif key == 'Company':
-                                        result += f'🏙️ <b>{value}</b>\n'
-                                    elif key == 'Image':
-                                        img_path = f'static/{i[key]}'
-                                        if os.path.exists(img_path):
-                                            with open(img_path, 'rb') as image_file:
-                                                cls.bot.send_photo(chat_id, photo=image_file, caption=result,
-                                                                   parse_mode='html')
+                data_from_parser = run_parsing(AdminPanel.keyword)
+                if data_from_parser:
+                    for i in data_from_parser:
+                        result = ''
+                        for chat_id in db.select_data_for_telegram_users():
+                            for key, value in i.items():
+                                if key == 'Title':
+                                    result += f'💼 <b><a href="{i["Link"]}">{value}</a></b>\n'
+                                elif key == 'Salary':
+                                    result += f'💰 <b>{value}</b>\n'
+                                elif key == 'Company':
+                                    result += f'🏙️ <b>{value}</b>\n'
+                                elif key == 'Image':
+                                    img_path = f'static/{i[key]}'
+                                    if os.path.exists(img_path):
+                                        with open(img_path, 'rb') as image_file:
+                                            cls.bot.send_photo(chat_id, photo=image_file, caption=result,
+                                                               parse_mode='html')
+                                    else:
+                                        default_img_path = f'static/hh.png'
+                                        if os.path.exists(default_img_path):
+                                            with open(default_img_path, 'rb') as default_image_file:
+                                                cls.bot.send_photo(chat_id, photo=default_image_file,
+                                                                   caption=result, parse_mode='html')
                                         else:
-                                            default_img_path = f'static/hh.png'
-                                            if os.path.exists(default_img_path):
-                                                with open(default_img_path, 'rb') as default_image_file:
-                                                    cls.bot.send_photo(chat_id, photo=default_image_file,
-                                                                       caption=result, parse_mode='html')
-                                            else:
-                                                cls.bot.send_photo(chat_id, photo=None, caption=result,
-                                                                   parse_mode='html')
+                                            cls.bot.send_photo(chat_id, photo=None, caption=result,
+                                                               parse_mode='html')
 
-                    print(f'Подписанные пользователи на рассылку: {db.select_data_for_telegram_users()}')
+                print(f'Подписанные пользователи на рассылку: {db.select_data_for_telegram_users()}')
 
-                    sleep(cls.time_between_scanning)
+                sleep(cls.time_between_scanning)
 
-                except Exception as e:
-                    print(f'Ошибка при рассылке: {e}')
             else:
-                sleep(60 * 5)
+                sleep(60 * 5)  # Таймер для следующей попытки продолжить выполнение кода
+                               # в случае, если администратор бота активировал '/stop'.

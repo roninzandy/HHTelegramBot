@@ -1,3 +1,4 @@
+import sqlite3
 from datetime import datetime
 import os.path
 from time import sleep
@@ -9,7 +10,7 @@ from selenium import webdriver
 import db
 
 
-def save_pages(headers, driver):
+def save_pages(headers, driver, keyword):
     """
       Функция сохраняет тестовую (первую) страницу сайта для определения количества страниц по данному запросу,
       формирует ссылки на страницы в цикле, а затем сохраняет все страницы в папку "selenium_data".
@@ -17,7 +18,7 @@ def save_pages(headers, driver):
     """
     # Сохранение тестовой (первой) страницы и формирование переменной с количеством страниц page_numbers.
     p = 0  # Номер первой страницы
-    url = f'https://almaty.hh.kz/search/vacancy?text=python&salary=&no_magic=true&ored_clusters=true&' \
+    url = f'https://almaty.hh.kz/search/vacancy?text={keyword}&salary=&no_magic=true&ored_clusters=true&' \
           f'order_by=publication_time&enable_snippets=true&excluded_text=&area=160&page={p}'
     response = requests.get(url=url, headers=headers)
     src = response.text
@@ -28,14 +29,18 @@ def save_pages(headers, driver):
     with open('selenium_data/test.html', encoding='utf-8') as file:
         src = file.read()
         soup = BeautifulSoup(src, 'lxml')
-        page_numbers = int(list(soup.find('div', class_='pager'))[-2].text)
+        pager = soup.find('div', class_='pager')
+        if pager:
+            page_numbers = int(list(pager)[-2].text)
+        else:
+            page_numbers = 1
         print(f'Всего страниц по данному запросу: {page_numbers}')
         sleep(randrange(3, 5))
 
     # Сохранение всех страниц сайта по данному запросу.
     for i in range(1, page_numbers + 1):
         try:
-            driver.get(f'https://almaty.hh.kz/search/vacancy?text=python&salary=&no_magic=true&ored_clusters=true&'
+            driver.get(f'https://almaty.hh.kz/search/vacancy?text={keyword}&salary=&no_magic=true&ored_clusters=true&'
                        f'order_by=publication_time&enable_snippets=true&excluded_text=&area=160&page={i-1}')
             sleep(randrange(3, 5))
             with open(f'selenium_data/page_{i}.html', 'w', encoding='utf-8') as file:
@@ -158,10 +163,8 @@ def get_telegram_data(lst_json):
     """
 
     lst_telegram = []
-    if not os.path.exists('database.db'):
-        if lst_json:
-            db.create_table(lst_json)
-    else:
+
+    try:
         rows = db.select_data()
         for item in lst_json:
             found = False
@@ -171,22 +174,29 @@ def get_telegram_data(lst_json):
             if found is False:
                 print('Идет запись...')
                 lst_telegram.append(item)
-        print(f'Всего записей в БД: {len(rows)+len(lst_telegram)}')
+        print(f'Всего записей в БД: {len(rows) + len(lst_telegram)}')
 
-    if lst_telegram:
-        print('Новые записи:')
-        for item in lst_telegram:
-            print(item)
-        db.insert_data(lst_telegram)
-        print(f'Всего новых записей: {len(lst_telegram)}')
-    else:
-        print('Новых записей нет.\n'
-              f'Дата сканирования: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
+        if lst_telegram:
+            print('Новые записи:')
+            for item in lst_telegram:
+                print(item)
+            db.insert_data(lst_telegram)
+            print(f'Всего новых записей: {len(lst_telegram)}')
+        else:
+            print('Новых записей нет.\n'
+                  f'Дата сканирования: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
+
+    except sqlite3.OperationalError:
+        # Если активируется исключение, значит, таблица 'data' отсутствует и ее нужно создать.
+        db.create_table()
+        db.insert_data(lst_json)
+        print('Первичное сканирование завершено. Таблица заполнена новыми данными. При появлении новых вакансий'
+              'пользователям будут отправляться сообщения начиная со следующего сканирования.')
 
     return lst_telegram
 
 
-def run_parsing():
+def run_parsing(keyword):
     headers = {
         'Accept': '*/*',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
@@ -202,8 +212,7 @@ def run_parsing():
 
     lst_json = []
 
-    pn = save_pages(headers, driver)  # pn - количество страниц сайта по данному запросу.
-    #pn = 5
+    pn = save_pages(headers, driver, keyword)  # pn - количество страниц сайта по данному запросу.
     get_data(lst_json, pn)
     data_for_telegram = get_telegram_data(lst_json)
 

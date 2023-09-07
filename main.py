@@ -1,7 +1,10 @@
 """
-Программа создана для парсинга данных о новых вакансиях с сайта hh.kz и рассылки пользователям с помощью telegram-бота.
+Программа создана для парсинга данных о новых вакансиях с сайта hh.kz по ключевому слову и рассылки пользователям с
+помощью telegram-бота.
 Telegram-бот содержит админ-панель с авторизацией, где администратор канала может задать такие параметры как:
 ключевое слово для поиска вакансий, время сканирования, состояние бота (вкл./откл.) и т.д.
+Программа также имеет взаимодействие с БД для хранения данных вакансиях и пользователях telegram-бота.
+
 
 Данный модуль является основным. Проект состоит из пяти модулей:
 1. main.py - содержит точку входа программы, также здесь реализовано автоматическое переподключение в случае
@@ -35,30 +38,42 @@ Telegram-бот содержит админ-панель с авторизаци
 from datetime import datetime
 import threading
 from time import sleep
-import requests
 
 from bot import MessageSender
 
 
 def main():
+    error_was_here = False
     thr_is_alive = False
     while True:
+        my_bot = MessageSender()
         try:
             if not thr_is_alive:
-                requests.get('https://www.google.com')  # Проверка доступа к интернету.
-                my_bot = MessageSender()
                 t = threading.Thread(target=my_bot.send_message, name='thr-1')
                 t.daemon = True  # Необходимо для принудительного завершения программы.
                 t.start()
                 thr_is_alive = t.is_alive()
-                my_bot.run()
+                print(f'Thr-1 активен: {t.is_alive()}')
+                print(f'Потоков: {threading.active_count()}')
+
+            if error_was_here is True:
+                my_bot.send_error()
+
+            my_bot.run()
+
         except Exception as e:
             print(f'Произошла ошибка: {str(e)}')
+
             date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             with open('logs.txt', 'a', encoding='UTF-8') as f:
                 f.write(f'{date}: {e}\n')
 
-        sleep(10)  # Интервал между повторными подключениями
+            error_was_here = True
+
+            sleep(2)
+            for i in range(10, 0, -1):
+                print(f'Переподключение через... {i}.')
+                sleep(1)
 
 
 if __name__ == '__main__':
