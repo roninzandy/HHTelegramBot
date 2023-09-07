@@ -12,7 +12,7 @@ from parsing import run_parsing
 
 class MyBot:
 
-    bot = telebot.TeleBot(config.TOKEN_TEST)
+    bot = telebot.TeleBot(config.TOKEN)
     bot_active = True
     admin_users = {}
 
