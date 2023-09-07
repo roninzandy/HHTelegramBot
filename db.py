@@ -2,9 +2,9 @@ from datetime import datetime
 import sqlite3
 
 
-def create_table(lst_json):
+def create_table():
     """
-    Функция создания таблицы в БД.
+    Функция создания таблицы в БД с данными о вакансиях.
     """
 
     try:
@@ -12,25 +12,12 @@ def create_table(lst_json):
         cursor = connection.cursor()
 
         cursor.execute('CREATE TABLE IF NOT EXISTS data (id INTEGER PRIMARY KEY, "title" TEXT, '
-                       '"salary" VARCHAR(255), "company" TEXT, "location" VARCHAR(255), "link" TEXT, "img" TEXT, "date" TEXT)')
+                       '"salary" VARCHAR(255), "company" TEXT, "location" VARCHAR(255), "link" TEXT, "img" TEXT, '
+                       '"date" TEXT)')
 
-        for item in lst_json:
-            title = item['Title']
-            salary = item.get('Salary', None)
-            company = item.get('Company', None)
-            location = item.get('Location', None)
-            link = item.get('Link', None)
-            img = item.get('Image', None)
-            date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            try:
-                cursor.execute('''INSERT INTO data ("title", "salary", "company", "location", "link", "img", "date")
-                                VALUES (?, ?, ?, ?, ?, ?, ?)''',
-                               (title, salary, company, location, link, img, date))
-            except sqlite3.Error as e:
-                print(f"Ошибка при вставке данных: {e}")
         connection.commit()
         connection.close()
-        print('Изменения внесены в таблицу')
+        print('Изменения внесены в таблицу.')
 
     except sqlite3.Error as e:
         print(f"Ошибка базы данных: {e}")
@@ -40,7 +27,7 @@ def create_table(lst_json):
 
 def insert_data(lst_telegram):
     """
-    Функция добавления новых данных в БД.
+    Функция добавления данных о новых вакансиях в БД.
     """
 
     connection = sqlite3.connect('database.db')
@@ -106,5 +93,63 @@ def delete_data():
     cursor.execute(delete_query)
     connection.commit()
     connection.close()
+
+
+def create_table_for_telegram_users():
+    """
+    Функция создания таблицы в БД с данными о подписанных на телеграм-бота пользователей.
+    """
+
+    try:
+        connection = sqlite3.connect('database.db')
+        cursor = connection.cursor()
+
+        cursor.execute('CREATE TABLE IF NOT EXISTS telegram_users (id INTEGER PRIMARY KEY, chat_id VARCHAR(255),'
+                       ' "date" TEXT)')
+
+        connection.commit()
+        connection.close()
+
+    except sqlite3.Error as e:
+        print(f"Ошибка базы данных: {e}")
+    except Exception as e:
+        print(f"Произошла ошибка: {e}")
+
+
+def insert_data_for_telegram_users(chat_id):
+    """
+    Функция добавления данных о новых пользователях телеграм-бота в БД.
+    """
+
+    connection = sqlite3.connect('database.db')
+    cursor = connection.cursor()
+
+    date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    try:
+        cursor.execute('''INSERT INTO telegram_users (chat_id, "date") VALUES (?, ?)''', (chat_id, date))
+    except sqlite3.Error as e:
+        print(f"Ошибка при вставке данных: {e}")
+
+    connection.commit()
+    connection.close()
+
+    print('Внесение новых данных о пользователях в БД выполнено.')
+
+def select_data_for_telegram_users():
+    """
+    Функция возвращения набора данных о пользователях телеграм-бота из БД.
+    """
+
+    connection = sqlite3.connect('database.db')
+    cursor = connection.cursor()
+    cursor.execute('SELECT * FROM telegram_users')
+    rows = cursor.fetchall()
+    chat_ids = []
+    for row in rows:
+        chat_ids.append(int(row[1]))
+
+    connection.close()
+    return chat_ids
 
 
