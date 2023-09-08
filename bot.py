@@ -1,3 +1,4 @@
+from datetime import datetime
 import os
 import re
 import sqlite3
@@ -230,10 +231,13 @@ class MessageSender(AdminPanel):
                                                                parse_mode='html')
 
                 print(f'Подписанные пользователи на рассылку: {db.select_data_for_telegram_users()}')
+                date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                with open('logs.txt', 'a', encoding='UTF-8') as f:
+                    f.write(f'[{date}]: Сканирование проведено.\n')
 
                 sleep(cls.time_between_scanning)
 
             else:
-                print('Бот не работает. Ожидается повторное подключение.')
+                print('Бот не работает. Ожидается повторное подключение через 5 минут.')
                 sleep(60 * 5)  # Таймер для следующей попытки продолжить выполнение кода
                                # в случае, если администратор бота активировал '/stop'.

@@ -72,7 +72,7 @@ def main():
 
             date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             with open('logs.txt', 'a', encoding='UTF-8') as f:
-                f.write(f'{date}: {e}\n')
+                f.write(f'[{date}]: {e}\n')
                 print('Запись внесена в журнал ошибок.')
             sleep(2)
             for i in range(10, 0, -1):
