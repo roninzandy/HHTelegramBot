@@ -13,7 +13,7 @@ from parsing import run_parsing
 
 class MyBot:
 
-    bot = telebot.TeleBot(config.TOKEN_TEST)
+    bot = telebot.TeleBot(config.TOKEN)
     bot_active = True
     admin_users = {}
 
@@ -232,7 +232,7 @@ class MessageSender(AdminPanel):
 
                 print(f'Подписанные пользователи на рассылку: {db.select_data_for_telegram_users()}')
                 date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                with open('logs.txt', 'a', encoding='UTF-8') as f:
+                with open('success.txt', 'a', encoding='UTF-8') as f:
                     f.write(f'[{date}]: Сканирование проведено.\n')
 
                 sleep(cls.time_between_scanning)
