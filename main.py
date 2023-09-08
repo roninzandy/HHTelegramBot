@@ -45,31 +45,35 @@ from bot import MessageSender
 def main():
     error_was_here = False
     thr_is_alive = False
+
     while True:
+        print('Попытка подключения...')
+        sleep(2)
         my_bot = MessageSender()
         try:
             if not thr_is_alive:
-                t = threading.Thread(target=my_bot.send_message, name='thr-1')
-                t.daemon = True  # Необходимо для принудительного завершения программы.
+                t = threading.Thread(target=my_bot.send_message, name='thr-1', daemon=True)
                 t.start()
                 thr_is_alive = t.is_alive()
-                print(f'Thr-1 активен: {t.is_alive()}')
-                print(f'Потоков: {threading.active_count()}')
-
-            if error_was_here is True:
+                if t.is_alive():
+                    print('Поток thr-1 создан.')
+            if error_was_here:
                 my_bot.send_error()
+                error_was_here = False
 
             my_bot.run()
+            sleep(2)
 
         except Exception as e:
             print(f'Произошла ошибка: {str(e)}')
 
+            thr_is_alive = False
+            error_was_here = True
+
             date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             with open('logs.txt', 'a', encoding='UTF-8') as f:
                 f.write(f'{date}: {e}\n')
-
-            error_was_here = True
-
+                print('Запись внесена в журнал ошибок.')
             sleep(2)
             for i in range(10, 0, -1):
                 print(f'Переподключение через... {i}.')

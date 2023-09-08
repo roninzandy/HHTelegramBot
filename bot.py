@@ -32,14 +32,16 @@ class MyBot:
     def welcome(message):
         if MyBot.bot_active:
             chat_id = message.chat.id
+            with open('static/hh_preview.png', 'rb') as img_preview:
+                AdminPanel.bot.send_photo(chat_id, photo=img_preview)
             MyBot.bot.send_message(message.chat.id, f'Добро пожаловать, {message.from_user.first_name}! \n'
                                                     f'Я - <b>{MyBot.bot.get_me().first_name}</b>, '
                                                     'и я буду присылать Вам новые вакансии'
                                                     ' с hh.kz!\n\n'
                                                     'Сканирование проводится каждые '
                                                     f'<b>{int(AdminPanel.time_between_scanning / 60)}</b> минут по '
-                                                    f'ключему слову <b>{AdminPanel.keyword}</b>.\n\n'
-                                   , parse_mode='HTML')
+                                                    f'ключему слову <b>{AdminPanel.keyword}</b>.\n\n',
+                                   parse_mode='HTML')
 
             if chat_id not in db.select_data_for_telegram_users():
                 db.insert_data_for_telegram_users(chat_id)
@@ -75,8 +77,6 @@ class AdminPanel(MyBot):
             bot_status = 'бот успешно работает'
         else:
             bot_status = 'бот не работает'
-        with open('static/hh_preview.png', 'rb') as img_preview:
-            AdminPanel.bot.send_photo(chat_id, photo=img_preview)
         AdminPanel.bot.send_message(message.chat.id, f'{hello_admin} '
                                                      f'В данный момент <b>{bot_status}</b>.\n\n'
                                                      f'Сканирование проводится каждые '
@@ -162,7 +162,10 @@ class AdminPanel(MyBot):
         if chat_id in AdminPanel.admin_users:
             with open('logs.txt', encoding='UTF-8') as f:
                 rows = f.readlines()
-                AdminPanel.bot.send_message(chat_id, f'{rows[-1]}')
+                if len(rows) > 0:
+                    AdminPanel.bot.send_message(chat_id, f'{rows[-1]}')
+                else:
+                    AdminPanel.bot.send_message(chat_id, 'Журнал ошибок пуст.')
 
     @classmethod
     def send_error(cls):
@@ -188,14 +191,6 @@ class AdminPanel(MyBot):
         else:
             AdminPanel.bot.send_message(chat_id, "Данные введены некорректно: ключевое слово должно быть одним словом"
                                                  "и полностью состоять только из букв.")
-
-
-
-
-
-
-
-
 
 
 class MessageSender(AdminPanel):
@@ -239,5 +234,6 @@ class MessageSender(AdminPanel):
                 sleep(cls.time_between_scanning)
 
             else:
+                print('Бот не работает. Ожидается повторное подключение.')
                 sleep(60 * 5)  # Таймер для следующей попытки продолжить выполнение кода
                                # в случае, если администратор бота активировал '/stop'.
