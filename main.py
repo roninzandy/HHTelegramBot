@@ -42,9 +42,18 @@ from time import sleep
 from bot import MessageSender
 
 
+def log_error_and_sleep(error):
+    date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    with open('logs.txt', 'a', encoding='UTF-8') as f:
+        f.write(f'[{date}]: {error}\n')
+        print('Запись внесена в журнал ошибок.')
+    sleep(2)
+
+
 def main():
     error_was_here = False
     thr_is_alive = False
+    polling_alive = False
 
     while True:
         print('Попытка подключения...')
@@ -57,31 +66,34 @@ def main():
                 thr_is_alive = t.is_alive()
                 if t.is_alive():
                     print('Поток thr-1 создан.')
-            if error_was_here:
-                my_bot.send_error()
-                error_was_here = False
+            print(f'Потоков всего: {threading.active_count()}')
+            print(f'Потоки: {threading.enumerate()}')
 
-            my_bot.run()
-            sleep(2)
+            try:
+                if not polling_alive:
+                    if error_was_here:
+                        my_bot.send_error()
+                        error_was_here = False
+
+                    polling_alive = True
+                    my_bot.run()
+                    sleep(2)
+            except Exception as e:
+                print(f'Произошла ошибка в polling: {str(e)}')
+                polling_alive = False
+                error_was_here = True
+                log_error_and_sleep(e)
 
         except Exception as e:
-            print(f'Произошла ошибка: {str(e)}')
-
+            print(f'Произошла ошибка в потоке: {str(e)}')
             thr_is_alive = False
             error_was_here = True
-
-            date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-            with open('logs.txt', 'a', encoding='UTF-8') as f:
-                f.write(f'[{date}]: {e}\n')
-                print('Запись внесена в журнал ошибок.')
-            sleep(2)
-            for i in range(10, 0, -1):
-                print(f'Переподключение через... {i}.')
-                sleep(1)
-
+            log_error_and_sleep(e)
 
 if __name__ == '__main__':
     main()
+
+
 
 
 

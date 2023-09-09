@@ -184,7 +184,7 @@ def get_telegram_data(lst_json):
             print(f'Всего новых записей: {len(lst_telegram)}')
         else:
             print('Новых записей нет.\n'
-                  f'Дата сканирования: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
+        f'Дата сканирования: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
 
     except sqlite3.OperationalError:
         # Если активируется исключение, значит, таблица 'data' отсутствует и ее нужно создать.

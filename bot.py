@@ -49,7 +49,7 @@ class MyBot:
 
     @staticmethod
     def run():
-        MyBot.bot.polling(none_stop=True, timeout=30)
+        MyBot.bot.polling(none_stop=True)
 
 class AdminPanel(MyBot):
     @MyBot.bot.message_handler(commands=['admin'])
