@@ -13,7 +13,7 @@ from parsing import run_parsing
 
 class MyBot:
 
-    bot = telebot.TeleBot(config.TOKEN)
+    bot = telebot.TeleBot(config.TOKEN_TEST)
     bot_active = True
     admin_users = {}
 
@@ -160,12 +160,15 @@ class AdminPanel(MyBot):
     def show_error(message):
         chat_id = message.chat.id
         if chat_id in AdminPanel.admin_users:
-            with open('logs.txt', encoding='UTF-8') as f:
-                rows = f.readlines()
-                if len(rows) > 0:
-                    AdminPanel.bot.send_message(chat_id, f'{rows[-1]}')
-                else:
-                    AdminPanel.bot.send_message(chat_id, 'Журнал ошибок пуст.')
+            if os.path.exists('logs.txt'):
+                with open('logs.txt', encoding='UTF-8') as f:
+                    rows = f.readlines()
+                    if len(rows) > 0:
+                        AdminPanel.bot.send_message(chat_id, f'{rows[-1]}')
+                    else:
+                        AdminPanel.bot.send_message(chat_id, 'Журнал ошибок пуст.')
+            else:
+                AdminPanel.bot.send_message(chat_id, 'Журнал ошибок не создан.')
 
     @classmethod
     def send_error(cls):
