@@ -1,5 +1,6 @@
 from datetime import datetime
 import os
+import random
 import re
 import sqlite3
 from time import sleep
@@ -195,6 +196,86 @@ class AdminPanel(MyBot):
             AdminPanel.bot.send_message(chat_id, "Данные введены некорректно: ключевое слово должно быть одним словом"
                                                  "и полностью состоять только из букв.")
 
+    @MyBot.bot.message_handler(commands=['document'])
+    def handle_document(message):
+        chat_id = message.chat.id
+        if chat_id in AdminPanel.admin_users:
+            AdminPanel.bot.send_message(chat_id, "Отправьте файл в формате .txt")
+            AdminPanel.bot.register_next_step_handler(message, AdminPanel.darri)
+
+
+
+
+    def darri(message):
+        chat_id = message.chat.id
+        if message.document.mime_type == 'text/plain':
+            # Получаем информацию из документа
+            file_info = AdminPanel.bot.get_file(message.document.file_id)
+            downloaded_file = AdminPanel.bot.download_file(file_info.file_path)
+            text = downloaded_file.decode("utf-8")
+        lst_all = []
+        lst = []
+        lst_repeated = []
+        limit = 240
+
+        pattern = r'@(\w+)'
+        matches = re.findall(pattern, text)
+        for match in matches:
+            m = f'@{match}.bsky.social'
+            if m not in lst_all:
+                lst_all.append(m)
+                print(m)
+            else:
+                lst_repeated.append(m)
+                print(f'[repeated] >>>>>>>>>>>>>>>>>> {m}')
+        random.shuffle(lst_all)
+        lst_all_str = ''.join(lst_all)
+        lst_all_str_remove = lst_all_str.replace('@', '')
+        lst_all_str_remove_len = len(lst_all_str_remove)
+        amount_of_lists = (lst_all_str_remove_len // limit) + 1
+
+        # creating dict with lists
+        lists = {}
+        for i in range(amount_of_lists):
+            list_name = f"list_{i}"
+            lists[list_name] = []
+
+            # filling lists with limit or symbols
+        count = 0
+        n = 0
+        for i in lst_all:
+            x = len(str(i))
+            if (count + x) < limit:
+                lists[f'list_{n}'].append(i)
+                count += x
+            else:
+                count = 0
+                n += 1
+
+        # forming final list with lists of dict values
+        for list_name, list_items in lists.items():
+            if lists[list_name]:
+                lst.append(list_items)
+        # forming final
+        with open('to_kjetll.txt', 'w', encoding='utf-8') as f:
+            f.write('')
+
+        with open('to_kjetll.txt', 'a', encoding='utf-8') as f:
+            b = "KJETLL'S ARTSHARE"
+            for x1 in lst:
+                f.write(f"\n\n{b}\n\n")
+                for x2 in x1:
+                    f.write(f'{x2} ')
+
+        result = f'Amount of dicts: {len(lst)}\nTotal names: {len(lst_all)+len(lst_repeated)}\n' \
+                 f'All users: {len(lst_all)}\nRepeats: {len(lst_repeated)}'
+
+        print(result)
+
+        if os.path.exists("to_kjetll.txt") and os.path.getsize("to_kjetll.txt") > 0:
+            AdminPanel.bot.send_document(chat_id, open("to_kjetll.txt", "rb"))
+        else:
+            print("Файл 'to_kjetll.txt' пустой или не существует.")
 
 class MessageSender(AdminPanel):
     def send_message(cls):
