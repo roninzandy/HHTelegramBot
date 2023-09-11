@@ -14,7 +14,7 @@ from parsing import run_parsing
 
 class MyBot:
 
-    bot = telebot.TeleBot(config.TOKEN)
+    bot = telebot.TeleBot(config.TOKEN_TEST)
     bot_active = True
     admin_users = {}
 
@@ -196,86 +196,114 @@ class AdminPanel(MyBot):
             AdminPanel.bot.send_message(chat_id, "Данные введены некорректно: ключевое слово должно быть одним словом"
                                                  "и полностью состоять только из букв.")
 
-    @MyBot.bot.message_handler(commands=['document'])
+    @MyBot.bot.message_handler(commands=['doc'])
     def handle_document(message):
         chat_id = message.chat.id
         if chat_id in AdminPanel.admin_users:
             AdminPanel.bot.send_message(chat_id, "Отправьте файл в формате .txt")
-            AdminPanel.bot.register_next_step_handler(message, AdminPanel.darri)
+            AdminPanel.bot.register_next_step_handler(message, AdminPanel.darri_keyword)
 
 
-
-
-    def darri(message):
+    def darri_keyword(message):
         chat_id = message.chat.id
         if message.document.mime_type == 'text/plain':
             # Получаем информацию из документа
             file_info = AdminPanel.bot.get_file(message.document.file_id)
             downloaded_file = AdminPanel.bot.download_file(file_info.file_path)
             text = downloaded_file.decode("utf-8")
-            lst_all = []
-            lst = []
-            lst_repeated = []
-            limit = 240
 
-            pattern = r'@(\w+)'
-            matches = re.findall(pattern, text)
-            for match in matches:
-                m = f"@{match.split('.')[0]}"
-                if m not in lst_all:
-                    lst_all.append(m)
-                    print(m)
-                else:
-                    lst_repeated.append(m)
-                    print(f'[repeated] >>>>>>>>>>>>>>>>>> {m}')
-            random.shuffle(lst_all)
-            lst_all_str = ''.join(lst_all)
-            lst_all_str_remove = lst_all_str.replace('@', '')
-            lst_all_str_remove_len = len(lst_all_str_remove)
-            amount_of_lists = (lst_all_str_remove_len // limit) + 1
+        if chat_id in AdminPanel.admin_users:
+            AdminPanel.bot.send_message(chat_id, "Введите ключевую фразу, которая будет вставлена между абзацами.")
+            AdminPanel.bot.register_next_step_handler(message, AdminPanel.darri, text)
 
-            # creating dict with lists
-            lists = {}
-            for i in range(amount_of_lists):
-                list_name = f"list_{i}"
-                lists[list_name] = []
+    def darri(message, text):
+        chat_id = message.chat.id
 
-                # filling lists with limit or symbols
-            count = 0
-            n = 0
-            for i in lst_all:
-                x = len(str(i))
-                if (count + x) < limit:
-                    lists[f'list_{n}'].append(i)
-                    count += x
-                else:
-                    count = 0
-                    n += 1
+        lst_all = []
+        lst = []
+        lst_repeated = []
+        limit = 280
+        extra = message.text
 
-            # forming final list with lists of dict values
-            for list_name, list_items in lists.items():
-                if lists[list_name]:
-                    lst.append(list_items)
-            # forming final
-            with open('to_kjetll.txt', 'w', encoding='utf-8') as f:
-                f.write('')
+        website = 'twitter'
+        pattern_test = r'bsky.social'
+        matches_test = re.findall(pattern_test, text)
+        if matches_test:
+            website = 'bluesky'
 
-            with open('to_kjetll.txt', 'a', encoding='utf-8') as f:
-                b = "KJETLL'S ARTSHARE"
-                for x1 in lst:
-                    f.write(f"\n\n{b}\n")
-                    for x2 in x1:
-                        f.write(f'{x2} ')
+        print(website)
 
-            result = f'\nAmount of dicts: {len(lst)}\nNames found: {len(lst_all)+len(lst_repeated)}\n' \
-                     f'Users: {len(lst_all)}\nRepeats: {len(lst_repeated)}\n💋'
+        pattern = r'@(\w+)'
+        matches = re.findall(pattern, text)
+        for match in matches:
+            if website == 'twitter':
+                m = f"@{match}"
+            elif website == 'bluesky':
+                m = f"@{match}.bsky.social"
 
-            print(result)
-
-            if os.path.exists("to_kjetll.txt") and os.path.getsize("to_kjetll.txt") > 0:
-                AdminPanel.bot.send_document(chat_id, open("to_kjetll.txt", "rb"), caption=result)
+            if m not in lst_all:
+                lst_all.append(m)
+                print(m)
             else:
-                print("Файл 'to_kjetll.txt' пустой или не существует.")
+                lst_repeated.append(m)
+                print(f'[repeated] >>>>>>>>>>>>>>>>>> {m}')
+        random.shuffle(lst_all)
+        print(lst_all)
+        lst_all_str = ' '.join(lst_all)
+        print(f'str: {lst_all_str}')
+        lst_all_str_len = len(lst_all_str)
+        print(lst_all_str_len)
+        amount_of_lists = (lst_all_str_len // (limit - len(extra))) + 2
+        print(amount_of_lists)
+
+        # creating dict with lists
+        lists = {}
+        for i in range(amount_of_lists):
+            list_name = f"list_{i}"
+            lists[list_name] = []
+
+            # filling lists with limit or symbols
+        count = 0
+        n = 0
+        for i in lst_all:
+            x = len(str(i))
+            if (count + x) < (limit - len(extra)):
+                lists[f'list_{n}'].append(i)
+                count += x
+            else:
+                count = 0
+                n += 1
+
+        # forming final list with lists of dict values
+        for list_name, list_items in lists.items():
+            if lists[list_name]:
+                lst.append(list_items)
+        # forming final
+
+        with open('to_kjetll.txt', 'w', encoding='utf-8') as f:
+           for x1 in lst:
+               f.write(f"\n\n{extra}\n")
+               for x2 in x1:
+                   f.write(f'{x2} ')
+
+        res = ''
+
+        for x1 in lst:
+            res += f"\n\n{extra}\n"
+            for x2 in x1:
+                res += f'{x2} '
+        print(res)
+
+        result = f'\nAmount of dicts: {len(lst)}\nNames found: {len(lst_all) + len(lst_repeated)}\n' \
+                 f'Users: {len(lst_all)}\nRepeats: {lst_repeated}\n💋'
+
+        print(result)
+
+        if os.path.exists("to_kjetll.txt") and os.path.getsize("to_kjetll.txt") > 0:
+            AdminPanel.bot.send_document(chat_id, open("to_kjetll.txt", "rb"), caption=result)
+        else:
+            print("Файл 'to_kjetll.txt' пустой или не существует.")
+
 
 class MessageSender(AdminPanel):
     def send_message(cls):
