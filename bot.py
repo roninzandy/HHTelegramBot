@@ -33,6 +33,7 @@ class MyBot:
     @bot.message_handler(commands=['start'])
     def welcome(message):
         if MyBot.bot_active:
+            print(message.chat.username)
             chat_id = message.chat.id
             with open('static/hh_preview.png', 'rb') as img_preview:
                 AdminPanel.bot.send_photo(chat_id, photo=img_preview)
@@ -196,7 +197,7 @@ class AdminPanel(MyBot):
             AdminPanel.bot.send_message(chat_id, "Данные введены некорректно: ключевое слово должно быть одним словом"
                                                  "и полностью состоять только из букв.")
 
-    @MyBot.bot.message_handler(commands=['doc'])
+    @MyBot.bot.message_handler(commands=['doc', 'document'])
     def handle_document(message):
         chat_id = message.chat.id
         if chat_id in AdminPanel.admin_users:
@@ -235,22 +236,28 @@ class AdminPanel(MyBot):
 
         pattern = r'@(\w+)'
         matches = re.findall(pattern, text)
+        print(len(matches))
         for match in matches:
             if website == 'twitter':
                 m = f"@{match}"
             elif website == 'bluesky':
                 m = f"@{match}.bsky.social"
+            else:
+                m = f"@{match}"
 
             if m not in lst_all:
                 lst_all.append(m)
                 print(m)
             else:
                 lst_repeated.append(m)
-                print(f'[repeated] >>>>>>>>>>>>>>>>>> {m}')
-        random.shuffle(lst_all)
-        print(lst_all)
+                print(f'[repeated] ------------------------------> {m}')
+        sleep(1)
+        #random.shuffle(lst_all)
+        lst_all.sort()
+        sleep(1)
+        print(f'len(lst_all): {len(lst_all)}')
         lst_all_str = ' '.join(lst_all)
-        print(f'str: {lst_all_str}')
+        print(f'lst_all_str: {lst_all_str}')
         lst_all_str_len = len(lst_all_str)
         print(lst_all_str_len)
         amount_of_lists = (lst_all_str_len // (limit - len(extra))) + 2
@@ -266,7 +273,7 @@ class AdminPanel(MyBot):
         count = 0
         n = 0
         for i in lst_all:
-            x = len(str(i))
+            x = len(str(i)) + 1
             if (count + x) < (limit - len(extra)):
                 lists[f'list_{n}'].append(i)
                 count += x
@@ -295,7 +302,7 @@ class AdminPanel(MyBot):
         print(res)
 
         result = f'\nAmount of dicts: {len(lst)}\nNames found: {len(lst_all) + len(lst_repeated)}\n' \
-                 f'Users: {len(lst_all)}\nRepeats: {lst_repeated}\n💋'
+                 f'Users: {len(lst_all)}\nRepeats: {len(lst_repeated)}\n{lst_repeated}\n💋'
 
         print(result)
 
@@ -317,30 +324,32 @@ class MessageSender(AdminPanel):
                 if data_from_parser:
                     for i in data_from_parser:
                         result = ''
-                        for chat_id in db.select_data_for_telegram_users():
-                            for key, value in i.items():
-                                if key == 'Title':
-                                    result += f'💼 <b><a href="{i["Link"]}">{value}</a></b>\n'
-                                elif key == 'Salary':
-                                    result += f'💰 <b>{value}</b>\n'
-                                elif key == 'Company':
-                                    result += f'🏙️ <b>{value}</b>\n'
-                                elif key == 'Image':
-                                    img_path = f'static/{i[key]}'
-                                    if os.path.exists(img_path):
-                                        with open(img_path, 'rb') as image_file:
-                                            cls.bot.send_photo(chat_id, photo=image_file, caption=result,
-                                                               parse_mode='html')
-                                    else:
-                                        default_img_path = f'static/hh.png'
-                                        if os.path.exists(default_img_path):
-                                            with open(default_img_path, 'rb') as default_image_file:
-                                                cls.bot.send_photo(chat_id, photo=default_image_file,
-                                                                   caption=result, parse_mode='html')
+                        try:
+                            for chat_id in db.select_data_for_telegram_users():
+                                for key, value in i.items():
+                                    if key == 'Title':
+                                        result += f'💼 <b><a href="{i["Link"]}">{value}</a></b>\n'
+                                    elif key == 'Salary':
+                                        result += f'💰 <b>{value}</b>\n'
+                                    elif key == 'Company':
+                                        result += f'🏙️ <b>{value}</b>\n'
+                                    elif key == 'Image':
+                                        img_path = f'static/{i[key]}'
+                                        if os.path.exists(img_path):
+                                            with open(img_path, 'rb') as image_file:
+                                                cls.bot.send_photo(chat_id, photo=image_file, caption=result,
+                                                                   parse_mode='html')
                                         else:
-                                            cls.bot.send_photo(chat_id, photo=None, caption=result,
-                                                               parse_mode='html')
-
+                                            default_img_path = f'static/hh.png'
+                                            if os.path.exists(default_img_path):
+                                                with open(default_img_path, 'rb') as default_image_file:
+                                                    cls.bot.send_photo(chat_id, photo=default_image_file,
+                                                                       caption=result, parse_mode='html')
+                                            else:
+                                                cls.bot.send_photo(chat_id, photo=None, caption=result,
+                                                                   parse_mode='html')
+                        except telebot.apihelper.ApiTelegramException as e:
+                            pass
                 print(f'Подписанные пользователи на рассылку: {db.select_data_for_telegram_users()}')
                 date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 with open('success.txt', 'a', encoding='UTF-8') as f:
