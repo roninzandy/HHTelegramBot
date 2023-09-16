@@ -1,5 +1,6 @@
 from datetime import datetime
 import os
+import random
 import re
 import sqlite3
 from time import sleep
@@ -32,6 +33,7 @@ class MyBot:
     @bot.message_handler(commands=['start'])
     def welcome(message):
         if MyBot.bot_active:
+            print(message.chat.username)
             chat_id = message.chat.id
             with open('static/hh_preview.png', 'rb') as img_preview:
                 AdminPanel.bot.send_photo(chat_id, photo=img_preview)
@@ -195,6 +197,120 @@ class AdminPanel(MyBot):
             AdminPanel.bot.send_message(chat_id, "Данные введены некорректно: ключевое слово должно быть одним словом"
                                                  "и полностью состоять только из букв.")
 
+    @MyBot.bot.message_handler(commands=['doc', 'document'])
+    def handle_document(message):
+        chat_id = message.chat.id
+        if chat_id in AdminPanel.admin_users:
+            AdminPanel.bot.send_message(chat_id, "Отправьте файл в формате .txt")
+            AdminPanel.bot.register_next_step_handler(message, AdminPanel.darri_keyword)
+
+
+    def darri_keyword(message):
+        chat_id = message.chat.id
+        if message.document.mime_type == 'text/plain':
+            # Получаем информацию из документа
+            file_info = AdminPanel.bot.get_file(message.document.file_id)
+            downloaded_file = AdminPanel.bot.download_file(file_info.file_path)
+            text = downloaded_file.decode("utf-8")
+
+        if chat_id in AdminPanel.admin_users:
+            AdminPanel.bot.send_message(chat_id, "Введите ключевую фразу, которая будет вставлена между абзацами.")
+            AdminPanel.bot.register_next_step_handler(message, AdminPanel.darri, text)
+
+    def darri(message, text):
+        chat_id = message.chat.id
+
+        lst_all = []
+        lst = []
+        lst_repeated = []
+        limit = 280
+        extra = message.text
+
+        website = 'twitter'
+        pattern_test = r'bsky.social'
+        matches_test = re.findall(pattern_test, text)
+        if matches_test:
+            website = 'bluesky'
+
+        print(website)
+
+        pattern = r'@(\w+)'
+        matches = re.findall(pattern, text)
+        print(len(matches))
+        for match in matches:
+            if website == 'twitter':
+                m = f"@{match}"
+            elif website == 'bluesky':
+                m = f"@{match}.bsky.social"
+            else:
+                m = f"@{match}"
+
+            if m not in lst_all:
+                lst_all.append(m)
+                print(m)
+            else:
+                lst_repeated.append(m)
+                print(f'[repeated] ------------------------------> {m}')
+        sleep(1)
+        #random.shuffle(lst_all)
+        lst_all.sort()
+        sleep(1)
+        print(f'len(lst_all): {len(lst_all)}')
+        lst_all_str = ' '.join(lst_all)
+        print(f'lst_all_str: {lst_all_str}')
+        lst_all_str_len = len(lst_all_str)
+        print(lst_all_str_len)
+        amount_of_lists = (lst_all_str_len // (limit - len(extra))) + 2
+        print(amount_of_lists)
+
+        # creating dict with lists
+        lists = {}
+        for i in range(amount_of_lists):
+            list_name = f"list_{i}"
+            lists[list_name] = []
+
+            # filling lists with limit or symbols
+        count = 0
+        n = 0
+        for i in lst_all:
+            x = len(str(i)) + 1
+            if (count + x) < (limit - len(extra)):
+                lists[f'list_{n}'].append(i)
+                count += x
+            else:
+                count = 0
+                n += 1
+
+        # forming final list with lists of dict values
+        for list_name, list_items in lists.items():
+            if lists[list_name]:
+                lst.append(list_items)
+        # forming final
+
+        with open('to_kjetll.txt', 'w', encoding='utf-8') as f:
+           for x1 in lst:
+               f.write(f"\n\n{extra}\n")
+               for x2 in x1:
+                   f.write(f'{x2} ')
+
+        res = ''
+
+        for x1 in lst:
+            res += f"\n\n{extra}\n"
+            for x2 in x1:
+                res += f'{x2} '
+        print(res)
+
+        result = f'\nAmount of dicts: {len(lst)}\nNames found: {len(lst_all) + len(lst_repeated)}\n' \
+                 f'Users: {len(lst_all)}\nRepeats: {len(lst_repeated)}\n{lst_repeated}\n💋'
+
+        print(result)
+
+        if os.path.exists("to_kjetll.txt") and os.path.getsize("to_kjetll.txt") > 0:
+            AdminPanel.bot.send_document(chat_id, open("to_kjetll.txt", "rb"), caption=result)
+        else:
+            print("Файл 'to_kjetll.txt' пустой или не существует.")
+
 
 class MessageSender(AdminPanel):
     def send_message(cls):
@@ -208,30 +324,32 @@ class MessageSender(AdminPanel):
                 if data_from_parser:
                     for i in data_from_parser:
                         result = ''
-                        for chat_id in db.select_data_for_telegram_users():
-                            for key, value in i.items():
-                                if key == 'Title':
-                                    result += f'💼 <b><a href="{i["Link"]}">{value}</a></b>\n'
-                                elif key == 'Salary':
-                                    result += f'💰 <b>{value}</b>\n'
-                                elif key == 'Company':
-                                    result += f'🏙️ <b>{value}</b>\n'
-                                elif key == 'Image':
-                                    img_path = f'static/{i[key]}'
-                                    if os.path.exists(img_path):
-                                        with open(img_path, 'rb') as image_file:
-                                            cls.bot.send_photo(chat_id, photo=image_file, caption=result,
-                                                               parse_mode='html')
-                                    else:
-                                        default_img_path = f'static/hh.png'
-                                        if os.path.exists(default_img_path):
-                                            with open(default_img_path, 'rb') as default_image_file:
-                                                cls.bot.send_photo(chat_id, photo=default_image_file,
-                                                                   caption=result, parse_mode='html')
+                        try:
+                            for chat_id in db.select_data_for_telegram_users():
+                                for key, value in i.items():
+                                    if key == 'Title':
+                                        result += f'💼 <b><a href="{i["Link"]}">{value}</a></b>\n'
+                                    elif key == 'Salary':
+                                        result += f'💰 <b>{value}</b>\n'
+                                    elif key == 'Company':
+                                        result += f'🏙️ <b>{value}</b>\n'
+                                    elif key == 'Image':
+                                        img_path = f'static/{i[key]}'
+                                        if os.path.exists(img_path):
+                                            with open(img_path, 'rb') as image_file:
+                                                cls.bot.send_photo(chat_id, photo=image_file, caption=result,
+                                                                   parse_mode='html')
                                         else:
-                                            cls.bot.send_photo(chat_id, photo=None, caption=result,
-                                                               parse_mode='html')
-
+                                            default_img_path = f'static/hh.png'
+                                            if os.path.exists(default_img_path):
+                                                with open(default_img_path, 'rb') as default_image_file:
+                                                    cls.bot.send_photo(chat_id, photo=default_image_file,
+                                                                       caption=result, parse_mode='html')
+                                            else:
+                                                cls.bot.send_photo(chat_id, photo=None, caption=result,
+                                                                   parse_mode='html')
+                        except telebot.apihelper.ApiTelegramException as e:
+                            pass
                 print(f'Подписанные пользователи на рассылку: {db.select_data_for_telegram_users()}')
                 date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 with open('success.txt', 'a', encoding='UTF-8') as f:
