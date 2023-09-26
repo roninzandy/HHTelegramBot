@@ -80,3 +80,4 @@
 [2023-09-17 03:26:42]: insert_data_for_telegram_users() missing 1 required positional argument: 'keyword'
 [2023-09-17 03:31:36]: no such table: telegram_users
 [2023-09-17 03:31:51]: no such table: telegram_users
+[2023-09-25 22:06:25]: list.remove(x): x not in list
