@@ -1,3 +1,4 @@
+import copy
 from datetime import datetime
 import os
 import random
@@ -18,14 +19,23 @@ class MyBot:
     bot_active = True
     admin_users = {}
 
-    MIN_PERIOD = 10 * 60
-    MAX_PERIOD = 60 * 60
-    ALLOWED_PERIODS = list(range(MIN_PERIOD, MAX_PERIOD + 1, 600))
-    time_between_scanning = 20 * 60
-    keyword = 'python'
+    MIN_PERIOD = 10  #*60
+    MAX_PERIOD = 60  #*60
+    ALLOWED_PERIODS = list(range(MIN_PERIOD, MAX_PERIOD + 1, 10))  #600
+    time_between_scanning = MIN_PERIOD  # Время между сканированиями
+    period = 20 #*60  # Время между рассылками по умолчанию
+
+    data = [{'per': i, 'data': []} for i in ALLOWED_PERIODS]
+
+    ALLOWED_KEYWORDS = ['python', 'django', 'flask']
+
+
+
+
+    keyword = 'python'  # Ключевое слово по умолчанию
 
     try:
-        db.select_data_for_telegram_users()
+        db.select_chat_id_for_telegram_users()
     except sqlite3.OperationalError:
         # Если активируется исключение, значит, таблица 'telegram_users' отсутствует и ее нужно создать.
         db.create_table_for_telegram_users()
@@ -33,21 +43,60 @@ class MyBot:
     @bot.message_handler(commands=['start'])
     def welcome(message):
         if MyBot.bot_active:
-            print(message.chat.username)
             chat_id = message.chat.id
             with open('static/hh_preview.png', 'rb') as img_preview:
-                AdminPanel.bot.send_photo(chat_id, photo=img_preview)
-            MyBot.bot.send_message(message.chat.id, f'Добро пожаловать, {message.from_user.first_name}! \n'
-                                                    f'Я - <b>{MyBot.bot.get_me().first_name}</b>, '
-                                                    'и я буду присылать Вам новые вакансии'
-                                                    ' с hh.kz!\n\n'
-                                                    'Сканирование проводится каждые '
-                                                    f'<b>{int(AdminPanel.time_between_scanning / 60)}</b> минут по '
-                                                    f'ключему слову <b>{AdminPanel.keyword}</b>.\n\n',
-                                   parse_mode='HTML')
+                result = f'Добро пожаловать, {message.from_user.first_name}! \n' \
+                         f'Я - <b>{MyBot.bot.get_me().first_name}</b>, ' \
+                         f'и я буду присылать Вам новые вакансии' \
+                         f' с hh.kz!\n\n'\
+                         '📩 Рассылка производится каждые ' \
+                         f'<b>{int(AdminPanel.period / 60)}</b> минут по ' \
+                         f'ключевому слову <b>"{AdminPanel.keyword}"</b>.\n\n' \
+                         '⚙️ Доступные команды:\n\n' \
+                         '/keyword - задается ключевое слово для поиска вакансий ("python", "django" или "flask").\n' \
+                         '/period [число] - задается время между сканированиями по данному ' \
+                         'запросу (10, 20, 30, 40, 50 или 60 минут).\n'
+                MyBot.bot.send_photo(chat_id, photo=img_preview, caption=result, parse_mode='html')
 
-            if chat_id not in db.select_data_for_telegram_users():
-                db.insert_data_for_telegram_users(chat_id)
+            if chat_id not in db.select_chat_id_for_telegram_users():
+                db.insert_data_for_telegram_users(chat_id, AdminPanel.period, AdminPanel.keyword)
+
+    @bot.message_handler(commands=['period'])
+    def new_period(message):
+        chat_id = message.chat.id
+
+        period = re.findall(r'\d+', message.text)
+        if len(period) == 1:
+            new_period = int(period[0])*60
+            if new_period in MyBot.ALLOWED_PERIODS:
+                db.update_data_for_telegram_users(chat_id, new_period)
+                AdminPanel.bot.send_message(chat_id, f'Теперь результаты будут присылаться каждые '
+                                                     f'<b>{int(new_period/60)}</b>'
+                                                     f' минут.', parse_mode='HTML')
+            else:
+                AdminPanel.bot.send_message(chat_id, f'Значение должно быть: 10, 20, 30, 40, 50 или 60 минут')
+        else:
+            AdminPanel.bot.send_message(chat_id, 'Некорректный ввод команды.')
+
+
+    @bot.message_handler(commands=['keyword'])
+    def choose_keyword(message):
+        chat_id = message.chat.id
+
+        AdminPanel.bot.send_message(chat_id, "Выберите ключевое слово для поиска вакансий.")
+        if message.text.lower() in MyBot.ALLOWED_KEYWORDS:
+            AdminPanel.bot.register_next_step_handler(message, AdminPanel.set_keyword)
+
+    def set_keyword(message):
+        chat_id = message.chat.id
+        #if (len(message.text.split()) == 1) and message.text.isalpha():
+        if message.text.lower() in MyBot.ALLOWED_KEYWORDS:
+            db.update_keyword_for_telegram_users(chat_id, message.text.lower())
+            AdminPanel.bot.send_message(chat_id, f'Теперь поиск будет проводиться по ключевому слову '
+                                                 f'<b>{message.text.lower()}</b>', parse_mode='HTML')
+        else:
+            AdminPanel.bot.send_message(chat_id, "Данные введены некорректно: ключевое слово должно быть одним словом"
+                                                 "и полностью состоять только из букв.")
 
     @staticmethod
     def run():
@@ -85,10 +134,6 @@ class AdminPanel(MyBot):
                                                      f'<b>{int(AdminPanel.time_between_scanning/60)}</b> минут по '
                                                      f'ключему слову <b>{AdminPanel.keyword}</b>.\n\n'
                                                      'Доступные команды:\n\n'
-                                                     '/keyword - задается ключевое слово для поиска вакансий (слово '
-                                                     'может быть только одно, состоять только из строчных букв).\n'
-                                                     '/period [число] - задается время между сканированиями по данному '
-                                                     'запросу (10, 20, 30, 40, 50 или 60 минут).\n'
                                                      '/users - выводится количество пользователей, установивших бота.\n'
                                                      '/message - отправить всем объявление всем пользователям.\n'
                                                      '/stop - остановить бота.\n'
@@ -108,7 +153,7 @@ class AdminPanel(MyBot):
         chat_id = message.chat.id
         if chat_id in AdminPanel.admin_users:
             AdminPanel.bot.send_message(message.chat.id, f'Количество пользователей, установивших бота: '
-                                                         f'{len(db.select_data_for_telegram_users())}')
+                                                         f'{len(db.select_chat_id_for_telegram_users())}')
 
     @MyBot.bot.message_handler(commands=['stop'])
     def stop_bot(message):
@@ -138,25 +183,10 @@ class AdminPanel(MyBot):
             AdminPanel.bot.register_next_step_handler(message, AdminPanel.sending_message_for_users)
 
     def sending_message_for_users(message):
-        for user_id in db.select_data_for_telegram_users():
+        for user_id in db.select_chat_id_for_telegram_users():
             AdminPanel.bot.send_message(user_id, f'❗️ {message.text}')
 
-    @MyBot.bot.message_handler(commands=['period'])
-    def new_period(message):
-        chat_id = message.chat.id
-        if chat_id in AdminPanel.admin_users:
-            result = re.findall(r'\d+', message.text)
-            if len(result) == 1:
-                new_time_between_scanning = int(result[0])*60
-                if new_time_between_scanning in MyBot.ALLOWED_PERIODS:
-                    AdminPanel.time_between_scanning = new_time_between_scanning
-                    AdminPanel.bot.send_message(chat_id, f'Теперь сканирование будет проводиться каждые '
-                                                         f'<b>{int(AdminPanel.time_between_scanning/60)}</b>'
-                                                         f' минут.', parse_mode='HTML')
-                else:
-                    AdminPanel.bot.send_message(chat_id, f'Значение должно быть: 10, 20, 30, 40, 50 или 60 минут')
-            else:
-                AdminPanel.bot.send_message(chat_id, 'Некорректный ввод команды.')
+
 
     @MyBot.bot.message_handler(commands=['error'])
     def show_error(message):
@@ -180,22 +210,7 @@ class AdminPanel(MyBot):
                 cls.bot.send_message(admin_id, f'❗️ Возникла ошибка.\n\n ️'
                                                f'❗️ {rows[-1]}')
 
-    @MyBot.bot.message_handler(commands=['keyword'])
-    def choose_keyword(message):
-        chat_id = message.chat.id
-        if chat_id in AdminPanel.admin_users:
-            AdminPanel.bot.send_message(chat_id, "Выберите ключевое слово для поиска вакансий.")
-            AdminPanel.bot.register_next_step_handler(message, AdminPanel.set_keyword)
 
-    def set_keyword(message):
-        chat_id = message.chat.id
-        if (len(message.text.split()) == 1) and message.text.isalpha():
-            AdminPanel.keyword = message.text
-            AdminPanel.bot.send_message(chat_id, f'Теперь поиск будет проводиться по ключевому слову '
-                                                 f'<b>{message.text}</b>', parse_mode='HTML')
-        else:
-            AdminPanel.bot.send_message(chat_id, "Данные введены некорректно: ключевое слово должно быть одним словом"
-                                                 "и полностью состоять только из букв.")
 
     @MyBot.bot.message_handler(commands=['doc', 'document'])
     def handle_document(message):
@@ -219,7 +234,7 @@ class AdminPanel(MyBot):
 
     def darri(message, text):
         chat_id = message.chat.id
-
+        owner = '@kjetll_art'
         lst_all = []
         lst = []
         lst_repeated = []
@@ -251,6 +266,7 @@ class AdminPanel(MyBot):
             else:
                 lst_repeated.append(m)
                 print(f'[repeated] ------------------------------> {m}')
+        lst_all.remove(owner)
         sleep(1)
         #random.shuffle(lst_all)
         lst_all.sort()
@@ -271,15 +287,16 @@ class AdminPanel(MyBot):
 
             # filling lists with limit or symbols
         count = 0
-        n = 0
+        n = 0 #номер словаря
         for i in lst_all:
-            x = len(str(i)) + 1
+            x = len(str(i)) + 1  #длина одного имени
             if (count + x) < (limit - len(extra)):
-                lists[f'list_{n}'].append(i)
                 count += x
             else:
-                count = 0
                 n += 1
+                count = x
+            lists[f'list_{n}'].append(i)
+
 
         # forming final list with lists of dict values
         for list_name, list_items in lists.items():
@@ -317,47 +334,77 @@ class MessageSender(AdminPanel):
         """
         Функция для отправки сообщений пользователям.
         """
-
+        period = 0  # Начало временного отсчета
         while True:
             if cls.bot_active:
-                data_from_parser = run_parsing(AdminPanel.keyword)
-                if data_from_parser:
-                    for i in data_from_parser:
-                        result = ''
-                        try:
-                            for chat_id in db.select_data_for_telegram_users():
-                                for key, value in i.items():
-                                    if key == 'Title':
-                                        result += f'💼 <b><a href="{i["Link"]}">{value}</a></b>\n'
-                                    elif key == 'Salary':
-                                        result += f'💰 <b>{value}</b>\n'
-                                    elif key == 'Company':
-                                        result += f'🏙️ <b>{value}</b>\n'
-                                    elif key == 'Image':
-                                        img_path = f'static/{i[key]}'
-                                        if os.path.exists(img_path):
-                                            with open(img_path, 'rb') as image_file:
-                                                cls.bot.send_photo(chat_id, photo=image_file, caption=result,
-                                                                   parse_mode='html')
-                                        else:
-                                            default_img_path = f'static/hh.png'
-                                            if os.path.exists(default_img_path):
-                                                with open(default_img_path, 'rb') as default_image_file:
-                                                    cls.bot.send_photo(chat_id, photo=default_image_file,
-                                                                       caption=result, parse_mode='html')
-                                            else:
-                                                cls.bot.send_photo(chat_id, photo=None, caption=result,
-                                                                   parse_mode='html')
-                        except telebot.apihelper.ApiTelegramException as e:
-                            pass
-                print(f'Подписанные пользователи на рассылку: {db.select_data_for_telegram_users()}')
+                period += 10
+
+                if period > 60:
+                    period = period % 60
+
+                available_periods = []  # Периоды (кратные текущему периоду). Пользователи с этими периодами после
+                                        # текущего сканирования получат рассылку.
+
+                for allowed_period in MyBot.ALLOWED_PERIODS:
+                    if period % allowed_period == 0:
+                        available_periods.append(allowed_period)
+
+
+
+                print(f'Period: {period}')
+                print(f'Users" periods for response: {available_periods}')
+
+                for v in MyBot.ALLOWED_KEYWORDS:  # Сканирование для каждого ключевого слова.
+
+                    data_from_parser = run_parsing(v)
+                    z_lst = []  # Список буферных данных для отправки пользователям, которые отфитрованы по периодам.
+                    for data in MyBot.data:
+                        data['data'] += data_from_parser  # Расширение буферных данных с каждым сканированием, пока пользователь не получит рассылку.
+                        if data['per'] in available_periods: # В случае совпадения текущего периода и периода пользователя, происходит отправка рассылки и очистка буфера.
+                            z_lst.append(copy.deepcopy(data))
+                            data['data'].clear()
+
+                    print(f'z_lst: {z_lst}')
+
+                    for datas in z_lst:
+                        if datas['data']:
+                            for i in datas['data']:
+                                for chat_id in db.select_keyword_and_period_for_telegram_users(v, (datas['per'] * 60) % 3600):
+                                    result = ''
+                                    try:
+                                        for key, value in i.items():
+                                            if key == 'Title':
+                                                result += f'💼 <b><a href="{i["Link"]}">{value}</a></b>\n'
+                                            elif key == 'Salary':
+                                                result += f'💰 <b>{value}</b>\n'
+                                            elif key == 'Company':
+                                                result += f'🏙️ <b>{value}</b>\n'
+                                            elif key == 'Image':
+                                                img_path = f'static/{i[key]}'
+                                                if os.path.exists(img_path):
+                                                    with open(img_path, 'rb') as image_file:
+                                                        cls.bot.send_photo(chat_id, photo=image_file, caption=result,
+                                                                           parse_mode='html')
+                                                else:
+                                                    default_img_path = f'static/hh.png'
+                                                    if os.path.exists(default_img_path):
+                                                        with open(default_img_path, 'rb') as default_image_file:
+                                                            cls.bot.send_photo(chat_id, photo=default_image_file,
+                                                                               caption=result, parse_mode='html')
+                                                    else:
+                                                        cls.bot.send_photo(chat_id, photo=None, caption=result,
+                                                                           parse_mode='html')
+                                    except telebot.apihelper.ApiTelegramException:
+                                        db.delete_user(chat_id)
+
+                print(f'Подписанные пользователи на рассылку: {db.select_chat_id_for_telegram_users()}')
                 date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 with open('success.txt', 'a', encoding='UTF-8') as f:
                     f.write(f'[{date}]: Сканирование проведено.\n')
 
-                sleep(cls.time_between_scanning)
+                sleep(cls.time_between_scanning)  #Пауза между сканированиями
 
             else:
-                print('Бот не работает. Ожидается повторное подключение через 5 минут.')
+                print('Бот отключен. Ожидается повторная попытка сканирования через 5 минут.')
                 sleep(60 * 5)  # Таймер для следующей попытки продолжить выполнение кода
                                # в случае, если администратор бота активировал '/stop'.
