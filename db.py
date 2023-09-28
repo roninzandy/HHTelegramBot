@@ -140,32 +140,25 @@ def select_chat_id_for_telegram_users():
 
     connection = sqlite3.connect('database.db')
     cursor = connection.cursor()
-    cursor.execute('SELECT * FROM telegram_users')
+    cursor.execute('SELECT chat_id FROM telegram_users')
     rows = cursor.fetchall()
 
-    chat_ids = []
-    for row in rows:
-        chat_ids.append(int(row[1]))
-
     connection.close()
-    return chat_ids
+    return rows
 
-def select_period_for_telegram_users(period):
+def select_keyword_and_period_for_telegram_users(keyword, period):
     """
     Функция возвращения id пользователей телеграм-бота из БД.
     """
 
     connection = sqlite3.connect('database.db')
     cursor = connection.cursor()
-    cursor.execute('SELECT * FROM telegram_users WHERE period = ?', (period,))
+    cursor.execute('SELECT chat_id FROM telegram_users WHERE period = ? AND keyword = ?', (period, keyword))
     rows = cursor.fetchall()
 
-    chat_ids = []
-    for row in rows:
-        chat_ids.append(int(row[1]))
 
     connection.close()
-    return chat_ids
+    return rows
 
 def update_period_for_telegram_users(chat_id, period):
     """
