@@ -140,11 +140,14 @@ def select_chat_id_for_telegram_users():
 
     connection = sqlite3.connect('database.db')
     cursor = connection.cursor()
-    cursor.execute('SELECT chat_id FROM telegram_users')
+    cursor.execute('SELECT * FROM telegram_users')
     rows = cursor.fetchall()
+    chat_ids = []
+    for row in rows:
+        chat_ids.append(int(row[1]))
 
     connection.close()
-    return rows
+    return chat_ids
 
 def select_keyword_and_period_for_telegram_users(keyword, period):
     """

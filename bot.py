@@ -1,4 +1,5 @@
 import copy
+from telebot import types
 from datetime import datetime
 import os
 import random
@@ -22,17 +23,13 @@ class MyBot:
     MIN_PERIOD = 10  #*60
     MAX_PERIOD = 60  #*60
     ALLOWED_PERIODS = list(range(MIN_PERIOD, MAX_PERIOD + 1, 10))  #600
-    time_between_scanning = MIN_PERIOD  # Время между сканированиями
-    period = 20 #*60  # Время между рассылками по умолчанию
+    time_between_scanning = MIN_PERIOD  # Время между сканированиями.
+    period = 20 #*60  # Время между рассылками по умолчанию.
 
     data = [{'per': i, 'data': []} for i in ALLOWED_PERIODS]
 
     ALLOWED_KEYWORDS = ['python', 'django', 'flask']
-
-
-
-
-    keyword = 'python'  # Ключевое слово по умолчанию
+    keyword = 'python'  # Ключевое слово по умолчанию.
 
     try:
         db.select_chat_id_for_telegram_users()
@@ -56,7 +53,10 @@ class MyBot:
                          '/keyword - задается ключевое слово для поиска вакансий ("python", "django" или "flask").\n' \
                          '/period [число] - задается время между сканированиями по данному ' \
                          'запросу (10, 20, 30, 40, 50 или 60 минут).\n'
+
+
                 MyBot.bot.send_photo(chat_id, photo=img_preview, caption=result, parse_mode='html')
+
 
             if chat_id not in db.select_chat_id_for_telegram_users():
                 db.insert_data_for_telegram_users(chat_id, AdminPanel.period, AdminPanel.keyword)
@@ -69,7 +69,7 @@ class MyBot:
         if len(period) == 1:
             new_period = int(period[0])*60
             if new_period in MyBot.ALLOWED_PERIODS:
-                db.update_data_for_telegram_users(chat_id, new_period)
+                db.update_period_for_telegram_users(chat_id, new_period)
                 AdminPanel.bot.send_message(chat_id, f'Теперь результаты будут присылаться каждые '
                                                      f'<b>{int(new_period/60)}</b>'
                                                      f' минут.', parse_mode='HTML')
@@ -84,8 +84,21 @@ class MyBot:
         chat_id = message.chat.id
 
         AdminPanel.bot.send_message(chat_id, "Выберите ключевое слово для поиска вакансий.")
-        if message.text.lower() in MyBot.ALLOWED_KEYWORDS:
-            AdminPanel.bot.register_next_step_handler(message, AdminPanel.set_keyword)
+        # if message.text.lower() in MyBot.ALLOWED_KEYWORDS:
+        #     AdminPanel.bot.register_next_step_handler(message, AdminPanel.set_keyword)
+
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+
+        # Создаем кнопки 1 и 2
+        button1 = types.KeyboardButton("python")
+        button2 = types.KeyboardButton("django")
+        button3 = types.KeyboardButton("flask")
+
+        # Добавляем кнопки к клавиатуре
+        markup.add(button1, button2, button3)
+
+        # Отправляем сообщение с клавиатурой
+        AdminPanel.bot.send_message(chat_id, "Выберите ключевое слово для поиска вакансий:", reply_markup=markup)
 
     def set_keyword(message):
         chat_id = message.chat.id
